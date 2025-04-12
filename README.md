@@ -1,4 +1,4 @@
-# What is this?
+# What is this? / यह क्या है
 
 This is a compilation of my configs for my .nvim configurations.
 I hope that this inspires you to make your own and to rice your nvim to your preference.
