@@ -10,7 +10,7 @@ It is loaded with auto completion features, lsp support, beautiful UI ...
 #  Features May2k25.
 - File Explorer on the right.
   It is a better option because it gives me adequate space to work on my code, besides no one really writes code that fills up the right spaces, so why not use it🤷.
-- Uses the "*Github Dark theme*" colour-scheme with a transparent background. This feature is also useful if the terminal that is being used is also set to have a transparent background.
+- Uses the "*[Github Dark theme](https://github.com/projekt0n/github-nvim-theme)*" colour-scheme with a transparent background. This feature is also useful if the terminal that is being used is also set to have a transparent background.
   
   *Github Dark* just looks so beautiful 🤩 in my opinion, especially for Rust, C and C++ code.
   
