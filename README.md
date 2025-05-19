@@ -38,7 +38,10 @@ cd ~/.config && https://github.com/pisgahk/nvim.git && cd nvim && nvim .
 
 It installs all the required tools and plugins that will get you up and running in no time. 
 ## 2. Windows users 🪟
-(As per now I have no idea)
+(As per now I have no idea) though i recommend that you install WSL and then continue from there.
+I found these sources extremely helpful(esp the first):
+- [Andres Vidoza on YT](https://www.youtube.com/watch?v=mfemGt0syqo&t=274s)
+- [medium.com](https://medium.com/@liu-qilong/a-complete-guide-to-setup-wsl-windows-subsystem-for-linux-4547e88b6cdb)
 ## 2. Mac users 🍏
 (Never used mac ever, though i think that it is the same procedure. Just `git clone` the repo in your `.config` file.)
 
