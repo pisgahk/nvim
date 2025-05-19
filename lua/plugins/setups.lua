@@ -16,14 +16,14 @@ require("colorizer").setup()
 require("gitsigns").setup()
 
 -- Lualine status bar
-require("lualine").setup({
+--[[require("lualine").setup({
 	options = {
-		theme = "auto",
+		icons_enabled = true,
+		theme = "github-theme",
 		component_separators = " ",
 		section_separators = { left = "", right = "" },
 	},
-	dependencies = { "nvim-tree/nvim-web-devicons" },
-})
+})]]
 
 -- Nvim Autopairs
 require("nvim-autopairs").setup()
@@ -38,14 +38,48 @@ require("noice").setup({
 			["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
 		},
 	},
+
+    cmdline = {
+        enabled = true,
+        format = {
+            default = "classic",
+        },
+    },
+
+    routes = {
+        {
+            filter = {
+                event = "cmdline",
+                kind = "!",
+            },
+            opts = { skip = true },
+        },
+    },
+
 	presets = {
-		bottom_search = true, -- use a classic bottom cmdline for search
+		bottom_search = false, -- use a classic bottom cmdline for search
 		command_palette = false, -- position the cmdline and popupmenu together
 		long_message_to_split = true, -- long messages will be sent to a split
 		lsp_doc_border = true, -- add a border to hover docs and signature help
-	},
+	}    
 })
 
---[[require("gruvbox").setup({
-	transparent_mode = true,
+require("notify").setup({
+    background_colour = "#000000",
+})
+
+--[[require("nvim-cmp").setup({
+	config = function()
+		local cmp = require("cmp")
+		cmp.setup({
+			sources = {
+				{ name = "nvim_lsp" },
+				{ name = "path" },
+				{ name = "buffer" },
+			},
+			mapping = cmp.mapping.preset.insert({
+				["<Tab>"] = cmp.mapping.confirm({ select = true }),
+			}),
+		})
+	end,
 })]]

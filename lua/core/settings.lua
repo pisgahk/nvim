@@ -31,7 +31,7 @@ opt.relativenumber = true
 opt.cursorline = true
 
 -- Vertical cursor line
-opt.cursorcolumn = true
+opt.cursorcolumn = false
 
 -- Shift width
 opt.shiftwidth = 4
@@ -89,7 +89,7 @@ opt.wildmenu = true
 opt.wildmode = "list:full"
 
 -- Ignoring files with certain extensions
---opt.wildignore = "*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx"
+opt.wildignore = "*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx"
 
 -- Command completion in popup menu
 opt.wildoptions = "pum"

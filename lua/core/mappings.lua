@@ -27,6 +27,5 @@ kmap.set("n", "<c-left>", "<c-w><", { desc = "Resize split window left" })
 -- Undo Tree
 kmap.set("n", "<leader>ut", vim.cmd.UndotreeToggle, { desc = "Toggle UndoTree" })
 
---To delete a full word at a time using Ctrl + Bkspc
-kmap.set("n", "<C-BS>", "<C-w>")
-kmap.set("c", "<C-BS>", "<C-w>")
+--Deleting a word at a time.
+kmap.set("i", "<C-BS>", "<C-W>", { desc = "Delete word", noremap = true, silent = true })

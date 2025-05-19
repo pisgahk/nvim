@@ -50,15 +50,22 @@ local cmp_kinds = {
 }
 
 cmp.setup({
+
+    completion = {
+        completeopt = "menu,menuone,preview,noselect",
+    },
+    
     snippet = {
         expand = function(args)
             vim.fn["vsnip#anonymous"](args.body)
         end,
     },
+
     window = {
         completion = cmp.config.window.bordered(),
         documentation = cmp.config.window.bordered(),
     },
+
     mapping = {
         ["<Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
@@ -72,6 +79,7 @@ cmp.setup({
             end
         end, { "i", "s" }),
 
+
         ["<S-Tab>"] = cmp.mapping(function()
             if cmp.visible() then
                 cmp.select_prev_item()
@@ -79,6 +87,8 @@ cmp.setup({
                 feedkey("<Plug>(vsnip-jump-prev)", "")
             end
         end, { "i", "s" }),
+
+
         ["<CR>"] = cmp.mapping({
             i = function(fallback)
                 if cmp.visible() and cmp.get_active_entry() then
@@ -90,16 +100,32 @@ cmp.setup({
             s = cmp.mapping.confirm({ select = true }),
             c = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
         }),
+
+
+        ["<C-e>"] = cmp.mapping.abort(), -- close completion window
+
     },
-    sources = cmp.config.sources(
-        {
+
+    --[[sources = cmp.config.sources({
             { name = "nvim_lsp" },
-            { name = "vsnip" },
-            { name = "buffer" },
             { name = "path" },
             { name = "spell" },
-        }
-    ),
+            { name = "buffer" },           
+            { name = "vsnip" },
+            { name = "luasnip" },
+
+    }),]]
+
+    sources = cmp.config.sources({
+        { name = "nvim_lsp" }, -- Prioritize method completions
+    }, {
+        { name = "vsnip" },    -- Snippets appear after methods
+        { name = "buffer" },
+        { name = "path" },
+        { name = "spell" },
+        { name = "luasnip" },
+    }),
+    
     formatting = {
         format = function(_, vim_item)
             vim_item.kind = (cmp_kinds[vim_item.kind] or "") .. vim_item.kind

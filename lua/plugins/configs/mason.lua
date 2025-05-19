@@ -1,60 +1,60 @@
---
--- ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗
--- ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║
--- ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║
--- ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║
--- ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║
--- ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝
---
--- Neovim Lua Config File by Arfan Zubi
--- MASON
-
-local lspconfig = require("lspconfig")
-
-require("mason").setup({})
-require("mason-lspconfig").setup({
-	ensure_installed = {
-		"bashls",
-		"clangd",
-		"cssls",
-		--"dotls",
-		--"eslint",
-		"html",
-		--"jsonls",
-		"lua_ls",
-		"marksman",
-		"rust_analyzer",
-		--"sqlls",
-		--"taplo",
-		--"ts_ls",
-		--"yamlls",
-		"solang",
-		"pyright",
-		"pylsp",
-		"superhtml",
-		--"ast-grep",
+return {
+	"williamboman/mason.nvim",
+	dependencies = {
+		"williamboman/mason-lspconfig.nvim",
+		"WhoIsSethDaniel/mason-tool-installer.nvim",
 	},
-	automatic_installation = true,
-})
+	config = function()
+		-- Import Mason
+		local mason = require("mason")
 
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
+		-- Import Mason-LSPConfig
+		local mason_lspconfig = require("mason-lspconfig")
 
--- lspconfig setups for installed LSP servers via Mason
-require("mason-lspconfig").setup_handlers({
-	function(server_name)
-		lspconfig[server_name].setup({
-			capabilities = capabilities,
-		})
-	end,
-	["lua_ls"] = function()
-		lspconfig.lua_ls.setup({
-			settings = {
-				Lua = {
-					diagnostics = {
-						globals = { "vim", "opt", "g", "kmap", "cmd", "Snacks" },
-					},
+		-- Import Mason Tool Installer
+		local mason_tool_installer = require("mason-tool-installer")
+
+		-- Enable Mason and configure icons
+		mason.setup({
+			ui = {
+				icons = {
+					package_installed = "✓",
+					package_pending = "➜",
+					package_uninstalled = "✗",
 				},
 			},
 		})
+
+		-- Configure Mason-LSPConfig
+		mason_lspconfig.setup({
+			ensure_installed = {
+				"ts_ls", -- ✅ Fixed TypeScript LSP name
+				"html",
+				"cssls",
+				"tailwindcss",
+				"svelte",
+				"lua_ls",
+				"graphql",
+				"emmet_ls",
+				"pyright",
+				"gopls",
+				"rust_analyzer",
+				"solang",
+			},
+			automatic_installation = true, -- ✅ Added auto-installation for LSPs
+		})
+
+		-- Configure Mason Tool Installer
+		mason_tool_installer.setup({
+			ensure_installed = {
+				"prettier", -- Formatter for JavaScript/TypeScript
+				"stylua", -- Lua formatter
+				"isort", -- Python formatter
+				"black", -- Python formatter
+				"pylint", -- Python linter
+				"ruff", -- ✅ Added Python linter
+				"eslint_d", -- JavaScript/TypeScript linter
+			},
+		})
 	end,
-})
+}
