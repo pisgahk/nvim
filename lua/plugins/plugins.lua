@@ -46,6 +46,7 @@ return {
 	"catppuccin/nvim",
 	"UtkarshVerma/molokai.nvim",
 	"akinsho/horizon.nvim",
+	"briones-gabriel/darcula-solid.nvim",
 
 	{
 		"nvim-lualine/lualine.nvim", -- Status line

@@ -24,6 +24,7 @@ It is loaded with auto completion features, lsp support, beautiful UI ...
   - [catpuccin](https://github.com/catppuccin/nvim)
   - [molokai](https://github.com/UtkarshVerma/molokai.nvim)
   - [horizon](https://github.com/akinsho/horizon.nvim)
+  - [darcula solid](https://github.com/santos-gabriel-dario/darcula-solid.nvim)
     
 - Auto Completion using [nvim-cmp](https://github.com/hrsh7th/nvim-cmp) which has been set for configuration for Rust, Python, Solana languages.
 - Excellent LSP support.
