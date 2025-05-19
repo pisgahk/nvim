@@ -9,6 +9,10 @@ This is the new configuration of NeoVim for power users of Rust, Python, Solana(
 
 It is loaded with auto completion features, lsp support, beautiful UI ...
 
+# Requirements:
+- NVIM v0.11.0
+- Use a Nerd Font. I use [JetBrains Mono](https://www.jetbrains.com/lp/mono/#).
+
 #  Features May2k25.
 - File Explorer on the right.
   It is a better option because it gives me adequate space to work on my code, besides no one really writes code that fills up the right spaces, so why not use it🤷.
