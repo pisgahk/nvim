@@ -3,6 +3,8 @@
 ![Preview of my May2k25 setup solving rustlings qns](./illustrations/screenshot.png)
 
 
+I do not deserve to take all the credit. This was a clone and modification of the nvim setup by [Arfan Zubi Github](https://github.com/3rfaan), [Arfan Zubi YT](https://youtube.com/@zubiarfan?si=03t-IIL6_Ows-gWB).
+
 This is the new configuration of NeoVim for power users of Rust, Python, Solana(Even though I have not yet configured Solana settings yet as per May2025).
 
 It is loaded with auto completion features, lsp support, beautiful UI ...
