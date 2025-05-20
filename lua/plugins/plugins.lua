@@ -268,4 +268,9 @@ return {
 
 	--other plugins
 	"simrat39/rust-tools.nvim", -- Rust tools
+	{
+        "brianhuster/live-preview.nvim",
+        
+
+    },
 }
