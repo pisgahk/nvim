@@ -67,7 +67,7 @@ It takes time to get there, but once you do, you have full permission to brag. 
 - Excellent LSP support.
 - Dense Plugin system.
 - Customizable and key bindings.
-- Uses [snack.nvim](https://github.com/folke/snacks.nvim) for additional functionality with minimal plugin configuration.
+- Uses [snacks.nvim](https://github.com/folke/snacks.nvim) for additional functionality with minimal plugin configuration.
 - Phenomenal status bar.
 - Git signs to visualise the changes in your code.
  
@@ -77,7 +77,7 @@ It takes time to get there, but once you do, you have full permission to brag. 
 ## 1. Linux Users üêß
 No matter the distro, go to your terminal and type:
 ```bash
-cd ~/.config && https://github.com/pisgahk/nvim.git && cd nvim && nvim .
+cd ~/.config && git clone https://github.com/pisgahk/nvim.git && cd nvim && nvim .
 ```
 
 It installs all the required tools and plugins that will get you up and running in no time. 
