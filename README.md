@@ -77,11 +77,8 @@ It takes time to get there, but once you do, you have full permission to brag. �
 ## 1. Linux Users 🐧
 No matter the distro, go to your terminal and type:
 ```bash
-cd ~/.config && git clone https://github.com/pisgahk/nvim.git && cd nvim && nvim .
+cd ~/.config && git clone https://github.com/pisgahk/nvim.git && rm -rf .git && cd nvim && nvim .
 ```
-
-Remember to delete the `.git` file.
-
 It installs all the required tools and plugins that will get you up and running in no time. 
 ## 2. Windows users 🪟
 (As per now I have no idea) though i recommend that you install WSL and then continue from there.
