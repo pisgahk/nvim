@@ -80,6 +80,8 @@ No matter the distro, go to your terminal and type:
 cd ~/.config && git clone https://github.com/pisgahk/nvim.git && cd nvim && nvim .
 ```
 
+Remember to delete the `.git` file.
+
 It installs all the required tools and plugins that will get you up and running in no time. 
 ## 2. Windows users 🪟
 (As per now I have no idea) though i recommend that you install WSL and then continue from there.

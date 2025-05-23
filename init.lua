@@ -19,11 +19,12 @@ cmd = vim.cmd
 g.mapleader = ","
 
 -- Imports
-require("core.lazy")       -- lazy.nvim plugin manager
-require("core.mappings")   -- Mappings
-require("core.scripts")    -- Scripts
-require("core.settings")   -- Editor settings
+require("core.lazy") -- lazy.nvim plugin manager
+require("core.mappings") -- Mappings
+require("core.scripts") -- Scripts
+require("core.settings") -- Editor settings
 
 require("plugins.configs") -- All setups and configurations
 require("plugins.plugins") -- Plugins
-require("plugins.setups")  -- Setup of plugins
+require("plugins.setups") -- Setup of plugins
+require("plugins.autocmds") -- Includes all my custom auto-commands.

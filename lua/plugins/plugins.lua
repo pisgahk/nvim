@@ -47,6 +47,8 @@ return {
 	"UtkarshVerma/molokai.nvim",
 	"akinsho/horizon.nvim",
 	"briones-gabriel/darcula-solid.nvim",
+	"rebelot/kanagawa.nvim",
+	"shaunsingh/nord.nvim",
 
 	{
 		"nvim-lualine/lualine.nvim", -- Status line
@@ -269,8 +271,6 @@ return {
 	--other plugins
 	"simrat39/rust-tools.nvim", -- Rust tools
 	{
-        "brianhuster/live-preview.nvim",
-        
-
-    },
+		"brianhuster/live-preview.nvim",
+	},
 }
