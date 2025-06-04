@@ -9,43 +9,6 @@ This is the new configuration of NeoVim for power users of Rust, Python, Solana(
 
 It is loaded with auto completion features, LSP support, beautiful UI ...
 
-# What is my backstory?
-I started my programming journey way back in the pandemic(2k20). There was nothing else to do during that time.
-<br>
-TV got tired of being watched, sleeping got tired of being slept, rain got tired of falling and time got tired of being wasted.
-<br>
-<br>
-I switched hobbies quite often (as everyone did) and then I landed on programming for the first time. It was [programming in Python btw by Mosh Hamedani](https://youtu.be/_uQrJ0TkZlc?si=bGw1jm6-_uUFc9-n).
-Back then, it was fire😍. I felt like I had some kind of super power, of which "yes I did".
-I interacted with Tuples, Dictionaries, Lists, Virtual Environments, Errors, Loops and it was fun to the logical brain.
-<br>
-<br>
-The more that I keep writing code, I realize that "Programming is formalised problem-solving." There is alot that comes with it, but once you tinker correctly, it is fun.
-<br>
-<br>
-Since then, I had used only VS-Code for literally everything code. Nvim users, do not get me wrong, VS-Code is great, it is superb, very stable, large community support and all the extra goddies that come with it. But after a while of coding, I discovered linux🐧 and made the switch from Windows. This came with some baggage of ricing my Linux setup.
-<br>
-<br>
-Since most of what I do in my Linux is code-related, I thought to myself, "Why can't I code in the terminal?🤔" and this is when I came upon NeoVim.
-Since then I hardly look back to VS-Code.
-<br>
-Do not get me wrong, VS-Code is good, but I feel more like a super-user.
-<br>
-<br>
-I love Neovim because:
-- There is a no mouse-setup, meaning I continue to work on my code without having to lift my wrists once comfortable🤤.
-- I am working purely in the Terminal.
-- It is highly modular. Anything and everything can be tinkered to your preference.
-- In case my Desktop Environment crashes (at times), the most important workspace on my machine(NeoVim) remains solid💪.
-- Sharing is too easy.
-- It is fast.
-- Lua.
-- My classmates all fear me💅.
-- I have gained greater understanding for what is under the hood. Stuff like LSPs, keybindings, auto completions, formatters.
-
-It takes time to get there, but once you do, you have full permission to brag. 😎🤏
-
-
 
 # Requirements:
 - NVIM v0.11.0
