@@ -22,7 +22,7 @@ It is loaded with auto completion features, LSP support, beautiful UI ...
   *Github Dark* just looks so beautiful 🤩 in my opinion, especially for Rust, C and C++ code.
   
   Multiple other colour-schemes come included:
-  - [catpuccin](https://github.com/catppuccin/nvim)
+  - [catppuccin](https://github.com/catppuccin/nvim)
   - [molokai](https://github.com/UtkarshVerma/molokai.nvim)
   - [horizon](https://github.com/akinsho/horizon.nvim)
   - [darcula solid](https://github.com/santos-gabriel-dario/darcula-solid.nvim)    
@@ -51,3 +51,4 @@ I found these sources extremely helpful(esp the first):
 ## 2. Mac users 🍏
 (Never used mac ever, though i think that it is the same procedure. Just `git clone` the repo in your `.config` file.)
 
+This journey begun on 08.04.2025, let us see how far we will go.
