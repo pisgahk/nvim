@@ -12,7 +12,7 @@ return {
 		local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
 		local keymap = vim.keymap
-        
+
 		vim.api.nvim_create_autocmd("LspAttach", {
 			group = vim.api.nvim_create_augroup("UserLspConfig", {}),
 			callback = function(ev)
@@ -51,8 +51,14 @@ return {
 				opts.desc = "Go to next diagnostic"
 				keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
 
+				--opts.desc = "Show documentation for what is under cursor"
+				--keymap.set("n", "K", vim.lsp.buf.hover, opts)
+
 				opts.desc = "Show documentation for what is under cursor"
-				keymap.set("n", "K", vim.lsp.buf.hover, opts)
+				keymap.set("n", "K", function()
+					vim.lsp.buf.hover()
+					vim.cmd("wincmd w") -- Switch to the hover window
+				end, { noremap = true, silent = true })
 
 				opts.desc = "Restart LSP"
 				keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts)

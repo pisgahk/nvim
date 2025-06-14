@@ -46,3 +46,6 @@ vim.diagnostic.open_float()
 
 -- Removing the bg colour from inlay hints.
 --vim.api.nvim_set_hl(0, "InlayHint", { bg = "NONE" })
+
+-- Changing the colour of the border.
+vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#f53c63", bg = "NONE" }) -- Example: Blue border, transparent background
