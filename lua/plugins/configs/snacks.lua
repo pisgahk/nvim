@@ -5,7 +5,16 @@ return {
 	---@type snacks.Config
 	opts = {
 		bigfile = { enabled = true },
-		dashboard = { enabled = true },
+		dashboard = {
+			enabled = true,
+			colors = {
+				header = "#ff5f5f", -- Red header text
+				center = "#ff8787", -- Slightly lighter red for main options
+				footer = "#dcdccc", -- Neutral footer for contrast
+				icon = "#ff5f5f", -- Red icons for consistency
+				key = "#ff8787", -- Keybind hints in red
+			},
+		},
 		explorer = { enabled = true },
 		indent = { enabled = true },
 		input = { enabled = true },

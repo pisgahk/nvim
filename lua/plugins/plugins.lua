@@ -49,6 +49,32 @@ return {
 	"briones-gabriel/darcula-solid.nvim",
 	"rebelot/kanagawa.nvim",
 	"shaunsingh/nord.nvim",
+	"Mofiqul/vscode.nvim",
+	"ntk148v/habamax.nvim",
+	{
+		"neanias/everforest-nvim",
+		config = function()
+			require("everforest").setup({
+				background = "medium", -- Options: "soft", "medium", "hard"
+				transparent_background_level = 2, -- 0 (no transparency), 1 (some transparency), 2 (full transparency)
+				italics = true, -- Enable italics for better aesthetics
+			})
+		end,
+	},
+	"ellisonleao/gruvbox.nvim",
+
+	{
+		"EdenEast/nightfox.nvim", -- Comma added here
+		config = function()
+			require("nightfox").setup({
+				options = {
+					transparent = true,
+					terminal_colors = true,
+					dim_inactive = false, -- Fixed spacing issue
+				},
+			})
+		end,
+	},
 
 	{
 		"nvim-lualine/lualine.nvim", -- Status line
@@ -66,6 +92,7 @@ return {
 				options = {
 					icons_enabled = true,
 					theme = "horizon",
+					globalstatus = true,
 					component_separators = " ",
 					section_separators = { left = "", right = "" },
 				},
@@ -304,5 +331,25 @@ return {
 				desc = "GitGraph - Draw",
 			},
 		},
+	},
+
+	{
+		"folke/styler.nvim",
+		config = function()
+			require("styler").setup({
+				themes = {
+					rust = { colorscheme = "github_dark" },
+					python = { colorscheme = "gruvbox" },
+					html = { colorscheme = "vscode" },
+					bash = { colorscheme = "everforest" },
+					--sh = { colorscheme = "habamax" },
+					lua = { colorscheme = "github_dark_dimmed" },
+					markdown = { colorscheme = "molokai" },
+					javascript = { colorscheme = "nightfox" },
+					solana = { colorscheme = "everforest" },
+					help = { colorscheme = "catppuccin-mocha", background = "dark" },
+				},
+			})
+		end,
 	},
 }
