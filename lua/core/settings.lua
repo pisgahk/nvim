@@ -10,115 +10,115 @@
 -- SETTINGS
 
 -- Set termguicolors to enable highlight groups
-opt.termguicolors = true
+vim.opt.termguicolors = true
 
 -- UTF8 encoding
-opt.encoding = "UTF-8"
+vim.opt.encoding = "UTF-8"
 
 -- Enabling clipboard
-opt.clipboard = "unnamedplus"
+vim.opt.clipboard = "unnamedplus"
 
 -- Persistent undo
-opt.undofile = true
+vim.opt.undofile = true
 
 -- Line numbers
-opt.number = true
+vim.opt.number = true
 
 -- Relative line numbers
-opt.relativenumber = true
+vim.opt.relativenumber = true
 
 -- Horizontal cursor line
-opt.cursorline = true
+vim.opt.cursorline = true
 
 -- Vertical cursor line
-opt.cursorcolumn = false
+vim.opt.cursorcolumn = false
 
 -- Shift width
-opt.shiftwidth = 4
+vim.opt.shiftwidth = 4
 
 -- Tab width
-opt.tabstop = 4
+vim.opt.tabstop = 4
 
 -- Space characters instead of tabs
-opt.expandtab = true
+vim.opt.expandtab = true
 
 -- Disable backup files
-opt.backup = false
-opt.writebackup = false
+vim.opt.backup = false
+vim.opt.writebackup = false
 
 -- Always show the signcolumn
-opt.signcolumn = "yes"
+vim.opt.signcolumn = "yes"
 
 -- Do not let cursor scroll below or above N number of lines when scrolling
-opt.scrolloff = 10
+vim.opt.scrolloff = 10
 
 -- Wrap lines
-opt.wrap = true
+vim.opt.wrap = true
 
 -- Preserve indentation of virtual line
-opt.breakindent = true
+vim.opt.breakindent = true
 
 -- Search highlighting
-opt.hlsearch = false
+vim.opt.hlsearch = false
 
 -- Incrementally highlight matching characters while typing
-opt.incsearch = true
+vim.opt.incsearch = true
 
 -- Ignoring capital letters during search
-opt.ignorecase = true
+vim.opt.ignorecase = true
 
--- Overriding ignorecase option if searching for capital letters
-opt.smartcase = true
+-- Overriding ignorecase vim.option if searching for capital letters
+vim.opt.smartcase = true
 
 -- Showing matching words during search
-opt.showmatch = true
+vim.opt.showmatch = true
 
 -- Showing partial command on last line
-opt.showcmd = true
+vim.opt.showcmd = true
 
 -- Showing mode on last line
-opt.showmode = false
+vim.opt.showmode = false
 
 -- Command history
-opt.history = 1000
+vim.opt.history = 1000
 
 -- Auto completion menu after pressing TAB
-opt.wildmenu = true
+vim.opt.wildmenu = true
 
 -- Bash-like completion
-opt.wildmode = "list:full"
+vim.opt.wildmode = "list:full"
 
 -- Ignoring files with certain extensions
---opt.wildignore = "*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx"
+--vim.opt.wildignore = "*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx"
 
 -- Command completion in popup menu
-opt.wildoptions = "pum"
---opt.pumblend = 7   -- Make popup translucent
-opt.pumheight = 20 -- Max amount of items
+vim.opt.wildoptions = "pum"
+--vim.opt.pumblend = 7   -- Make popup translucent
+vim.opt.pumheight = 20 -- Max amount of items
 
 -- Mouse support
-opt.mouse = "a"
+vim.opt.mouse = "a"
 
 -- Hide End-Of-Buffer symbol (~)
-opt.fillchars:append({ eob = " " })
+vim.opt.fillchars:append({ eob = " " })
 
 -- Settings for line highlighting
-opt.list = true
+vim.opt.list = true
 
 -- Settings for cmp-spell
-opt.spell = true
-opt.spelllang = { "en_us" }
+vim.opt.spell = true
+vim.opt.spelllang = { "en_us" }
 
 -- Opening new split panes to right and below
-opt.splitright = true
-opt.splitbelow = true
+vim.opt.splitright = true
+vim.opt.splitbelow = true
 
 -- Disable netrw (native VIM file explorer)
 g.loaded_netrw = 1
 g.loaded_netrwPlugin = 1
 
 -- GUI settings
-opt.guifont = { "JetBrains Mono", ":h14" }
+vim.opt.guifont = { "FiraCode Nerd Font", ":h14" }
 
 -- Disabling providers (if downloaded Neovim from one of this providers don't delete!)
 g.loaded_python3_provider = 0
