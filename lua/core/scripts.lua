@@ -37,7 +37,7 @@ vim.api.nvim_set_hl(0, "DiagnosticUnderlineWarn", { undercurl = true, sp = "#ffa
 vim.api.nvim_set_hl(0, "DiagnosticUnderlineHint", { undercurl = true, sp = "#55ff55" })
 vim.api.nvim_set_hl(0, "DiagnosticUnderlineInfo", { undercurl = true, sp = "#5555ff" })
 
-vim.api.nvim_set_hl(0, "DiagnosticVirtualTextError", { fg = "#888888", bg = "NONE" }) -- Adjust color to be faded
+vim.api.nvim_set_hl(0, "DiagnosticVirtualTextError", { fg = "#cccccc", bg = "NONE" }) -- Adjust color to be faded
 vim.api.nvim_set_hl(0, "DiagnosticVirtualTextWarn", { fg = "#aaaaaa", bg = "NONE" })
 vim.api.nvim_set_hl(0, "DiagnosticVirtualTextHint", { fg = "#bbbbbb", bg = "NONE" })
 vim.api.nvim_set_hl(0, "DiagnosticVirtualTextInfo", { fg = "#cccccc", bg = "NONE" })
@@ -48,4 +48,8 @@ vim.diagnostic.open_float()
 --vim.api.nvim_set_hl(0, "InlayHint", { bg = "NONE" })
 
 -- Changing the colour of the border.
-vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#f53c63", bg = "NONE" }) -- Example: Blue border, transparent background
+--vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#f53c63", bg = "NONE" }) -- Example: Red border, transparent background
+
+vim.schedule(function()
+	vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#f53c63", bg = "NONE" })
+end)

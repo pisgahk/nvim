@@ -89,7 +89,7 @@ opt.wildmenu = true
 opt.wildmode = "list:full"
 
 -- Ignoring files with certain extensions
-opt.wildignore = "*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx"
+--opt.wildignore = "*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx"
 
 -- Command completion in popup menu
 opt.wildoptions = "pum"
@@ -107,7 +107,7 @@ opt.list = true
 
 -- Settings for cmp-spell
 opt.spell = true
-opt.spelllang = { "en_us", "de" }
+opt.spelllang = { "en_us" }
 
 -- Opening new split panes to right and below
 opt.splitright = true
@@ -118,7 +118,7 @@ g.loaded_netrw = 1
 g.loaded_netrwPlugin = 1
 
 -- GUI settings
-opt.guifont = { "FiraCode Nerd Font", ":h14" }
+opt.guifont = { "JetBrains Mono", ":h14" }
 
 -- Disabling providers (if downloaded Neovim from one of this providers don't delete!)
 g.loaded_python3_provider = 0
