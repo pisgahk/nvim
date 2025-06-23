@@ -25,8 +25,8 @@ return {
                     header = "#ff5f5f", -- Red header text
                     center = "#ff8787", -- Slightly lighter red for main options
                     footer = "#dcdccc", -- Neutral footer for contrast
-                    icon = "#ff5f5f", -- Red icons for consistency
-                    key = "#ff8787", -- Keybind hints in red
+                    icon = "#ff5f5f",   -- Red icons for consistency
+                    key = "#ff8787",    -- Keybind hints in red
                 },
             },
             explorer = { enabled = true },
@@ -571,6 +571,9 @@ return {
                     Snacks.toggle.inlay_hints():map("<leader>uh")
                     Snacks.toggle.indent():map("<leader>ug")
                     Snacks.toggle.dim():map("<leader>uD")
+
+                    -- override inlay snacks.nvim background
+                    vim.api.nvim_set_hl(0, "SnacksInlayHint", { bg = "NONE" })
                 end,
             })
         end,
@@ -597,12 +600,22 @@ return {
         },
     },
 
-    "norcalli/nvim-colorizer.lua",  -- Hex color highlighting
+    {
+        "norcalli/nvim-colorizer.lua", -- Hex Colour Highlighting.
+        config = function()
+            require("colorizer").setup({
+                "*",
+            }, {
+                mode = "background",
+            })
+        end,
+    },
+
     "hiphish/rainbow-delimiters.nvim", -- Brackets, parenthesis colorizer
 
-    "simrat39/rust-tools.nvim",     -- Rust tools
+    "simrat39/rust-tools.nvim",        -- Rust tools
 
-    "brianhuster/live-preview.nvim", --Render .html & .md files.
+    "brianhuster/live-preview.nvim",   --Render .html & .md files.
 
     --
 

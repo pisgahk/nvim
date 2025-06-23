@@ -89,17 +89,18 @@ return {
                     documentation = cmp.config.window.bordered(),
                 },
                 mapping = {
-                    ["<Tab>"] = cmp.mapping(function(fallback)
+                    ["<Tab>"] = function(fallback)
                         if cmp.visible() then
                             cmp.select_next_item()
-                        elseif vim.fn == 1 then
-                            feedkey("<Plug>(vsnip-expand-or-jump)", "")
-                        elseif has_words_before() then
+                        elseif
+                            vim.fn.col(".") ~= 1
+                            and vim.fn.getline("."):sub(vim.fn.col(".") - 1, vim.fn.col(".") - 1):match("%s") == nil
+                        then
                             cmp.complete()
                         else
-                            fallback()
+                            fallback() -- fallback to default <Tab> behavior (indent)
                         end
-                    end, { "i", "s" }),
+                    end,
 
                     ["<S-Tab>"] = cmp.mapping(function()
                         if cmp.visible() then
