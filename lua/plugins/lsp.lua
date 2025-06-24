@@ -21,6 +21,13 @@ return {
             { "folke/neodev.nvim",                   opts = {} },
             "j-hui/fidget.nvim",
         },
+        settings = {
+            Lua = {
+                diagnostics = {
+                    globals = { "vim", "Snacks" },
+                },
+            },
+        },
         config = function()
             -- 🧱 Custom floating borders
             local border = {
@@ -150,6 +157,17 @@ return {
                 },
             })
 
+            lspconfig["lua_ls"].setup({
+                capabilities = capabilities,
+                settings = {
+                    Lua = {
+                        diagnostics = {
+                            globals = { "vim", "Snacks" },
+                        },
+                    },
+                },
+            })
+
             -- Golang setup
             lspconfig["gopls"].setup({
                 capabilities = capabilities,
@@ -176,8 +194,15 @@ return {
 
             -- 🌍 Generic setups
             local servers = { "bashls", "cssls", "html", "jsonls", "ts_ls", "eslint", "sqlls" }
-            for _, server in ipairs(servers) do
+
+            --[[for _, server in ipairs(servers) do
                 lspconfig[server].setup({ capabilities = capabilities })
+            end]]
+
+            for _, server in ipairs(require("mason-lspconfig").get_installed_servers()) do
+                if server ~= "lua_ls" then
+                    lspconfig[server].setup({ capabilities = capabilities })
+                end
             end
         end,
     },

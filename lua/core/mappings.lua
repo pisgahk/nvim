@@ -40,8 +40,8 @@ cmd("autocmd BufWritePost ~/.Xresources !xrdb %")
 
 vim.diagnostic.config({
     virtual_text = true, -- Enables inline error messages
-    signs = true,     -- Shows signs in the gutter
-    underline = true, -- Underlines errors in the code
+    signs = true,        -- Shows signs in the gutter
+    underline = true,    -- Underlines errors in the code
 })
 
 vim.keymap.set("n", "<leader>E", function()

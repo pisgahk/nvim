@@ -628,9 +628,23 @@ return {
                 opts = {
                     enable_rename = true,
                 },
+                did_setup = function() end,
+                setup = function() end,
+                get_opts = function()
+                    return {}
+                end,
             })
         end,
     },
 
     "someguy0555/snake.nvim",
+
+    {
+        "sphamba/smear-cursor.nvim",
+        opts = {
+            smear_between_buffers = true,
+            smear_insert_mode = true,
+            cursor_color = "#d3cdc3", -- match your theme
+        },
+    },
 }
