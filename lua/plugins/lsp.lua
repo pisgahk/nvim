@@ -55,7 +55,7 @@ return {
                 ensure_installed = {
                     "lua_ls",
                     "pyright",
-                    "rust_analyzer",
+                    -- "rust_analyzer",
                     "bashls",
                     "gopls",
                     "sqlls",
@@ -127,6 +127,9 @@ return {
                 capabilities = capabilities,
                 settings = {
                     ["rust-analyzer"] = {
+                        inlayHints = {
+                            enable = false,
+                        },
                         cargo = { allFeatures = true },
                         check = { command = "clippy" }, -- ✅ Replaces deprecated 'checkOnSave'
                         diagnostics = { disabled = { "unresolved-proc-macro" } },
@@ -134,7 +137,7 @@ return {
                             granularity = {
                                 group = "crate", -- ✅ Must be one of: "preserve", "item", "crate", "module", "one"
                             },
-                            prefix = "by_self", -- ✅ Replaces deprecated 'importPrefix'
+                            prefix = "by_self",  -- ✅ Replaces deprecated 'importPrefix'
                         },
                         assist = {
                             importMergeBehavior = "crate", -- ✅ Valid values: `preserve`, `item`, `crate`, `module`, `one`

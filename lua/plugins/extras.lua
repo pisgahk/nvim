@@ -25,8 +25,8 @@ return {
                     header = "#ff5f5f", -- Red header text
                     center = "#ff8787", -- Slightly lighter red for main options
                     footer = "#dcdccc", -- Neutral footer for contrast
-                    icon = "#ff5f5f",   -- Red icons for consistency
-                    key = "#ff8787",    -- Keybind hints in red
+                    icon = "#ff5f5f", -- Red icons for consistency
+                    key = "#ff8787", -- Keybind hints in red
                 },
             },
             explorer = { enabled = true },
@@ -49,9 +49,54 @@ return {
             scroll = { enabled = true },
             statuscolumn = { enabled = true },
             words = { enabled = true },
+            image = {
+                enabled = true,
+                doc = {
+                    enabled = true,
+                    inline = true, -- set to true if you want inline rendering
+                    float = true,
+                    max_width = 60,
+                    max_height = 30,
+                },
+                convert = {
+                    notify = true, -- whether to show notifications on image render
+                    magick = "magick", -- or path to your ImageMagick binary
+                    mermaid = "mmdc", -- or path to Mermaid CLI if used
+                    formats = {
+                        "png",
+                        "jpg",
+                        "jpeg",
+                        "gif",
+                        "bmp",
+                        "webp",
+                        "tiff",
+                        "heic",
+                        "avif",
+                        "mp4",
+                        "mov",
+                        "avi",
+                        "mkv",
+                        "webm",
+                        "pdf",
+                        "ico",
+                        "svg",
+                        "psd",
+                        "dds",
+                        "jp2",
+                        "jxl",
+                        "icns",
+                    },
+                },
+            },
+
             styles = {
                 notification = {
+                    relative = "editor",
                     -- wo = { wrap = true } -- Wrap notifications
+                },
+                snacks_image = {
+                    relative = "editor",
+                    col = -1, -- top-right corner
                 },
             },
         },
@@ -573,7 +618,7 @@ return {
                     Snacks.toggle.dim():map("<leader>uD")
 
                     -- override inlay snacks.nvim background
-                    vim.api.nvim_set_hl(0, "SnacksInlayHint", { bg = "NONE" })
+                    -- vim.api.nvim_set_hl(0, "SnacksInlayHint", { bg = "NONE" })
                 end,
             })
         end,
@@ -613,11 +658,9 @@ return {
 
     "hiphish/rainbow-delimiters.nvim", -- Brackets, parenthesis colorizer
 
-    "simrat39/rust-tools.nvim",        -- Rust tools
+    "simrat39/rust-tools.nvim",     -- Rust tools
 
-    "brianhuster/live-preview.nvim",   --Render .html & .md files.
-
-    --
+    "brianhuster/live-preview.nvim", --Render .html & .md files.
 
     {
         "windwp/nvim-ts-autotag",

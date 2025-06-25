@@ -54,10 +54,12 @@ vim.api.nvim_set_hl(0, "DiagnosticUnderlineWarn", { undercurl = true, sp = "#ffa
 vim.api.nvim_set_hl(0, "DiagnosticUnderlineHint", { undercurl = true, sp = "#55ff55" })
 vim.api.nvim_set_hl(0, "DiagnosticUnderlineInfo", { undercurl = true, sp = "#5555ff" })
 
-vim.api.nvim_set_hl(0, "DiagnosticVirtualTextError", { fg = "#cccccc", bg = "NONE" }) -- Adjust color to be faded
-vim.api.nvim_set_hl(0, "DiagnosticVirtualTextWarn", { fg = "#aaaaaa", bg = "NONE" })
-vim.api.nvim_set_hl(0, "DiagnosticVirtualTextHint", { fg = "#bbbbbb", bg = "NONE" })
-vim.api.nvim_set_hl(0, "DiagnosticVirtualTextInfo", { fg = "#cccccc", bg = "NONE" })
+vim.api.nvim_set_hl(0, "DiagnosticVirtualTextError", { fg = "#ff5555", bg = "NONE" }) -- Adjust color to be faded
+vim.api.nvim_set_hl(0, "DiagnosticVirtualTextWarn", { fg = "#ffaa00", bg = "NONE" })
+vim.api.nvim_set_hl(0, "DiagnosticVirtualTextHint", { fg = "#55ff55", bg = "NONE" })
+vim.api.nvim_set_hl(0, "DiagnosticVirtualTextInfo", { fg = "#5555ff", bg = "NONE" })
+
+vim.api.nvim_set_hl(0, "LspInlayHint", { bg = "NONE" })
 
 vim.diagnostic.open_float()
 
@@ -78,3 +80,11 @@ vim.api.nvim_create_autocmd("CursorHold", {
         end, 3000) -- 3000 ms = 3 seconds
     end,
 })
+
+-- Preventing looping in lsp-documentation.
+-- vim.api.nvim_create_autocmd("FileType", {
+--     pattern = "help",
+--     callback = function()
+--         vim.opt_local.wrapscan = false
+--     end,
+-- })
