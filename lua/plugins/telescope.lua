@@ -26,11 +26,11 @@ return {
             selection_caret = " ",
             sorting_strategy = "ascending",
             winblend = 10,
-            mappings = {
-                i = {
-                    ["<Esc>"] = require("telescope.actions").close,
-                },
-            },
+            -- mappings = {
+            --     i = {
+            --         ["<Esc>"] = require("telescope.actions").close,
+            --     },
+            -- },
         },
         pickers = {
             find_files = {

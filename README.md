@@ -7,11 +7,6 @@ If you've ever used a bulky IDE and wished for something faster, lighter, and ta
 ![Preview of my May2k25 setup solving rustlings qns](./illustrations/screenshot.png)
 ![Preview of my June2k25 config](./illustrations/nvim.png)
 
-<div style="overflow-x: auto; white-space: nowrap;">
-  <img src="./illustrations/screenshot.png" alt="Preview of my May2k25 setup" style="height: 300px; display: inline-block; margin-right: 20px;" />
-  <img src="./illustrations/nvim.png" alt="Preview of my June2k25 config" style="height: 300px; display: inline-block;" />
-</div>
-
 I do not deserve to take all the credit. This was a clone and modification of the nvim setup by [Arfan Zubi](https://github.com/3rfaan), [Arfan Zubi YT](https://youtube.com/@zubiarfan?si=03t-IIL6_Ows-gWB).
 
 This setup has been customised for users of Rust, Python, Golang, HTML, CSS, JS, TS, Bash, Lua among others.
@@ -71,12 +66,18 @@ It installs all the required tools and plugins that will get you up and running 
 
 Pre-requisities:
 
-1. Have a [Nerd-Font](https://www.nerdfonts.com/font-downloads) installed preferably [JetBrains Mono Nerd font](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/JetBrainsMono.zip), or [FiraCode Nerd font](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/FiraCode.zip).
+1. Install `ripgrep`.
+```bash
+choco install ripgrep
+```
+
+2. Have a [Nerd-Font](https://www.nerdfonts.com/font-downloads) installed preferably [JetBrains Mono Nerd font](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/JetBrainsMono.zip), or [FiraCode Nerd font](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/FiraCode.zip).
+
 
 Open `Terminal` or `Command Prompt` and paste this command.
 
 ```bash
-git clone https://github.com/pisgahk/nvim.git %USERPROFILE%\AppData\Local\nvim && nvim 
+git clone https://github.com/pisgahk/nvim.git %USERPROFILE%\AppData\Local\nvim && nvim
 ```
 
 ### b. In WSL.
