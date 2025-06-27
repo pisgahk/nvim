@@ -5,7 +5,7 @@ Neovim is a fast, efficient, and highly customizable text editor designed for co
 If you've ever used a bulky IDE and wished for something faster, lighter, and tailored to your exact needs, Neovim is your playground. Whether you're editing code, writing docs, or customizing your dev setup down to the pixel, Neovim gives you full control — all from your terminal.
 
 ![Preview of my May2k25 setup solving rustlings qns](./illustrations/screenshot.png)
-![Preview of my June2k25 config](./illustrations/nvim.png)``
+![Preview of my June2k25 config](./illustrations/nvim.png)
 
 <div style="overflow-x: auto; white-space: nowrap;">
   <img src="./illustrations/screenshot.png" alt="Preview of my May2k25 setup" style="height: 300px; display: inline-block; margin-right: 20px;" />
@@ -73,20 +73,16 @@ Pre-requisities:
 
 1. Have a [Nerd-Font](https://www.nerdfonts.com/font-downloads) installed preferably [JetBrains Mono Nerd font](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/JetBrainsMono.zip), or [FiraCode Nerd font](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/FiraCode.zip).
 
-Open `Terminal` or `cmd` and paste this command.
+Open `Terminal` or `Command Prompt` and paste this command.
 
 ```bash
-git clone https://github.com/pisgahk/nvim.git "$HOME\AppData\Local\nvim"
-Remove-Item "$HOME\AppData\Local\nvim\.git" -Recurse -Force
-nvim "$HOME\AppData\Local\nvim"
-
+git clone https://github.com/pisgahk/nvim.git %USERPROFILE%\AppData\Local\nvim && nvim 
 ```
 
 ### b. In WSL.
 
 ```bash
 git clone https://github.com/pisgahk/nvim.git ~/.config/nvim && rm -rf ~/.config/nvim/.git && nvim ~/.config/nvim
-
 ```
 
 ---
