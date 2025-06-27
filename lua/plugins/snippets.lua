@@ -34,6 +34,7 @@ return {
             vim.api.nvim_create_autocmd("BufWritePost", {
                 pattern = vim.fn.stdpath("config") .. "/lua/snippets/*.lua",
                 callback = function()
+                    luasnip.cleanup()
                     require("luasnip.loaders.from_lua").lazy_load({
                         paths = vim.fn.stdpath("config") .. "/lua/snippets",
                     })

@@ -3,6 +3,7 @@
 Neovim is a highly modular keyboard-based code editor. Unlike other code editors that modify their contents through GUI, Neovim is modified through refactoring text-based plugins.
 
 ![Preview of my May2k25 setup solving rustlings qns](./illustrations/screenshot.png)
+![Preview of my June2k25 config](./illustrations/nvim.png)``
 
 I do not deserve to take all the credit. This was a clone and modification of the nvim setup by [Arfan Zubi Github](https://github.com/3rfaan), [Arfan Zubi YT](https://youtube.com/@zubiarfan?si=03t-IIL6_Ows-gWB).
 

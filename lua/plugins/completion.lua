@@ -15,13 +15,16 @@ return {
         dependencies = {
             "hrsh7th/cmp-nvim-lsp",
             "hrsh7th/cmp-buffer", -- source for text in buffer.
-            "hrsh7th/cmp-path", -- source for file system paths in commands.
+            "hrsh7th/cmp-path",   -- source for file system paths in commands.
             "hrsh7th/cmp-cmdline",
-            "hrsh7th/vim-vsnip",
-            "hrsh7th/cmp-vsnip",
+            -- "hrsh7th/vim-vsnip",
+            -- "hrsh7th/cmp-vsnip",
+            "L3MOND3/LuaSnip",
+            "saadparwaiz1/cmp_luasnip",
         },
         config = function()
             local cmp = require("cmp")
+            local luasnip = require("luasnip")
 
             -- ─[ Icon Styling ]────────────────────────────────────────────────────
             local cmp_kinds = {
@@ -81,32 +84,75 @@ return {
                 completion = { completeopt = "menu,menuone,noselect" },
                 snippet = {
                     expand = function(args)
-                        vim.fn["vsnip#anonymous"](args.body)
+                        require("luasnip").lsp_expand(args.body)
                     end,
                 },
                 window = {
                     completion = cmp.config.window.bordered(),
                     documentation = cmp.config.window.bordered(),
                 },
+                -- mapping = {
+                --     ["<Tab>"] = function(fallback)
+                --         if cmp.visible() then
+                --             cmp.select_next_item()
+                --         elseif
+                --             vim.fn.col(".") ~= 1
+                --             and vim.fn.getline("."):sub(vim.fn.col(".") - 1, vim.fn.col(".") - 1):match("%s") == nil
+                --         then
+                --             cmp.complete()
+                --         else
+                --             fallback() -- fallback to default <Tab> behavior (indent)
+                --         end
+                --     end,
+                --
+                --     ["<S-Tab>"] = cmp.mapping(function()
+                --         if cmp.visible() then
+                --             cmp.select_prev_item()
+                --         elseif vim.fn["vsnip#jumpable"](-1) == 1 then
+                --             feedkey("<Plug>(vsnip-jump-prev)", "")
+                --         end
+                --     end, { "i", "s" }),
+                --
+                --     ["<CR>"] = cmp.mapping({
+                --         i = function(fallback)
+                --             if cmp.visible() and cmp.get_active_entry() then
+                --                 cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
+                --             else
+                --                 fallback()
+                --             end
+                --         end,
+                --         s = cmp.mapping.confirm({ select = true }),
+                --         c = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
+                --     }),
+                --
+                --     ["<C-e>"] = cmp.mapping.abort(),
+                -- },
+
+                -- local luasnip = require("luasnip")
+
                 mapping = {
-                    ["<Tab>"] = function(fallback)
+                    ["<Tab>"] = cmp.mapping(function(fallback)
                         if cmp.visible() then
                             cmp.select_next_item()
+                        elseif luasnip.expand_or_locally_jumpable() then
+                            luasnip.expand_or_jump()
                         elseif
                             vim.fn.col(".") ~= 1
                             and vim.fn.getline("."):sub(vim.fn.col(".") - 1, vim.fn.col(".") - 1):match("%s") == nil
                         then
                             cmp.complete()
                         else
-                            fallback() -- fallback to default <Tab> behavior (indent)
+                            fallback()
                         end
-                    end,
+                    end, { "i", "s" }),
 
-                    ["<S-Tab>"] = cmp.mapping(function()
+                    ["<S-Tab>"] = cmp.mapping(function(fallback)
                         if cmp.visible() then
                             cmp.select_prev_item()
-                        elseif vim.fn["vsnip#jumpable"](-1) == 1 then
-                            feedkey("<Plug>(vsnip-jump-prev)", "")
+                        elseif luasnip.jumpable(-1) then
+                            luasnip.jump(-1)
+                        else
+                            fallback()
                         end
                     end, { "i", "s" }),
 
@@ -124,11 +170,12 @@ return {
 
                     ["<C-e>"] = cmp.mapping.abort(),
                 },
+
                 sources = cmp.config.sources({
+                    { name = "luasnip" },
                     { name = "nvim_lsp" },
                 }, {
-                    { name = "vsnip" },
-                    { name = "luasnip" },
+                    -- { name = "luasnip" },
                     { name = "buffer" },
                     { name = "path" },
                     { name = "spell" },
