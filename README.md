@@ -64,15 +64,17 @@ It installs all the required tools and plugins that will get you up and running 
 
 ### a. Vanilla Windows.
 
+Some features do not work in this version of Windows, install WSL for the full experience.
+
 Pre-requisities:
 
 1. Install `ripgrep`.
+
 ```bash
 choco install ripgrep
 ```
 
 2. Have a [Nerd-Font](https://www.nerdfonts.com/font-downloads) installed preferably [JetBrains Mono Nerd font](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/JetBrainsMono.zip), or [FiraCode Nerd font](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/FiraCode.zip).
-
 
 Open `Terminal` or `Command Prompt` and paste this command.
 
@@ -80,19 +82,13 @@ Open `Terminal` or `Command Prompt` and paste this command.
 git clone https://github.com/pisgahk/nvim.git %USERPROFILE%\AppData\Local\nvim && nvim
 ```
 
-### b. In WSL.
+### b. In WSL(Highly Recommended)
 
 ```bash
 git clone https://github.com/pisgahk/nvim.git ~/.config/nvim && rm -rf ~/.config/nvim/.git && nvim ~/.config/nvim
 ```
 
 ---
-
-(As per now I have no idea) though i recommend that you install WSL and then continue from there.
-I found these sources extremely helpful(esp the first):
-
-- [Andres Vidoza on YT](https://www.youtube.com/watch?v=mfemGt0syqo&t=274s)
-- [medium.com](https://medium.com/@liu-qilong/a-complete-guide-to-setup-wsl-windows-subsystem-for-linux-4547e88b6cdb)
 
 ## 3. Mac users 🍏
 
