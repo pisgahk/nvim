@@ -1,20 +1,32 @@
 # What is NeoVim?
 
-Neovim is a highly modular keyboard-based code editor. Unlike other code editors that modify their contents through GUI, Neovim is modified through refactoring text-based plugins.
+Neovim is a fast, efficient, and highly customizable text editor designed for coders. It builds on the strengths of Vim while introducing powerful features like plugin support, an embedded Lua engine, and async execution to supercharge your workflow.
+
+If you've ever used a bulky IDE and wished for something faster, lighter, and tailored to your exact needs, Neovim is your playground. Whether you're editing code, writing docs, or customizing your dev setup down to the pixel, Neovim gives you full control — all from your terminal.
 
 ![Preview of my May2k25 setup solving rustlings qns](./illustrations/screenshot.png)
 ![Preview of my June2k25 config](./illustrations/nvim.png)``
 
-I do not deserve to take all the credit. This was a clone and modification of the nvim setup by [Arfan Zubi Github](https://github.com/3rfaan), [Arfan Zubi YT](https://youtube.com/@zubiarfan?si=03t-IIL6_Ows-gWB).
+<div style="overflow-x: auto; white-space: nowrap;">
+  <img src="./illustrations/screenshot.png" alt="Preview of my May2k25 setup" style="height: 300px; display: inline-block; margin-right: 20px;" />
+  <img src="./illustrations/nvim.png" alt="Preview of my June2k25 config" style="height: 300px; display: inline-block;" />
+</div>
 
-This is the new configuration of NeoVim for power users of Rust, Python, Solana(Even though I have not yet configured Solana settings yet as per May2025).
+I do not deserve to take all the credit. This was a clone and modification of the nvim setup by [Arfan Zubi](https://github.com/3rfaan), [Arfan Zubi YT](https://youtube.com/@zubiarfan?si=03t-IIL6_Ows-gWB).
 
-It is loaded with auto completion features, LSP support, beautiful UI ...
+This setup has been customised for users of Rust, Python, Golang, HTML, CSS, JS, TS, Bash, Lua among others.
+
+It is loaded with a tonne of feature including: auto completion features, LSP support, beautiful UI ...
 
 # Requirements:
 
 - NVIM v0.11.0
 - Use a Nerd Font. I use [JetBrains Mono](https://www.jetbrains.com/lp/mono/#).
+- Install `imagemagick` to work well with [image.nvim](https://github.com/3rd/image.nvim) plugin.
+
+```bash
+apt install imagemagick
+```
 
 # Features May2k25.
 
@@ -37,16 +49,7 @@ It is loaded with auto completion features, LSP support, beautiful UI ...
 - Uses [snacks.nvim](https://github.com/folke/snacks.nvim) for additional functionality with minimal plugin configuration.
 - Phenomenal status bar.
 - Git signs to visualise the changes in your code.
-
----
-
-### Additional.
-
-- Install `imagemagick` to work well with [image.nvim](https://github.com/3rd/image.nvim) plugin.
-
-```bash
-sudo apt install imagemagick
-```
+- Language dependent colour-scheme.
 
 ---
 
@@ -64,13 +67,37 @@ It installs all the required tools and plugins that will get you up and running 
 
 ## 2. Windows users 🪟
 
+### a. Vanilla Windows.
+
+Pre-requisities:
+
+1. Have a [Nerd-Font](https://www.nerdfonts.com/font-downloads) installed preferably [JetBrains Mono Nerd font](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/JetBrainsMono.zip), or [FiraCode Nerd font](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/FiraCode.zip).
+
+Open `Terminal` or `cmd` and paste this command.
+
+```bash
+git clone https://github.com/pisgahk/nvim.git "$HOME\AppData\Local\nvim"
+Remove-Item "$HOME\AppData\Local\nvim\.git" -Recurse -Force
+nvim "$HOME\AppData\Local\nvim"
+
+```
+
+### b. In WSL.
+
+```bash
+git clone https://github.com/pisgahk/nvim.git ~/.config/nvim && rm -rf ~/.config/nvim/.git && nvim ~/.config/nvim
+
+```
+
+---
+
 (As per now I have no idea) though i recommend that you install WSL and then continue from there.
 I found these sources extremely helpful(esp the first):
 
 - [Andres Vidoza on YT](https://www.youtube.com/watch?v=mfemGt0syqo&t=274s)
 - [medium.com](https://medium.com/@liu-qilong/a-complete-guide-to-setup-wsl-windows-subsystem-for-linux-4547e88b6cdb)
 
-## 2. Mac users 🍏
+## 3. Mac users 🍏
 
 (Never used mac ever, though i think that it is the same procedure. Just `git clone` the repo in your `.config` file.)
 
