@@ -67,7 +67,7 @@ vim.schedule(function()
     vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#f53c63", bg = "NONE" })
 end)
 
--- =================[Autocommands]============================================================================
+-- =================[Auto-commands]============================================================================
 
 -- Auto-save after __ time.
 vim.api.nvim_create_autocmd("CursorHold", {
@@ -81,10 +81,16 @@ vim.api.nvim_create_autocmd("CursorHold", {
     end,
 })
 
--- Preventing looping in lsp-documentation.
--- vim.api.nvim_create_autocmd("FileType", {
---     pattern = "help",
---     callback = function()
---         vim.opt_local.wrapscan = false
---     end,
--- })
+-- for hebrew and English language directions.
+
+vim.keymap.set("n", "<leader>hi", function()
+    vim.opt.keymap = "hebrew"
+    vim.opt.iminsert = 1
+    vim.opt.rightleft = true
+end, { desc = "Enable Hebrew input mode" })
+
+vim.keymap.set("n", "<leader>hn", function()
+    vim.opt.keymap = ""
+    vim.opt.iminsert = 0
+    vim.opt.rightleft = false
+end, { desc = "Normal mode (LTR)" })
