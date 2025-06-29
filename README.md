@@ -3,7 +3,7 @@
 Neovim is a fast, efficient, and highly customizable text editor designed for coders. It builds on the strengths of Vim while introducing powerful features like plugin support, an embedded Lua engine, and async execution to supercharge your workflow.
 
 If you've ever used a bulky IDE and wished for something faster, lighter, and tailored to your exact needs, Neovim is your playground. Whether you're editing code, writing docs, or customizing your dev setup down to the pixel, Neovim gives you full control — all from your terminal.
-
+![Dashboard June2k25](./illustrations/dashboard.png)
 ![Preview of my May2k25 setup solving rustlings qns](./illustrations/screenshot.png)
 ![Preview of my June2k25 config](./illustrations/nvim.png)
 
