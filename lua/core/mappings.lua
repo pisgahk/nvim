@@ -94,3 +94,9 @@ vim.keymap.set("n", "<leader>hn", function()
     vim.opt.iminsert = 0
     vim.opt.rightleft = false
 end, { desc = "Normal mode (LTR)" })
+
+-- Solid Background for snacks.explorer
+vim.api.nvim_set_hl(0, "SnacksPicker", {
+    bg = "#1e1e1e", -- Replace with your desired hex color
+    -- fg = "#cdd6f4", -- Optional: set foreground color for contrast
+})
