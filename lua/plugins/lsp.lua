@@ -21,6 +21,14 @@ return {
             { "folke/neodev.nvim",                   opts = {} },
             "j-hui/fidget.nvim",
         },
+
+        opts = function(_, opts)
+            local esp32 = require("esp32")
+            opts.servers = opts.servers or {}
+            opts.servers.clangd = esp32.lsp_config()
+            return opts
+        end,
+
         settings = {
             Lua = {
                 diagnostics = {

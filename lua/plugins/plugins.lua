@@ -10,9 +10,9 @@
 -- PLUGINS
 
 return {
-
     require("plugins.ui"),
     require("plugins.colourscheme"),
+    require("plugins.esp32"),
     require("plugins.lsp"),
     require("plugins.completion"),
     require("plugins.snippets"),
@@ -20,5 +20,4 @@ return {
     require("plugins.extras"),
     require("plugins.git"),
     require("plugins.telescope"),
-
 }

@@ -45,6 +45,7 @@ apt install imagemagick
 - Phenomenal status bar.
 - Git signs to visualise the changes in your code.
 - Language dependent colour-scheme.
+- Added ESP32 tool lsp and tools.
 
 ---
 
