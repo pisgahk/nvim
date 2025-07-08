@@ -63,7 +63,7 @@ return {
                 ensure_installed = {
                     "lua_ls",
                     "pyright",
-                    -- "rust_analyzer",
+                    -- "rust_analyzer", 🚨Install rust in your system instead.
                     "bashls",
                     "gopls",
                     "sqlls",
@@ -145,7 +145,7 @@ return {
                             granularity = {
                                 group = "crate", -- ✅ Must be one of: "preserve", "item", "crate", "module", "one"
                             },
-                            prefix = "by_self",  -- ✅ Replaces deprecated 'importPrefix'
+                            prefix = "by_self", -- ✅ Replaces deprecated 'importPrefix'
                         },
                         assist = {
                             importMergeBehavior = "crate", -- ✅ Valid values: `preserve`, `item`, `crate`, `module`, `one`

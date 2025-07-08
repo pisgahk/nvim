@@ -13,7 +13,7 @@ return {
     {
         "projekt0n/github-nvim-theme",
         name = "github-theme",
-        lazy = false, -- make sure we load this during startup if it is your main colorscheme
+        lazy = false,    -- make sure we load this during startup if it is your main colorscheme
         priority = 1000, -- make sure to load this before all the other start plugins
         config = function()
             require("github-theme").setup({
@@ -45,9 +45,9 @@ return {
         "neanias/everforest-nvim",
         config = function()
             require("everforest").setup({
-                background = "medium", -- Options: "soft", "medium", "hard"
+                background = "medium",            -- Options: "soft", "medium", "hard"
                 transparent_background_level = 2, -- 0 (no transparency), 1 (some transparency), 2 (full transparency)
-                italics = true,       -- Enable italics for better aesthetics
+                italics = true,                   -- Enable italics for better aesthetics
             })
         end,
     },
@@ -77,7 +77,7 @@ return {
                     -- bash = { colorscheme = "everforest" },
                     sh = { colorscheme = "gruvbox" },
                     lua = { colorscheme = "github_dark_dimmed" },
-                    markdown = { colorscheme = "molokai" },
+                    markdown = { colorscheme = "catppuccin-mocha" },
                     javascript = { colorscheme = "nightfox" },
                     solana = { colorscheme = "everforest" },
                     help = { colorscheme = "catppuccin-mocha", background = "dark" },

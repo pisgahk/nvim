@@ -12,7 +12,7 @@
 return {
     require("plugins.ui"),
     require("plugins.colourscheme"),
-    require("plugins.esp32"),
+    require("plugins.esp"),
     require("plugins.lsp"),
     require("plugins.completion"),
     require("plugins.snippets"),

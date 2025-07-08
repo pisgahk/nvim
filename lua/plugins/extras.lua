@@ -28,7 +28,7 @@ return {
                     icon = "#ff5f5f", -- Red icons for consistency
                     key = "#ff8787", -- Keybind hints in red
                 },
-                preset = {
+                preset = { -- Add your own header here.
                     header = [[
 ██████╗ ██╗███████╗ ██████╗  █████╗ ██╗  ██╗   ██████╗ ███████╗██╗   ██╗
 ██╔══██╗██║██╔════╝██╔════╝ ██╔══██╗██║  ██║   ██╔══██╗██╔════╝██║   ██║
@@ -692,8 +692,16 @@ return {
         end,
     },
 
-    "someguy0555/snake.nvim",
-
+    "someguy0555/snake.nvim", -- run `Snake`
+    {
+        "MeanderingProgrammer/render-markdown.nvim",
+        dependencies = { "nvim-treesitter/nvim-treesitter" }, -- if you use the mini.nvim suite
+        -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
+        -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
+        ---@module 'render-markdown'
+        ---@type render.md.UserConfig
+        opts = {},
+    },
     {
         "sphamba/smear-cursor.nvim",
         opts = {
