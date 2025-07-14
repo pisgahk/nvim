@@ -128,13 +128,13 @@ return {
                 end,
                 desc = "Buffers",
             },
-            {
-                "<leader>/",
-                function()
-                    Snacks.picker.grep()
-                end,
-                desc = "Grep",
-            },
+            -- {
+            --     "<leader>/",
+            --     function()
+            --         Snacks.picker.grep()
+            --     end,
+            --     desc = "Grep",
+            -- },
             {
                 "<leader>:",
                 function()
@@ -156,35 +156,35 @@ return {
                 end,
                 desc = "File Explorer",
             },
-            -- find
-            {
-                "<leader>fb",
-                function()
-                    Snacks.picker.buffers()
-                end,
-                desc = "Buffers",
-            },
-            {
-                "<leader>fc",
-                function()
-                    Snacks.picker.files({ cwd = vim.fn.stdpath("config") })
-                end,
-                desc = "Find Config File",
-            },
-            {
-                "<leader>ff",
-                function()
-                    Snacks.picker.files()
-                end,
-                desc = "Find Files",
-            },
-            {
-                "<leader>fg",
-                function()
-                    Snacks.picker.git_files()
-                end,
-                desc = "Find Git Files",
-            },
+            --[find]--------------------------------------------------------------------------------------------------------
+            -- {
+            --     "<leader>fb",
+            --     function()
+            --         Snacks.picker.buffers()
+            --     end,
+            --     desc = "Buffers",
+            -- },
+            -- {
+            --     "<leader>fc",
+            --     function()
+            --         Snacks.picker.files({ cwd = vim.fn.stdpath("config") })
+            --     end,
+            --     desc = "Find Config File",
+            -- },
+            -- {
+            --     "<leader>ff",
+            --     function()
+            --         Snacks.picker.files()
+            --     end,
+            --     desc = "Find Files",
+            -- },
+            -- {
+            --     "<leader>fg",
+            --     function()
+            --         Snacks.picker.git_files()
+            --     end,
+            --     desc = "Find Git Files",
+            -- },
             {
                 "<leader>fp",
                 function()
@@ -199,7 +199,7 @@ return {
                 end,
                 desc = "Recent",
             },
-            -- git
+            --[git]---------------------------------------------------------------------------------------------------------------
             {
                 "<leader>gb",
                 function()
@@ -249,7 +249,7 @@ return {
                 end,
                 desc = "Git Log File",
             },
-            -- Grep
+            --[Grep]--------------------------------------------------------------------------------------------------------------------
             {
                 "<leader>sb",
                 function()
@@ -257,31 +257,31 @@ return {
                 end,
                 desc = "Buffer Lines",
             },
-            {
-                "<leader>sB",
-                function()
-                    Snacks.picker.grep_buffers()
-                end,
-                desc = "Grep Open Buffers",
-            },
-            {
-                "<leader>sg",
-                function()
-                    Snacks.picker.grep()
-                end,
-                desc = "Grep",
-            },
-            {
-                "<leader>sw",
-                function()
-                    Snacks.picker.grep_word()
-                end,
-                desc = "Visual selection or word",
-                mode = { "n", "x" },
-            },
+            -- {
+            --     "<leader>sB",
+            --     function()
+            --         Snacks.picker.grep_buffers()
+            --     end,
+            --     desc = "Grep Open Buffers",
+            -- },
+            -- {
+            --     "<leader>sg",
+            --     function()
+            --         Snacks.picker.grep()
+            --     end,
+            --     desc = "Grep",
+            -- },
+            -- {
+            --     "<leader>sw",
+            --     function()
+            --         Snacks.picker.grep_word()
+            --     end,
+            --     desc = "Visual selection or word",
+            --     mode = { "n", "x" },
+            -- },
             -- search
             {
-                '<leader>s"',
+                "<leader>sr",
                 function()
                     Snacks.picker.registers()
                 end,
@@ -301,22 +301,22 @@ return {
                 end,
                 desc = "Autocmds",
             },
-            {
-                "<leader>sb",
-                function()
-                    Snacks.picker.lines()
-                end,
-                desc = "Buffer Lines",
-            },
+            -- {
+            --     "<leader>sb",
+            --     function()
+            --         Snacks.picker.lines()
+            --     end,
+            --     desc = "Buffer Lines",
+            -- },
+            -- {
+            --     "<leader>sc",
+            --     function()
+            --         Snacks.picker.command_history()
+            --     end,
+            --     desc = "Command History",
+            -- },
             {
                 "<leader>sc",
-                function()
-                    Snacks.picker.command_history()
-                end,
-                desc = "Command History",
-            },
-            {
-                "<leader>sC",
                 function()
                     Snacks.picker.commands()
                 end,
@@ -357,13 +357,13 @@ return {
                 end,
                 desc = "Icons",
             },
-            {
-                "<leader>sj",
-                function()
-                    Snacks.picker.jumps()
-                end,
-                desc = "Jumps",
-            },
+            -- {
+            --     "<leader>sj",
+            --     function()
+            --         Snacks.picker.jumps()
+            --     end,
+            --     desc = "Jumps",
+            -- },
             {
                 "<leader>sk",
                 function()
@@ -371,13 +371,13 @@ return {
                 end,
                 desc = "Keymaps",
             },
-            {
-                "<leader>sl",
-                function()
-                    Snacks.picker.loclist()
-                end,
-                desc = "Location List",
-            },
+            -- {
+            --     "<leader>sl",
+            --     function()
+            --         Snacks.picker.loclist()
+            --     end,
+            --     desc = "Location List",
+            -- },
             {
                 "<leader>sm",
                 function()
@@ -399,20 +399,20 @@ return {
                 end,
                 desc = "Search for Plugin Spec",
             },
-            {
-                "<leader>sq",
-                function()
-                    Snacks.picker.qflist()
-                end,
-                desc = "Quickfix List",
-            },
-            {
-                "<leader>sR",
-                function()
-                    Snacks.picker.resume()
-                end,
-                desc = "Resume",
-            },
+            -- {
+            --     "<leader>sq",
+            --     function()
+            --         Snacks.picker.qflist()
+            --     end,
+            --     desc = "Quickfix List",
+            -- },
+            -- {
+            --     "<leader>sR",
+            --     function()
+            --         Snacks.picker.resume()
+            --     end,
+            --     desc = "Resume",
+            -- },
             {
                 "<leader>su",
                 function()
@@ -462,22 +462,22 @@ return {
                 function()
                     Snacks.picker.lsp_type_definitions()
                 end,
-                desc = "Goto T[y]pe Definition",
+                desc = "Goto Type Definition",
             },
-            {
-                "<leader>ss",
-                function()
-                    Snacks.picker.lsp_symbols()
-                end,
-                desc = "LSP Symbols",
-            },
-            {
-                "<leader>sS",
-                function()
-                    Snacks.picker.lsp_workspace_symbols()
-                end,
-                desc = "LSP Workspace Symbols",
-            },
+            -- {
+            --     "<leader>ss",
+            --     function()
+            --         Snacks.picker.lsp_symbols()
+            --     end,
+            --     desc = "LSP Symbols",
+            -- },
+            -- {
+            --     "<leader>sS",
+            --     function()
+            --         Snacks.picker.lsp_workspace_symbols()
+            --     end,
+            --     desc = "LSP Workspace Symbols",
+            -- },
             -- Other
             {
                 "<leader>z",
@@ -486,13 +486,13 @@ return {
                 end,
                 desc = "Toggle Zen Mode",
             },
-            {
-                "<leader>Z",
-                function()
-                    Snacks.zen.zoom()
-                end,
-                desc = "Toggle Zoom",
-            },
+            -- {
+            --     "<leader>Z",
+            --     function()
+            --         Snacks.zen.zoom()
+            --     end,
+            --     desc = "Toggle Zoom",
+            -- },
             {
                 "<leader>.",
                 function()
@@ -514,20 +514,20 @@ return {
                 end,
                 desc = "Notification History",
             },
-            {
-                "<leader>bd",
-                function()
-                    Snacks.bufdelete()
-                end,
-                desc = "Delete Buffer",
-            },
-            {
-                "<leader>cR",
-                function()
-                    Snacks.rename.rename_file()
-                end,
-                desc = "Rename File",
-            },
+            -- {
+            --     "<leader>bd",
+            --     function()
+            --         Snacks.bufdelete()
+            --     end,
+            --     desc = "Delete Buffer",
+            -- },
+            -- {
+            --     "<leader>cR",
+            --     function()
+            --         Snacks.rename.rename_file()
+            --     end,
+            --     desc = "Rename File",
+            -- },
             {
                 "<leader>gB",
                 function()
@@ -557,13 +557,13 @@ return {
                 end,
                 desc = "Toggle Terminal",
             },
-            {
-                "<c-_>",
-                function()
-                    Snacks.terminal()
-                end,
-                desc = "which_key_ignore",
-            },
+            -- {
+            --     "<c-_>",
+            --     function()
+            --         Snacks.terminal()
+            --     end,
+            --     desc = "which_key_ignore",
+            -- },
             {
                 "]]",
                 function()
@@ -645,15 +645,31 @@ return {
     {
         "folke/which-key.nvim",
         event = "VeryLazy",
-        opts = { preset = "helix" },
-        keys = {
-            {
-                "<leader>?",
-                function()
-                    require("which-key").show({ global = true })
-                end,
-                desc = "Buffer Local Keymaps (which-key)",
+        dependencies = {
+            "echasnovski/mini.icons",
+        },
+        opts = {
+            preset = "helix",
+            layout = {
+                height = { min = 4, max = 25 },
+                width = { min = 20, max = 50 },
+                spacing = 3,
+                align = "left",
             },
+            icons = {
+                breadcrumb = "::",
+                separator = "~",
+                group = "+",
+            },
+        },
+        keys = {
+            -- {
+            --     "<leader>?",
+            --     function()
+            --         require("which-key").show({ global = true })
+            --     end,
+            --     desc = "Buffer Local Keymaps (which-key)",
+            -- },
         },
     },
 

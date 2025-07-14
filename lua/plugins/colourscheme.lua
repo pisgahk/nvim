@@ -39,7 +39,14 @@ return {
     "briones-gabriel/darcula-solid.nvim",
     "rebelot/kanagawa.nvim",
     "shaunsingh/nord.nvim",
-    "Mofiqul/vscode.nvim",
+    {
+        "Mofiqul/vscode.nvim",
+        config = function()
+            require("vscode").setup({
+                transparent = true,
+            })
+        end,
+    },
     "ntk148v/habamax.nvim",
     {
         "neanias/everforest-nvim",
@@ -51,22 +58,32 @@ return {
             })
         end,
     },
-    "ellisonleao/gruvbox.nvim",
-
     {
-        "EdenEast/nightfox.nvim", -- Comma added here
+        "ellisonleao/gruvbox.nvim",
         config = function()
-            require("nightfox").setup({
-                options = {
-                    transparent = true,
-                    terminal_colors = true,
-                    dim_inactive = false, -- Fixed spacing issue
-                },
+            require("gruvbox").setup({
+                transparent_mode = true,
+                undercurl = true,
+                underline = true,
             })
         end,
     },
 
     {
+        "EdenEast/nightfox.nvim",
+        config = function()
+            require("nightfox").setup({
+                options = {
+                    transparent = true,
+                    terminal_colors = true,
+                    dim_inactive = false,
+                },
+            })
+        end,
+    },
+
+    { -- to check the filetypes, use `:echo &filetype`
+
         "folke/styler.nvim",
         config = function()
             require("styler").setup({
@@ -74,10 +91,9 @@ return {
                     rust = { colorscheme = "github_dark" },
                     python = { colorscheme = "everforest" },
                     html = { colorscheme = "vscode" },
-                    -- bash = { colorscheme = "everforest" },
                     sh = { colorscheme = "gruvbox" },
                     lua = { colorscheme = "github_dark_dimmed" },
-                    markdown = { colorscheme = "catppuccin-mocha" },
+                    markdown = { colorscheme = "carbonfox" },
                     javascript = { colorscheme = "nightfox" },
                     solana = { colorscheme = "everforest" },
                     help = { colorscheme = "catppuccin-mocha", background = "dark" },
