@@ -91,7 +91,3 @@ git clone https://github.com/pisgahk/nvim.git ~/.config/nvim && rm -rf ~/.config
 ---
 
 This journey begun on 08.04.2025, let us see how far we will go.
-
-```
-
-```
