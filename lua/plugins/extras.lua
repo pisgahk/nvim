@@ -25,10 +25,10 @@ return {
                     header = "#ff5f5f", -- Red header text
                     center = "#ff8787", -- Slightly lighter red for main options
                     footer = "#dcdccc", -- Neutral footer for contrast
-                    icon = "#ff5f5f", -- Red icons for consistency
-                    key = "#ff8787", -- Keybind hints in red
+                    icon = "#ff5f5f",   -- Red icons for consistency
+                    key = "#ff8787",    -- Keybind hints in red
                 },
-                preset = { -- Add your own header here.
+                preset = {              -- Add your own header here.
                     header = [[
 ██████╗ ██╗███████╗ ██████╗  █████╗ ██╗  ██╗   ██████╗ ███████╗██╗   ██╗
 ██╔══██╗██║██╔════╝██╔════╝ ██╔══██╗██║  ██║   ██╔══██╗██╔════╝██║   ██║
@@ -37,6 +37,7 @@ return {
 █║     ██║███████║╚██████╔╝██║  ██║██║  ██║██╗██████╔╝███████╗ ╚████╔╝
 ╝     ╚═╝╚══════╝ ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝╚═════╝ ╚══════╝  ╚═══╝
 =========================[Better Your Best🌹]==========================
+Build so much volume that there would be no option than to be successful.
  
 ]],
                 },
@@ -71,9 +72,9 @@ return {
                     max_height = 30,
                 },
                 convert = {
-                    notify = true, -- whether to show notifications on image render
+                    notify = true,     -- whether to show notifications on image render
                     magick = "magick", -- or path to your ImageMagick binary
-                    mermaid = "mmdc", -- or path to Mermaid CLI if used
+                    mermaid = "mmdc",  -- or path to Mermaid CLI if used
                     formats = {
                         "png",
                         "jpg",
@@ -99,6 +100,10 @@ return {
                         "icns",
                     },
                 },
+                math = {
+                    enabled = true,
+                },
+                force = true,
             },
 
             styles = {
@@ -686,9 +691,9 @@ return {
 
     "hiphish/rainbow-delimiters.nvim", -- Brackets, parenthesis colorizer
 
-    "simrat39/rust-tools.nvim",     -- Rust tools
+    "simrat39/rust-tools.nvim",        -- Rust tools
 
-    "brianhuster/live-preview.nvim", --Render .html & .md files.
+    "brianhuster/live-preview.nvim",   --Render .html & .md files.
 
     {
         "windwp/nvim-ts-autotag",

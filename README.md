@@ -50,7 +50,7 @@ apt install imagemagick
 
 # How to install
 
-## 1. Linux Users 🐧
+## 1. Linux & Mac Users 🐧 & 🍏
 
 No matter the distro, go to your terminal and type:
 
@@ -90,8 +90,8 @@ git clone https://github.com/pisgahk/nvim.git ~/.config/nvim && rm -rf ~/.config
 
 ---
 
-## 3. Mac users 🍏
-
-(Never used mac ever, though i think that it is the same procedure. Just `git clone` the repo in your `.config` file.)
-
 This journey begun on 08.04.2025, let us see how far we will go.
+
+```
+
+```
