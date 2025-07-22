@@ -12,11 +12,11 @@
 -- Redo
 vim.keymap.set("n", "U", "<C-r>", { desc = "Redo" })
 
--- Split navigation using CTRL + {j, k, h, l}
-vim.keymap.set("n", "<c-k>", "<c-w>k", { desc = "Split window up" })
-vim.keymap.set("n", "<c-j>", "<c-w>j", { desc = "Split window down" })
-vim.keymap.set("n", "<c-l>", "<c-w>l", { desc = "Split window right" })
-vim.keymap.set("n", "<c-h>", "<c-w>h", { desc = "Split window left" })
+-- Navigation across buffers using CTRL + {j, k, h, l}
+vim.keymap.set("n", "<c-k>", "<c-w>k", { desc = "Navigate up" })
+vim.keymap.set("n", "<c-j>", "<c-w>j", { desc = "Navigate down" })
+vim.keymap.set("n", "<c-l>", "<c-w>l", { desc = "Navigate right" })
+vim.keymap.set("n", "<c-h>", "<c-w>h", { desc = "Navigate left" })
 
 -- Resize split windows using arrow keys
 vim.keymap.set("n", "<c-up>", "<c-w>-", { desc = "Resize split window up" })
@@ -40,8 +40,8 @@ cmd("autocmd BufWritePost ~/.Xresources !xrdb %")
 
 vim.diagnostic.config({
     virtual_text = true, -- Enables inline error messages
-    signs = true,        -- Shows signs in the gutter
-    underline = true,    -- Underlines errors in the code
+    signs = true,     -- Shows signs in the gutter
+    underline = true, -- Underlines errors in the code
 })
 
 vim.keymap.set("n", "<leader>E", function()
@@ -102,7 +102,7 @@ vim.api.nvim_set_hl(0, "SnacksPicker", {
 })
 
 -- Support for Right to Left coding style.
--- e.g inorder to type `let var = 4;`, I find it convenient to type the RIGHT hand side first.
+-- e.g In order to type `let var = 4;`, I find it convenient to type the RIGHT hand side first.
 -- thus:
 -- I type `4;` then `C-h` then `let var = `
 
