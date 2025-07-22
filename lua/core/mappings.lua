@@ -100,3 +100,43 @@ vim.api.nvim_set_hl(0, "SnacksPicker", {
     bg = "#1e1e1e", -- Replace with your desired hex color
     -- fg = "#cdd6f4", -- Optional: set foreground color for contrast
 })
+
+-- Support for Right to Left coding style.
+-- e.g inorder to type `let var = 4;`, I find it convenient to type the RIGHT hand side first.
+-- thus:
+-- I type `4;` then `C-h` then `let var = `
+
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = { "rust", "scala", "sh", "lua" }, -- add your language here.
+    callback = function()
+        local feed = function(keys)
+            vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(keys, true, false, true), "n", true)
+        end
+
+        local luasnip = require("luasnip")
+
+        -- Start of line
+        vim.keymap.set("i", "<C-h>", function()
+            feed("<Esc>I")
+        end, { buffer = true })
+
+        -- End of line
+        vim.keymap.set("i", "<C-l>", function()
+            feed("<Esc>A")
+        end, { buffer = true })
+
+        -- Conditional move up
+        vim.keymap.set("i", "<C-k>", function()
+            if not luasnip.in_snippet() then
+                feed("<Esc>k^i")
+            end
+        end, { buffer = true })
+
+        -- Conditional move down
+        vim.keymap.set("i", "<C-j>", function()
+            if not luasnip.in_snippet() then
+                feed("<Esc>j^i")
+            end
+        end, { buffer = true })
+    end,
+})

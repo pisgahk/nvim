@@ -6,7 +6,7 @@
 -- ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝Snippets.
 
 -- cooked by P!5g@h
--- LuaSnip or vim-vsnip, friendly-snippets
+-- LuaSnip, friendly-snippets
 
 return {
     {
@@ -16,19 +16,6 @@ return {
         },
         config = function()
             local luasnip = require("luasnip")
-
-            -- 🔄 Allow jumping back into snippets after leaving insert mode
-            vim.keymap.set({ "i", "s" }, "<C-k>", function()
-                if luasnip.expand_or_jumpable() then
-                    luasnip.expand_or_jump()
-                end
-            end, { silent = true })
-
-            vim.keymap.set({ "i", "s" }, "<C-j>", function()
-                if luasnip.jumpable(-1) then
-                    luasnip.jump(-1)
-                end
-            end, { silent = true })
 
             -- 🔃 Reload snippets on save (for live tweaking)
             vim.api.nvim_create_autocmd("BufWritePost", {

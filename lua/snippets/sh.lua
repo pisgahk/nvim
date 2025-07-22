@@ -5,17 +5,17 @@ local i = ls.insert_node
 
 return {
   -- Bash shebang snippet
-  s("bash", {
+  s("bash(shebang)", {
     t("#!/usr/bin/env bash"),
-    t(""), -- empty line
+    t(""),
     t(""),
     i(0),
   }),
 
   -- Zsh shebang snippet
-  s("zsh", {
+  s("zsh(shebang)", {
     t("#!/usr/bin/env zsh"),
-    t(""), -- empty line
+    t(""),
     t(""),
     i(0),
   }),

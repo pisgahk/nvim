@@ -140,7 +140,7 @@ return {
                             granularity = {
                                 group = "crate", -- ✅ Must be one of: "preserve", "item", "crate", "module", "one"
                             },
-                            prefix = "by_self", -- ✅ Replaces deprecated 'importPrefix'
+                            prefix = "by_self",  -- ✅ Replaces deprecated 'importPrefix'
                         },
                         assist = {
                             importMergeBehavior = "crate", -- ✅ Valid values: `preserve`, `item`, `crate`, `module`, `one`
@@ -232,6 +232,12 @@ return {
                     null_ls.builtins.formatting.goimports,
                     null_ls.builtins.formatting.sqlfluff.with({
                         extra_args = { "--dialect", "postgres" },
+                    }),
+
+                    -- 🐍 Add Python formatting explicitly
+                    null_ls.builtins.formatting.yapf.with({
+                        filetypes = { "python" },
+                        extra_args = { "--style", "pep8" }, -- optional for faster formatting
                     }),
                 },
                 on_attach = function(client, bufnr)

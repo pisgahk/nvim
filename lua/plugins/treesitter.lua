@@ -48,6 +48,7 @@ return {
                 "vim",
                 "vimdoc",
                 "yaml",
+                "scala",
             },
             sync_install = false,
             auto_install = true,
