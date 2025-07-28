@@ -107,7 +107,7 @@ vim.api.nvim_set_hl(0, "SnacksPicker", {
 -- I type `4;` then `C-h` then `let var = `
 
 vim.api.nvim_create_autocmd("FileType", {
-    pattern = { "rust", "scala", "sh", "lua" }, -- add your language here.
+    pattern = { "rust", "scala", "sh", "lua", "conf", "cfg", "dosini", "i3config", "markdown" }, -- add your language here.
     callback = function()
         local feed = function(keys)
             vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(keys, true, false, true), "n", true)
@@ -139,4 +139,22 @@ vim.api.nvim_create_autocmd("FileType", {
             end
         end, { buffer = true })
     end,
+})
+
+-- Adding rendering for .rst files in nvim.
+vim.api.nvim_create_user_command("RstPreview", function()
+    local input = vim.fn.expand("%:p")       -- current .rst file
+    local output = vim.fn.tempname() .. ".html" -- temp HTML file
+    local cmd = string.format("rst2html.py %s %s", input, output)
+
+    local result = vim.fn.system(cmd)
+
+    if vim.v.shell_error ~= 0 then
+        vim.notify("rst2html failed:\n" .. result, vim.log.levels.ERROR)
+    else
+        vim.notify("Previewing rendered .rst file...", vim.log.levels.INFO)
+        vim.fn.system("xdg-open " .. output) -- open in browser (Linux)
+    end
+end, {
+    desc = "Preview current .rst file in browser",
 })

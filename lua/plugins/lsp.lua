@@ -140,7 +140,7 @@ return {
                             granularity = {
                                 group = "crate", -- ✅ Must be one of: "preserve", "item", "crate", "module", "one"
                             },
-                            prefix = "by_self",  -- ✅ Replaces deprecated 'importPrefix'
+                            prefix = "by_self", -- ✅ Replaces deprecated 'importPrefix'
                         },
                         assist = {
                             importMergeBehavior = "crate", -- ✅ Valid values: `preserve`, `item`, `crate`, `module`, `one`
@@ -261,6 +261,7 @@ return {
                     "goimports",
                     "sqlfluff",
                     "prettier",
+                    "semgrep",
                 },
                 automatic_installation = true,
             })

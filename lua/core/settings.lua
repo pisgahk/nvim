@@ -9,104 +9,119 @@
 -- Neovim Lua Config File by Arfan Zubi
 -- SETTINGS
 
--- settings.lua
+-- Set termguicolors to enable highlight groups
+opt.termguicolors = true
 
--------------------------------
--- 🖼 Visual & UI Settings
--------------------------------
+-- UTF8 encoding
+opt.encoding = "UTF-8"
 
-vim.opt.termguicolors = true                       -- Enable true color support
-vim.opt.cursorline = true                          -- Highlight the current cursor line
-vim.opt.cursorcolumn = false                       -- Disable vertical cursor line
-vim.opt.signcolumn = "yes"                         -- Always show the sign column
-vim.opt.wrap = true                                -- Enable line wrapping
-vim.opt.breakindent = true                         -- Preserve indentation for wrapped lines
-vim.opt.scrolloff = 10                             -- Keep 10 lines above/below cursor
-vim.opt.guifont = { "FiraCode Nerd Font", ":h14" } -- Set GUI font
+-- Enabling clipboard
+opt.clipboard = "unnamedplus"
 
-vim.opt.list = true                                -- Show hidden characters
-vim.opt.fillchars:append({ eob = " " })            -- Replace End-of-Buffer (~) with blank
+-- Persistent undo
+opt.undofile = true
 
--------------------------------
--- 🧠 Encoding, Clipboard, Undo
--------------------------------
+-- Line numbers
+opt.number = true
 
-vim.opt.encoding = "UTF-8"        -- Set encoding to UTF-8
-vim.opt.clipboard = "unnamedplus" -- Use system clipboard
-vim.opt.undofile = true           -- Enable persistent undo
+-- Relative line numbers
+opt.relativenumber = true
 
--------------------------------
--- 🔢 Line Numbers & Columns
--------------------------------
+-- Horizontal cursor line
+opt.cursorline = true
 
-vim.opt.number = true         -- Show line numbers
-vim.opt.relativenumber = true -- Show relative line numbers
+-- Vertical cursor line
+opt.cursorcolumn = false
 
--------------------------------
--- 📝 Tabs & Indentation
--------------------------------
+-- Shift width
+opt.shiftwidth = 4
 
-vim.opt.shiftwidth = 4   -- Number of spaces for indentation
-vim.opt.tabstop = 4      -- Number of spaces a tab counts for
-vim.opt.expandtab = true -- Use spaces instead of tabs
+-- Tab width
+opt.tabstop = 4
 
--------------------------------
--- 🔍 Searching
--------------------------------
+-- Space characters instead of tabs
+opt.expandtab = true
 
-vim.opt.hlsearch = true   -- Highlight search matches
-vim.opt.incsearch = true  -- Incremental search
-vim.opt.ignorecase = true -- Ignore case unless capital letters used
-vim.opt.smartcase = true  -- Override ignorecase if capital used
-vim.opt.showmatch = true  -- Highlight matching parentheses
+-- Disable backup files
+opt.backup = false
+opt.writebackup = false
 
--------------------------------
--- 💬 Command Line Behavior
--------------------------------
+-- Always show the signcolumn
+opt.signcolumn = "yes"
 
-vim.opt.showcmd = true   -- Show incomplete commands
-vim.opt.showmode = false -- Don't show current mode
-vim.opt.history = 1000   -- Set command history limit
+-- Do not let cursor scroll below or above N number of lines when scrolling
+opt.scrolloff = 10
 
--------------------------------
--- 🌐 Completion Settings
--------------------------------
+-- Wrap lines
+opt.wrap = true
 
-vim.opt.wildmenu = true        -- Enable command-line completion menu
-vim.opt.wildmode = "list:full" -- Bash-style completion
-vim.opt.wildoptions = "pum"    -- Use popup menu for completion
-vim.opt.pumheight = 20         -- Limit completion item height
+-- Preserve indentation of virtual line
+opt.breakindent = true
 
--------------------------------
--- 🖱 Mouse & Spell
--------------------------------
+-- Search highlighting
+opt.hlsearch = false
 
-vim.opt.mouse = "a"             -- Enable mouse in all modes
-vim.opt.spell = true            -- Enable spell checking
-vim.opt.spelllang = { "en_us" } -- Set spell language
+-- Incrementally highlight matching characters while typing
+opt.incsearch = true
 
--------------------------------
--- 📐 Splits Behavior
--------------------------------
+-- Ignoring capital letters during search
+opt.ignorecase = true
 
-vim.opt.splitright = true -- Vertical splits open to the right
-vim.opt.splitbelow = true -- Horizontal splits open below
+-- Overriding ignorecase option if searching for capital letters
+opt.smartcase = true
 
--------------------------------
--- 🚫 Disabling Built-ins
--------------------------------
+-- Showing matching words during search
+opt.showmatch = true
 
-vim.g.loaded_netrw = 1            -- Disable netrw
-vim.g.loaded_netrwPlugin = 1      -- Disable netrw plugin
+-- Showing partial command on last line
+opt.showcmd = true
 
-vim.g.loaded_python3_provider = 0 -- Disable Python 3 provider
-vim.g.loaded_ruby_provider = 0    -- Disable Ruby provider
-vim.g.loaded_perl_provider = 0    -- Disable Perl provider
-vim.g.loaded_node_provider = 0    -- Disable Node.js provider
+-- Showing mode on last line
+opt.showmode = false
 
--------------------------------
--- 🛡 Backup Settings
--------------------------------
+-- Command history
+opt.history = 1000
 
-vim.opt.backup = false      -- Disable backup files
-vim.opt.writebackup = false -- Disable write-backup files
+-- Auto completion menu after pressing TAB
+opt.wildmenu = true
+
+-- Bash-like completion
+opt.wildmode = "list:full"
+
+-- Ignoring files with certain extensions
+--opt.wildignore = "*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx"
+
+-- Command completion in popup menu
+opt.wildoptions = "pum"
+--opt.pumblend = 7   -- Make popup translucent
+opt.pumheight = 20 -- Max amount of items
+
+-- Mouse support
+opt.mouse = "a"
+
+-- Hide End-Of-Buffer symbol (~)
+opt.fillchars:append({ eob = " " })
+
+-- Settings for line highlighting
+opt.list = true
+
+-- Settings for cmp-spell
+opt.spell = true
+opt.spelllang = { "en_us" }
+
+-- Opening new split panes to right and below
+opt.splitright = true
+opt.splitbelow = true
+
+-- Disable netrw (native VIM file explorer)
+g.loaded_netrw = 1
+g.loaded_netrwPlugin = 1
+
+-- GUI settings
+opt.guifont = { "JetBrains Mono Regular" } --, ":h13" }
+
+-- Disabling providers (if downloaded Neovim from one of this providers don't delete!)
+g.loaded_python3_provider = 0
+g.loaded_ruby_provider = 0
+g.loaded_perl_provider = 0
+g.loaded_node_provider = 0

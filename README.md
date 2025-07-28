@@ -9,7 +9,7 @@ If you've ever used a bulky IDE and wished for something faster, lighter, and ta
 
 I do not deserve to take all the credit. This was a clone and modification of the nvim setup by [Arfan Zubi](https://github.com/3rfaan), [Arfan Zubi YT](https://youtube.com/@zubiarfan?si=03t-IIL6_Ows-gWB).
 
-This setup has been customised for users of Rust, Python, Golang, HTML, CSS, JS, TS, Bash, Lua among others.
+This setup has been customised for users of Rust, HTML, CSS, Bash, Lua.
 
 It is loaded with a tonne of feature including: auto completion features, LSP support, beautiful UI ...
 
