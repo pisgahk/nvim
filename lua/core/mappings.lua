@@ -40,8 +40,8 @@ cmd("autocmd BufWritePost ~/.Xresources !xrdb %")
 
 vim.diagnostic.config({
     virtual_text = true, -- Enables inline error messages
-    signs = true,     -- Shows signs in the gutter
-    underline = true, -- Underlines errors in the code
+    signs = true,        -- Shows signs in the gutter
+    underline = true,    -- Underlines errors in the code
 })
 
 vim.keymap.set("n", "<leader>E", function()
@@ -107,7 +107,7 @@ vim.api.nvim_set_hl(0, "SnacksPicker", {
 -- I type `4;` then `C-h` then `let var = `
 
 vim.api.nvim_create_autocmd("FileType", {
-    pattern = { "rust", "scala", "sh", "lua", "conf", "cfg", "dosini", "i3config", "markdown" }, -- add your language here.
+    pattern = { "rust", "scala", "sh", "lua", "conf", "cfg", "dosini", "i3config", "markdown", "python", "html", "css" }, -- add your language here.
     callback = function()
         local feed = function(keys)
             vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(keys, true, false, true), "n", true)
@@ -143,7 +143,7 @@ vim.api.nvim_create_autocmd("FileType", {
 
 -- Adding rendering for .rst files in nvim.
 vim.api.nvim_create_user_command("RstPreview", function()
-    local input = vim.fn.expand("%:p")       -- current .rst file
+    local input = vim.fn.expand("%:p")          -- current .rst file
     local output = vim.fn.tempname() .. ".html" -- temp HTML file
     local cmd = string.format("rst2html.py %s %s", input, output)
 

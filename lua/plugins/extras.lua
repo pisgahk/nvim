@@ -8,7 +8,7 @@
 
 -- cooked by P!5g@h
 -- snacks.nvim, auto-pairs, which-key, colourizer, rainbow-delimiters.
--- rust-tools, live-preview, auto-tag, snake-game
+-- rust-tools, live-preview, auto-tag, snake-game, code-runner.
 
 return {
 
@@ -25,10 +25,10 @@ return {
                     header = "#ff5f5f", -- Red header text
                     center = "#ff8787", -- Slightly lighter red for main options
                     footer = "#dcdccc", -- Neutral footer for contrast
-                    icon = "#ff5f5f",   -- Red icons for consistency
-                    key = "#ff8787",    -- Keybind hints in red
+                    icon = "#ff5f5f", -- Red icons for consistency
+                    key = "#ff8787", -- Keybind hints in red
                 },
-                preset = {              -- Add your own header here.
+                preset = { -- Add your own header here.
                     header = [[
 ██████╗ ██╗███████╗ ██████╗  █████╗ ██╗  ██╗   ██████╗ ███████╗██╗   ██╗
 ██╔══██╗██║██╔════╝██╔════╝ ██╔══██╗██║  ██║   ██╔══██╗██╔════╝██║   ██║
@@ -74,9 +74,9 @@ Build so much volume that there would be no option than to be successful.
                     max_height = 30,
                 },
                 convert = {
-                    notify = true,     -- whether to show notifications on image render
+                    notify = true, -- whether to show notifications on image render
                     magick = "magick", -- or path to your ImageMagick binary
-                    mermaid = "mmdc",  -- or path to Mermaid CLI if used
+                    mermaid = "mmdc", -- or path to Mermaid CLI if used
                     formats = {
                         "png",
                         "jpg",
@@ -685,10 +685,27 @@ Build so much volume that there would be no option than to be successful.
 
     "hiphish/rainbow-delimiters.nvim", -- Brackets, parenthesis colorizer
 
-    "simrat39/rust-tools.nvim",        -- Rust tools
+    "simrat39/rust-tools.nvim",     -- Rust tools
 
     {
         "brianhuster/live-preview.nvim", --Render .html & .md files.
+
+        config = function()
+            -- Auto-save file once I leave insert mode.
+            vim.o.autowriteall = true
+            vim.api.nvim_create_autocmd({ "InsertLeavePre", "TextChanged", "TextChangedP" }, {
+                pattern = "*",
+                callback = function()
+                    vim.cmd("silent! write")
+                end,
+            })
+
+            local opts = { noremap = true, silent = false }
+            vim.keymap.set("n", "<leader>ls", ":LivePreview start<CR>", opts)
+            vim.keymap.set("n", "<leader>lc", ":LivePreview close<CR>", opts)
+            vim.keymap.set("n", "<leader>lp", ":LivePreview pick<CR>", opts)
+            vim.keymap.set("n", "<leader>lh", ":LivePreview help<CR>", opts)
+        end,
     },
 
     {
@@ -730,5 +747,56 @@ Build so much volume that there would be no option than to be successful.
             trailing_stiffness = 0.8,
             distance_stop_animating = 0.3,
         },
+    },
+
+    {
+        "CRAG666/code_runner.nvim",
+        config = function()
+
+             -- Define custom highlight groups for code_runner
+            -- vim.api.nvim_set_hl(0, "CRFloatBorder", { fg = "#ff4b4b", bg = "#ffecec", bold = true })
+            -- vim.api.nvim_set_hl(0, "CRFloat", { bg = "#ffecec" })
+
+            require("code_runner").setup({
+                mode = "float",
+                focus = true,
+                startinsert = true,
+                float = {
+                    -- Window border (see ':h nvim_open_win')
+                    border = "rounded", -- options: 'none', 'single', 'double', 'rounded'
+
+                    -- Num from `0 - 1` for measurements
+                    height = 0.4, -- relative height (e.g. 0.4 = 40% of screen height)
+                    width = 0.8,
+                    x = 0.5,
+                    y = 0.5,
+
+                    -- Highlight group for floating window/border (see ':h winhl')
+                    border_hl = "CRFloatBorder",
+                    float_hl = "CRFloat",
+
+                    blend = 0, -- Transparency (see ':h winblend')
+                },
+                filetype = {
+                    python = "python3 -u",
+                    javascript = "node",
+                    rust = "cargo run",
+                    go = "go run",
+                    lua = "lua",
+                    sh = "bash",
+                    c = "gcc $fileName -o $fileNameWithoutExt && ./$fileNameWithoutExt",
+                    cpp = "g++ $fileName -o $fileNameWithoutExt && ./$fileNameWithoutExt",
+                },
+            })
+
+            local opts = { noremap = true, silent = false }
+            vim.keymap.set("n", "<leader>rr", ":RunCode<CR>", opts)
+            vim.keymap.set("n", "<leader>rf", ":RunFile<CR>", opts)
+            vim.keymap.set("n", "<leader>rft", ":RunFile tab<CR>", opts)
+            vim.keymap.set("n", "<leader>rp", ":RunProject<CR>", opts)
+            vim.keymap.set("n", "<leader>rc", ":RunClose<CR>", opts)
+            vim.keymap.set("n", "<leader>crf", ":CRFiletype<CR>", opts)
+            vim.keymap.set("n", "<leader>crp", ":CRProjects<CR>", opts)
+        end,
     },
 }
