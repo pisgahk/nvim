@@ -20,8 +20,9 @@ return {
             require("notify").setup({
                 -- Appearance
                 stages = "fade_in_slide_out", -- other options: static, fade, slide
-                background_colour = "#000000",
-                timeout = 3000,   -- default duration in ms
+                background_colour = "#ff5555",
+                border = "rounded",
+                timeout = 3000, -- default duration in ms
                 fps = 60,
                 minimum_width = 30,
                 render = "default", -- "compact" | "minimal" also look good

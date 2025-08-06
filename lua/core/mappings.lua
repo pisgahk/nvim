@@ -40,8 +40,8 @@ cmd("autocmd BufWritePost ~/.Xresources !xrdb %")
 
 vim.diagnostic.config({
     virtual_text = true, -- Enables inline error messages
-    signs = true,        -- Shows signs in the gutter
-    underline = true,    -- Underlines errors in the code
+    signs = true,     -- Shows signs in the gutter
+    underline = true, -- Underlines errors in the code
 })
 
 vim.keymap.set("n", "<leader>E", function()
@@ -49,23 +49,21 @@ vim.keymap.set("n", "<leader>E", function()
     vim.diagnostic.config({ virtual_text = not current })
 end, { desc = "Toggle inline errors" })
 
-vim.api.nvim_set_hl(0, "DiagnosticUnderlineError", { undercurl = true, sp = "#ff5555" }) -- Change color as needed
-vim.api.nvim_set_hl(0, "DiagnosticUnderlineWarn", { undercurl = true, sp = "#ffaa00" })
-vim.api.nvim_set_hl(0, "DiagnosticUnderlineHint", { undercurl = true, sp = "#55ff55" })
-vim.api.nvim_set_hl(0, "DiagnosticUnderlineInfo", { undercurl = true, sp = "#5555ff" })
+-- vim.api.nvim_set_hl(0, "DiagnosticUnderlineError", { undercurl = true, sp = "#ff5555" }) -- Change color as needed
+-- vim.api.nvim_set_hl(0, "DiagnosticUnderlineWarn", { undercurl = true, sp = "#ffaa00" })
+-- vim.api.nvim_set_hl(0, "DiagnosticUnderlineHint", { undercurl = true, sp = "#55ff55" })
+-- vim.api.nvim_set_hl(0, "DiagnosticUnderlineInfo", { undercurl = true, sp = "#5555ff" })
+--
+-- vim.api.nvim_set_hl(0, "DiagnosticVirtualTextError", { fg = "#ff5555", bg = "NONE" }) -- Adjust color to be faded
+-- vim.api.nvim_set_hl(0, "DiagnosticVirtualTextWarn", { fg = "#ffaa00", bg = "NONE" })
+-- vim.api.nvim_set_hl(0, "DiagnosticVirtualTextHint", { fg = "#55ff55", bg = "NONE" })
+-- vim.api.nvim_set_hl(0, "DiagnosticVirtualTextInfo", { fg = "#5555ff", bg = "NONE" })
 
-vim.api.nvim_set_hl(0, "DiagnosticVirtualTextError", { fg = "#ff5555", bg = "NONE" }) -- Adjust color to be faded
-vim.api.nvim_set_hl(0, "DiagnosticVirtualTextWarn", { fg = "#ffaa00", bg = "NONE" })
-vim.api.nvim_set_hl(0, "DiagnosticVirtualTextHint", { fg = "#55ff55", bg = "NONE" })
-vim.api.nvim_set_hl(0, "DiagnosticVirtualTextInfo", { fg = "#5555ff", bg = "NONE" })
+-- vim.diagnostic.open_float()
 
-vim.api.nvim_set_hl(0, "LspInlayHint", { bg = "NONE" })
-
-vim.diagnostic.open_float()
-
-vim.schedule(function()
-    vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#f53c63", bg = "NONE" })
-end)
+-- vim.schedule(function()
+--     vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#f53c63", bg = "NONE" })
+-- end)
 
 -- =================[Auto-commands]============================================================================
 
@@ -143,7 +141,7 @@ vim.api.nvim_create_autocmd("FileType", {
 
 -- Adding rendering for .rst files in nvim.
 vim.api.nvim_create_user_command("RstPreview", function()
-    local input = vim.fn.expand("%:p")          -- current .rst file
+    local input = vim.fn.expand("%:p")       -- current .rst file
     local output = vim.fn.tempname() .. ".html" -- temp HTML file
     local cmd = string.format("rst2html.py %s %s", input, output)
 

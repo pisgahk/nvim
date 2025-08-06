@@ -56,7 +56,7 @@ return {
                 ensure_installed = {
                     "lua_ls",
                     "pyright",
-                    -- "rust_analyzer", 🚨Install rust in your system instead.
+                    -- "rust_analyzer", -- 🚨Install rust in your system instead.
                     "bashls",
                     "gopls",
                     "sqlls",

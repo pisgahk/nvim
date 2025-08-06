@@ -25,10 +25,10 @@ return {
                     header = "#ff5f5f", -- Red header text
                     center = "#ff8787", -- Slightly lighter red for main options
                     footer = "#dcdccc", -- Neutral footer for contrast
-                    icon = "#ff5f5f", -- Red icons for consistency
-                    key = "#ff8787", -- Keybind hints in red
+                    icon = "#ff5f5f",   -- Red icons for consistency
+                    key = "#ff8787",    -- Keybind hints in red
                 },
-                preset = { -- Add your own header here.
+                preset = {              -- Add your own header here.
                     header = [[
 ██████╗ ██╗███████╗ ██████╗  █████╗ ██╗  ██╗   ██████╗ ███████╗██╗   ██╗
 ██╔══██╗██║██╔════╝██╔════╝ ██╔══██╗██║  ██║   ██╔══██╗██╔════╝██║   ██║
@@ -74,9 +74,9 @@ Build so much volume that there would be no option than to be successful.
                     max_height = 30,
                 },
                 convert = {
-                    notify = true, -- whether to show notifications on image render
+                    notify = true,     -- whether to show notifications on image render
                     magick = "magick", -- or path to your ImageMagick binary
-                    mermaid = "mmdc", -- or path to Mermaid CLI if used
+                    mermaid = "mmdc",  -- or path to Mermaid CLI if used
                     formats = {
                         "png",
                         "jpg",
@@ -256,6 +256,22 @@ Build so much volume that there would be no option than to be successful.
                 end,
                 desc = "Git Log File",
             },
+            {
+                "<leader>gB",
+                function()
+                    Snacks.gitbrowse()
+                end,
+                desc = "Git Browse",
+                mode = { "n", "v" },
+            },
+            {
+                "<leader>gg",
+                function()
+                    Snacks.lazygit()
+                end,
+                desc = "Lazygit",
+            },
+
             --[Grep]--------------------------------------------------------------------------------------------------------------------
             {
                 "<leader>sb",
@@ -292,7 +308,7 @@ Build so much volume that there would be no option than to be successful.
                 function()
                     Snacks.picker.registers()
                 end,
-                desc = "Registers",
+                desc = "Search Registers",
             },
             {
                 "<leader>s/",
@@ -306,7 +322,7 @@ Build so much volume that there would be no option than to be successful.
                 function()
                     Snacks.picker.autocmds()
                 end,
-                desc = "Autocmds",
+                desc = "Search Autocmds",
             },
             -- {
             --     "<leader>sb",
@@ -327,42 +343,42 @@ Build so much volume that there would be no option than to be successful.
                 function()
                     Snacks.picker.commands()
                 end,
-                desc = "Commands",
+                desc = "Search Commands",
             },
             {
                 "<leader>sd",
                 function()
                     Snacks.picker.diagnostics()
                 end,
-                desc = "Diagnostics",
+                desc = "Search Diagnostics",
             },
             {
                 "<leader>sD",
                 function()
                     Snacks.picker.diagnostics_buffer()
                 end,
-                desc = "Buffer Diagnostics",
+                desc = "Search Buffer Diagnostics",
             },
             {
                 "<leader>sh",
                 function()
                     Snacks.picker.help()
                 end,
-                desc = "Help Pages",
+                desc = "Search Help Pages",
             },
             {
                 "<leader>sH",
                 function()
                     Snacks.picker.highlights()
                 end,
-                desc = "Highlights",
+                desc = "Search Highlights",
             },
             {
                 "<leader>si",
                 function()
                     Snacks.picker.icons()
                 end,
-                desc = "Icons",
+                desc = "Search Icons",
             },
             -- {
             --     "<leader>sj",
@@ -376,7 +392,7 @@ Build so much volume that there would be no option than to be successful.
                 function()
                     Snacks.picker.keymaps()
                 end,
-                desc = "Keymaps",
+                desc = "Search Keymaps",
             },
             -- {
             --     "<leader>sl",
@@ -390,14 +406,14 @@ Build so much volume that there would be no option than to be successful.
                 function()
                     Snacks.picker.marks()
                 end,
-                desc = "Marks",
+                desc = "Search Marks",
             },
             {
                 "<leader>sM",
                 function()
                     Snacks.picker.man()
                 end,
-                desc = "Man Pages",
+                desc = "Search Man Pages",
             },
             {
                 "<leader>sp",
@@ -425,14 +441,14 @@ Build so much volume that there would be no option than to be successful.
                 function()
                     Snacks.picker.undo()
                 end,
-                desc = "Undo History",
+                desc = "Search Undo History",
             },
             {
                 "<leader>uC",
                 function()
                     Snacks.picker.colorschemes()
                 end,
-                desc = "Colorschemes",
+                desc = "Colorschemes...",
             },
             -- LSP
             {
@@ -455,7 +471,7 @@ Build so much volume that there would be no option than to be successful.
                     Snacks.picker.lsp_references()
                 end,
                 nowait = true,
-                desc = "References",
+                desc = "Goto References",
             },
             {
                 "gI",
@@ -536,34 +552,19 @@ Build so much volume that there would be no option than to be successful.
             --     desc = "Rename File",
             -- },
             {
-                "<leader>gB",
-                function()
-                    Snacks.gitbrowse()
-                end,
-                desc = "Git Browse",
-                mode = { "n", "v" },
-            },
-            {
-                "<leader>gg",
-                function()
-                    Snacks.lazygit()
-                end,
-                desc = "Lazygit",
-            },
-            {
                 "<leader>un",
                 function()
                     Snacks.notifier.hide()
                 end,
                 desc = "Dismiss All Notifications",
             },
-            {
-                "<c-/>",
-                function()
-                    Snacks.terminal()
-                end,
-                desc = "Toggle Terminal",
-            },
+            -- {
+            --     "<c-/>",
+            --     function()
+            --         Snacks.terminal()
+            --     end,
+            --     desc = "Toggle Terminal",
+            -- },
             -- {
             --     "<c-_>",
             --     function()
@@ -587,24 +588,24 @@ Build so much volume that there would be no option than to be successful.
                 desc = "Prev Reference",
                 mode = { "n", "t" },
             },
-            {
-                "<leader>N",
-                desc = "Neovim News",
-                function()
-                    Snacks.win({
-                        file = vim.api.nvim_get_runtime_file("doc/news.txt", false)[1],
-                        width = 0.6,
-                        height = 0.6,
-                        wo = {
-                            spell = false,
-                            wrap = false,
-                            signcolumn = "yes",
-                            statuscolumn = " ",
-                            conceallevel = 3,
-                        },
-                    })
-                end,
-            },
+            -- {
+            --     "<leader>N",
+            --     desc = "Neovim News",
+            --     function()
+            --         Snacks.win({
+            --             file = vim.api.nvim_get_runtime_file("doc/news.txt", false)[1],
+            --             width = 0.6,
+            --             height = 0.6,
+            --             wo = {
+            --                 spell = false,
+            --                 wrap = false,
+            --                 signcolumn = "yes",
+            --                 statuscolumn = " ",
+            --                 conceallevel = 3,
+            --             },
+            --         })
+            --     end,
+            -- },
         },
         init = function()
             vim.api.nvim_create_autocmd("User", {
@@ -657,7 +658,7 @@ Build so much volume that there would be no option than to be successful.
         },
         opts = {
             preset = "helix",
-            windows = true,
+            -- windows = true,
             layout = {
                 height = { min = 4, max = 25 },
                 width = { min = 20, max = 50 },
@@ -685,7 +686,7 @@ Build so much volume that there would be no option than to be successful.
 
     "hiphish/rainbow-delimiters.nvim", -- Brackets, parenthesis colorizer
 
-    "simrat39/rust-tools.nvim",     -- Rust tools
+    "simrat39/rust-tools.nvim",        -- Rust tools
 
     {
         "brianhuster/live-preview.nvim", --Render .html & .md files.
@@ -752,28 +753,23 @@ Build so much volume that there would be no option than to be successful.
     {
         "CRAG666/code_runner.nvim",
         config = function()
-
-             -- Define custom highlight groups for code_runner
-            -- vim.api.nvim_set_hl(0, "CRFloatBorder", { fg = "#ff4b4b", bg = "#ffecec", bold = true })
-            -- vim.api.nvim_set_hl(0, "CRFloat", { bg = "#ffecec" })
-
             require("code_runner").setup({
                 mode = "float",
                 focus = true,
-                startinsert = true,
+                startinsert = false,
                 float = {
                     -- Window border (see ':h nvim_open_win')
                     border = "rounded", -- options: 'none', 'single', 'double', 'rounded'
 
                     -- Num from `0 - 1` for measurements
-                    height = 0.4, -- relative height (e.g. 0.4 = 40% of screen height)
-                    width = 0.8,
+                    height = 0.25, -- relative height (e.g. 0.4 = 40% of screen height)
+                    width = 0.7,
                     x = 0.5,
-                    y = 0.5,
+                    y = 0.9,
 
                     -- Highlight group for floating window/border (see ':h winhl')
-                    border_hl = "CRFloatBorder",
-                    float_hl = "CRFloat",
+                    border_hl = "FloatBorder",
+                    float_hl = "Normal",
 
                     blend = 0, -- Transparency (see ':h winblend')
                 },

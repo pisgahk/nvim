@@ -125,8 +125,3 @@ g.loaded_python3_provider = 0
 g.loaded_ruby_provider = 0
 g.loaded_perl_provider = 0
 g.loaded_node_provider = 0
-
--- Setting the default floating buffer-colours because Github-dark theme colour scheme is not doing me good.
--- vim.cmd [[highlight FloatBorder guifg=#ff4b4b guibg=#ffecec gui=bold]]
--- vim.cmd [[highlight NormalFloat guibg=#ffecec]]
-
