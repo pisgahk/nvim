@@ -18,19 +18,19 @@ return {
         config = function()
             require("catppuccin").setup({
                 flavour = "mocha", -- latte, frappe, macchiato, mocha
-                background = {     -- :h background
+                background = { -- :h background
                     light = "latte",
                     dark = "mocha",
                 },
                 transparent_background = true, -- disables setting the background color.
                 float = {
-                    transparent = true,       -- enable transparent floating windows
-                    solid = false,              -- use solid styling for floating windows, see |winborder|
+                    transparent = true, -- enable transparent floating windows
+                    solid = false, -- use solid styling for floating windows, see |winborder|
                 },
-                show_end_of_buffer = false,    -- shows the '~' characters after the end of buffers
-                term_colors = true,            -- sets terminal colors (e.g. `g:terminal_color_0`)
-                styles = {                     -- Handles the styles of general hi groups (see `:h highlight-args`):
-                    comments = { "italic" },   -- Change the style of comments
+                show_end_of_buffer = false, -- shows the '~' characters after the end of buffers
+                term_colors = true, -- sets terminal colors (e.g. `g:terminal_color_0`)
+                styles = {         -- Handles the styles of general hi groups (see `:h highlight-args`):
+                    comments = { "italic" }, -- Change the style of comments
                     conditionals = { "italic" },
                     -- miscs = {}, -- Uncomment to turn off hard-coded styles
                 },
@@ -39,14 +39,14 @@ return {
                 custom_highlights = {
                     FloatBorder = { fg = "#ff5555" }, -- #f53c63
                     TelescopeBorder = { fg = "#ff5555" }, -- if using Telescope
-                    WhichKeyBorder = { fg = "#ff5555" },  -- if using WhichKey
+                    WhichKeyBorder = { fg = "#ff5555" }, -- if using WhichKey
 
                     --🧱 Core UI
                     -- Normal = { fg = "#ff5555" },
                     -- LineNr = { fg = "#ff5555" },
                     -- CursorLineNr = { fg = "#ff5555", bold = true },
-                    -- VertSplit = { fg = "#ff5555" },
-                    -- WinSeparator = { fg = "#ff5555" },
+                    VertSplit = { fg = "#fdbcb4" },
+                    WinSeparator = { fg = "#fdbcb4" },
                     -- NormalFloat = { fg = "#50fa7b", bg = "#1a1a1a" },
                     -- Pmenu = { fg = "#ff5555", bg = "#1a1a1a" },
                     -- PmenuSel = { fg = "#1a1a1a", bg = "#ff5555" },
@@ -136,9 +136,9 @@ return {
         "neanias/everforest-nvim",
         config = function()
             require("everforest").setup({
-                background = "medium",            -- Options: "soft", "medium", "hard"
+                background = "medium", -- Options: "soft", "medium", "hard"
                 transparent_background_level = 2, -- 0 (no transparency), 1 (some transparency), 2 (full transparency)
-                italics = true,                   -- Enable italics for better aesthetics
+                italics = true,       -- Enable italics for better aesthetics
             })
         end,
     },

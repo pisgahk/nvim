@@ -21,14 +21,15 @@ return {
             bigfile = { enabled = true },
             dashboard = {
                 enabled = true,
-                colors = {
-                    header = "#ff5f5f", -- Red header text
-                    center = "#ff8787", -- Slightly lighter red for main options
-                    footer = "#dcdccc", -- Neutral footer for contrast
-                    icon = "#ff5f5f",   -- Red icons for consistency
-                    key = "#ff8787",    -- Keybind hints in red
-                },
-                preset = {              -- Add your own header here.
+                width = 60,
+                -- colors = {
+                --     header = "#ff5f5f", -- Red header text
+                --     center = "#ff8787", -- Slightly lighter red for main options
+                --     footer = "#dcdccc", -- Neutral footer for contrast
+                --     icon = "#ff5f5f", -- Red icons for consistency
+                --     key = "#ff8787", -- Keybind hints in red
+                -- },
+                preset = {
                     header = [[
 ██████╗ ██╗███████╗ ██████╗  █████╗ ██╗  ██╗   ██████╗ ███████╗██╗   ██╗
 ██╔══██╗██║██╔════╝██╔════╝ ██╔══██╗██║  ██║   ██╔══██╗██╔════╝██║   ██║
@@ -56,6 +57,7 @@ Build so much volume that there would be no option than to be successful.
                         layout = { layout = { position = "right", width = 30 } },
                         hidden = true,
                         ignored = true,
+                        auto_close = false,
                     },
                 },
             },
@@ -66,17 +68,21 @@ Build so much volume that there would be no option than to be successful.
             words = { enabled = true },
             image = {
                 enabled = true,
+                relative = "cursor",
+                border = "rounded",
+                focusable = "false",
+                backdrop = "false",
                 doc = {
                     enabled = true,
-                    inline = true, -- set to true if you want inline rendering
+                    inline = false, -- set to true if you want inline rendering
                     float = true,
-                    max_width = 60,
-                    max_height = 30,
+                    max_width = 80,
+                    max_height = 40,
                 },
                 convert = {
-                    notify = true,     -- whether to show notifications on image render
+                    notify = true, -- whether to show notifications on image render
                     magick = "magick", -- or path to your ImageMagick binary
-                    mermaid = "mmdc",  -- or path to Mermaid CLI if used
+                    mermaid = "mmdc", -- or path to Mermaid CLI if used
                     formats = {
                         "png",
                         "jpg",
@@ -686,7 +692,7 @@ Build so much volume that there would be no option than to be successful.
 
     "hiphish/rainbow-delimiters.nvim", -- Brackets, parenthesis colorizer
 
-    "simrat39/rust-tools.nvim",        -- Rust tools
+    "simrat39/rust-tools.nvim",     -- Rust tools
 
     {
         "brianhuster/live-preview.nvim", --Render .html & .md files.
@@ -733,9 +739,17 @@ Build so much volume that there would be no option than to be successful.
         dependencies = { "nvim-treesitter/nvim-treesitter" }, -- if you use the mini.nvim suite
         -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
         -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
-        ---@module 'render-markdown'
-        ---@type render.md.UserConfig
-        opts = {},
+        -- ---@module 'render-markdown'
+        -- ---@type render.md.UserConfig
+        -- opts = {},
+
+        config = function()
+            require("render-markdown").setup({
+                html = {
+                    enabled = false,
+                },
+            })
+        end,
     },
     {
         "sphamba/smear-cursor.nvim",

@@ -23,7 +23,7 @@ return {
                 background_colour = "#ff5555",
                 border = "rounded",
                 timeout = 3000, -- default duration in ms
-                fps = 60,
+                fps = 30,
                 minimum_width = 30,
                 render = "default", -- "compact" | "minimal" also look good
                 icons = {
