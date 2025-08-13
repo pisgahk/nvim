@@ -18,9 +18,10 @@ It is loaded with a tonne of feature including: auto completion features, LSP su
 - NVIM v0.11.0
 - Use a Nerd Font. I use [JetBrains Mono](https://www.jetbrains.com/lp/mono/#).
 - Install `imagemagick` to work well with [image.nvim](https://github.com/3rd/image.nvim) plugin.
+- Install `tokei` ensure language detection menu displays well.(todo!)
 
 ```bash
-apt install imagemagick
+apt install imagemagick tokei
 ```
 
 # Features May2k25.
