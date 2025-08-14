@@ -890,32 +890,52 @@ Build so much volume that there would be no option than to be successful.
         "marcocofano/excalidraw.nvim",
         config = function()
             local uv = vim.loop
-            local cwd = uv.cwd() -- Get current working directory
-            local storage_path = cwd .. "/.bulbs/excalidraw"
 
-            -- Ensure .bulbs/excalidraw directory exists
-            local function ensure_dir(path)
-                local stat = uv.fs_stat(path)
+            -- All .excalidraw files are stored in the current `working_dir/.bulbs/excalidraw/...`
+            -- Function to ensure .bulbs/excalidraw exists
+            local function ensure_storage_dir()
+                local cwd = uv.cwd()
+                local bulbs_dir = cwd .. "/.bulbs"
+                local storage_path = bulbs_dir .. "/excalidraw"
+
+                local stat = uv.fs_stat(storage_path)
                 if not stat then
-                    uv.fs_mkdir(cwd .. "/.bulbs", 493) -- 0755 permissions
-                    uv.fs_mkdir(path, 493)
+                    if not uv.fs_stat(bulbs_dir) then
+                        uv.fs_mkdir(bulbs_dir, 493) -- 0755
+                    end
+                    uv.fs_mkdir(storage_path, 493)
                 end
+
+                return storage_path
             end
 
-            ensure_dir(storage_path)
+            -- Setup plugin with dynamic storage path (but don't create dirs yet)
+            local function setup_excalidraw()
+                local storage_path = ensure_storage_dir()
 
-            -- Setup plugin with dynamic storage path
-            require("excalidraw").setup({
-                storage_dir = storage_path,
-                templates_dir = storage_path .. "/templates",
-                open_on_create = true,
-                relative_path = true,
-                picker = {
-                    link_scene_mapping = "<C-x>",
-                },
+                require("excalidraw").setup({
+                    storage_dir = storage_path,
+                    templates_dir = storage_path .. "/templates",
+                    open_on_create = true,
+                    relative_path = true,
+                    picker = {
+                        link_scene_mapping = "<C-x>",
+                    },
+                })
+            end
+
+            -- Lazy-load setup on first command invocation
+            vim.api.nvim_create_user_command("Excalidraw", function(opts)
+                setup_excalidraw()
+                vim.cmd("Excalidraw " .. opts.args)
+            end, {
+                nargs = "*",
+                complete = function(_, line)
+                    return { "create", "open", "template" }
+                end,
             })
 
-            -- Custom keymaps for Excalidraw commands
+            -- Optional: keymaps (these will trigger setup lazily)
             local map = vim.keymap.set
             map("n", "<leader>ec", ":Excalidraw create<CR>", { desc = "Create new Excalidraw scene" })
             map("n", "<leader>eo", ":Excalidraw open<CR>", { desc = "Open Excalidraw scene under cursor" })

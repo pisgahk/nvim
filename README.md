@@ -9,9 +9,9 @@ If you've ever used a bulky IDE and wished for something faster, lighter, and ta
 
 I do not deserve to take all the credit. This was a clone and modification of the nvim setup by [Arfan Zubi](https://github.com/3rfaan), [Arfan Zubi YT](https://youtube.com/@zubiarfan?si=03t-IIL6_Ows-gWB).
 
-This setup has been customised for users of Rust, HTML, CSS, Bash, Lua.
+This setup has been customized for users of Rust, HTML, CSS, Bash, Lua.
 
-It is loaded with a tonne of feature including: auto completion features, LSP support, beautiful UI ...
+It is loaded with a tonne of feature including: auto completion features, LSP support, beautiful UI among other features.
 
 # Requirements:
 
@@ -24,11 +24,14 @@ It is loaded with a tonne of feature including: auto completion features, LSP su
 apt install imagemagick tokei
 ```
 
-- You need to have the excalidraw app installed as a Progressive Web App(PWA) and configured as default application for .excalidraw files. The plugin provides a custom opener that tries to find the file in the link, even if you configure it to use relative paths.
+- You need to have the excalidraw app installed as a [Progressive Web App (PWA)](https://en.wikipedia.org/wiki/Progressive_web_app) and configured as default application for .excalidraw files. The plugin provides a custom opener that tries to find the file in the link, even if you configure it to use relative paths.
 
 > Open [Excalidraw.com](https://excalidraw.com) using your Chromium-based web browser(Brave, Chrome, Edge).
 >
-> Click the three dots in top right in browser's menu > **Install Excalidraw** > Set the default app for the .excalidraw files(Right click > Open With > Excalidraw)
+> Click the three dots in top right in browser's menu > **Install Excalidraw** > Set the default app for the .excalidraw files (Right click > Open With > Excalidraw)
+>
+> Once you use the excalidraw command, I have set it to store the `.excalidraw` files in `<working_dir>/.bulb/excalidraw/` for better organization of the codebase instead of the default `~/.excalidraw/` dir.
+> <br> You can check it out in `.config/nvim/lua/plugins/extras.lua` .
 
 # Features May2k25.
 
@@ -38,11 +41,7 @@ apt install imagemagick tokei
 
   _Github Dark_ just looks so beautiful 🤩 in my opinion, especially for Rust, C and C++ code.
 
-  Multiple other colour-schemes come included:
-  - [catppuccin](https://github.com/catppuccin/nvim)
-  - [molokai](https://github.com/UtkarshVerma/molokai.nvim)
-  - [horizon](https://github.com/akinsho/horizon.nvim)
-  - [darcula solid](https://github.com/santos-gabriel-dario/darcula-solid.nvim)
+  Multiple other colour-schemes come included: [catppuccin](https://github.com/catppuccin/nvim), [molokai](https://github.com/UtkarshVerma/molokai.nvim), [horizon](https://github.com/akinsho/horizon.nvim), [darcula solid](https://github.com/santos-gabriel-dario/darcula-solid.nvim)
 
 - Auto Completion using [nvim-cmp](https://github.com/hrsh7th/nvim-cmp) which has been set for configuration for Rust, Python, Solana languages.
 - Excellent LSP support.
@@ -59,19 +58,24 @@ apt install imagemagick tokei
 
 ## 1. Linux & Mac Users 🐧 & 🍏
 
-No matter the distro, go to your terminal and type:
+It installs all the required tools and plugins that will get you up and running in no time.
+<br>No matter the distro, go to your terminal and type:
 
 ```bash
-cd ~/.config && git clone https://github.com/pisgahk/nvim.git && rm -rf .git && cd nvim && nvim .
+cd ~/.config && git clone https://github.com/pisgahk/nvim.git  && cd nvim && nvim .
 ```
 
-It installs all the required tools and plugins that will get you up and running in no time.
+Remove the `.git` file
+
+```bash
+rm -rf .git
+```
 
 ## 2. Windows users 🪟
 
-### a. Vanilla Windows.
-
-Some features do not work in this version of Windows, install WSL for the full experience.
+<details>
+    <summary> a. Vanilla Windows (Unstable, Not well tested, not recommended) </summary>
+    Some features do not work in this version of Windows, install WSL for the full experience.
 
 Pre-requisities:
 
@@ -89,10 +93,12 @@ Open `Terminal` or `Command Prompt` and paste this command.
 git clone https://github.com/pisgahk/nvim.git %USERPROFILE%\AppData\Local\nvim && nvim
 ```
 
+</details>
+
 ### b. In WSL(Highly Recommended)
 
 ```bash
-git clone https://github.com/pisgahk/nvim.git ~/.config/nvim && rm -rf ~/.config/nvim/.git && nvim ~/.config/nvim
+git clone https://github.com/pisgahk/nvim.git ~/.config/nvim  && cd .config/nvim && nvim .
 ```
 
 ---
