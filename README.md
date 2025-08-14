@@ -24,6 +24,12 @@ It is loaded with a tonne of feature including: auto completion features, LSP su
 apt install imagemagick tokei
 ```
 
+- You need to have the excalidraw app installed as a Progressive Web App(PWA) and configured as default application for .excalidraw files. The plugin provides a custom opener that tries to find the file in the link, even if you configure it to use relative paths.
+
+> Open [Excalidraw.com](https://excalidraw.com) using your Chromium-based web browser(Brave, Chrome, Edge).
+>
+> Click the three dots in top right in browser's menu > **Install Excalidraw** > Set the default app for the .excalidraw files(Right click > Open With > Excalidraw)
+
 # Features May2k25.
 
 - File Explorer on the right.

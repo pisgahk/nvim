@@ -8,6 +8,7 @@
   "code_runner.nvim": { "branch": "main", "commit": "65c8d11f507073b915f10faa88ea05bd4fbf69ce" },
   "darcula-solid.nvim": { "branch": "main", "commit": "d950b9ca20096313c435a93e57af7815766f3d3d" },
   "everforest-nvim": { "branch": "main", "commit": "2eb7c348f880ba93de4d98cae049c9441f5d4d49" },
+  "excalidraw.nvim": { "branch": "main", "commit": "0d1babd50e6dd3e41359df03946d0e4d1c7f1f5f" },
   "fidget.nvim": { "branch": "main", "commit": "4ec7bed6c86b671ddde03ca1b227343cfa3e65fa" },
   "friendly-snippets": { "branch": "main", "commit": "572f5660cf05f8cd8834e096d7b4c921ba18e175" },
   "gitgraph.nvim": { "branch": "main", "commit": "c16daa7d7dd597caf9085644c009cfa80b75db8e" },

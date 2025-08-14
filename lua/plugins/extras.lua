@@ -9,7 +9,7 @@
 -- cooked by P!5g@h
 -- snacks.nvim, auto-pairs, which-key, colourizer, rainbow-delimiters.
 -- rust-tools, live-preview, auto-tag, snake-game, code-runner.
-
+-- excalidraw
 return {
 
     {
@@ -883,6 +883,43 @@ Build so much volume that there would be no option than to be successful.
             vim.keymap.set("n", "<leader>rc", ":RunClose<CR>", opts)
             vim.keymap.set("n", "<leader>crf", ":CRFiletype<CR>", opts)
             vim.keymap.set("n", "<leader>crp", ":CRProjects<CR>", opts)
+        end,
+    },
+
+    {
+        "marcocofano/excalidraw.nvim",
+        config = function()
+            local uv = vim.loop
+            local cwd = uv.cwd() -- Get current working directory
+            local storage_path = cwd .. "/.bulbs/excalidraw"
+
+            -- Ensure .bulbs/excalidraw directory exists
+            local function ensure_dir(path)
+                local stat = uv.fs_stat(path)
+                if not stat then
+                    uv.fs_mkdir(cwd .. "/.bulbs", 493) -- 0755 permissions
+                    uv.fs_mkdir(path, 493)
+                end
+            end
+
+            ensure_dir(storage_path)
+
+            -- Setup plugin with dynamic storage path
+            require("excalidraw").setup({
+                storage_dir = storage_path,
+                templates_dir = storage_path .. "/templates",
+                open_on_create = true,
+                relative_path = true,
+                picker = {
+                    link_scene_mapping = "<C-x>",
+                },
+            })
+
+            -- Custom keymaps for Excalidraw commands
+            local map = vim.keymap.set
+            map("n", "<leader>ec", ":Excalidraw create<CR>", { desc = "Create new Excalidraw scene" })
+            map("n", "<leader>eo", ":Excalidraw open<CR>", { desc = "Open Excalidraw scene under cursor" })
+            map("n", "<leader>et", ":Excalidraw template<CR>", { desc = "Open template picker" })
         end,
     },
 }
