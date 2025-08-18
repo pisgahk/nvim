@@ -42,81 +42,81 @@ Build so much volume that there would be no option than to be successful.
  
 ]],
                 },
-                sections = {
-                    { section = "header" },
-                    -- {
-                    --     pane = 2,
-                    --     section = "terminal",
-                    --     cmd = "colorscript -e square",
-                    --     height = 5,
-                    --     padding = 1,
-                    -- },
-                    { section = "keys",  gap = 1, padding = 1 },
-                    {
-                        pane = 2,
-                        icon = " ",
-                        desc = "Browse Repo",
-                        padding = 1,
-                        key = "b",
-                        action = function()
-                            require("snacks").gitbrowse()
-                        end,
-                    },
-                    function()
-                        local Snacks = require("snacks")
-                        local in_git = Snacks.git.get_root() ~= nil
-                        local cmds = {
-                            {
-                                title = "Notifications",
-                                cmd = "gh notify -s -a -n5",
-                                action = function()
-                                    vim.ui.open("https://github.com/notifications")
-                                end,
-                                key = "N",
-                                icon = "\u{f0f3} ",
-                                height = 5,
-                                enabled = true,
-                            },
-                            {
-                                title = "Open Issues",
-                                cmd = "gh issue list -L 3",
-                                key = "i",
-                                action = function()
-                                    vim.fn.jobstart("gh issue list --web", { detach = true })
-                                end,
-                                icon = "\u{f188} ",
-                                height = 7,
-                            },
-                            {
-                                icon = "\u{f447} ",
-                                title = "Open PRs",
-                                cmd = "gh pr list -L 3",
-                                key = "P",
-                                action = function()
-                                    vim.fn.jobstart("gh pr list --web", { detach = true })
-                                end,
-                                height = 7,
-                            },
-                            {
-                                icon = "\u{e725} ",
-                                title = "Git Status",
-                                cmd = "git --no-pager diff --stat -B -M -C",
-                                height = 10,
-                            },
-                        }
-                        return vim.tbl_map(function(cmd)
-                            return vim.tbl_extend("force", {
-                                pane = 2,
-                                section = "terminal",
-                                enabled = in_git,
-                                padding = 1,
-                                ttl = 5 * 60,
-                                indent = 3,
-                            }, cmd)
-                        end, cmds)
-                    end,
-                    { section = "startup" },
-                },
+                -- sections = {
+                --     { section = "header" },
+                --     -- {
+                --     --     pane = 2,
+                --     --     section = "terminal",
+                --     --     cmd = "colorscript -e square",
+                --     --     height = 5,
+                --     --     padding = 1,
+                --     -- },
+                --     { section = "keys",  gap = 1, padding = 1 },
+                --     {
+                --         pane = 2,
+                --         icon = " ",
+                --         desc = "Browse Repo",
+                --         padding = 1,
+                --         key = "b",
+                --         action = function()
+                --             require("snacks").gitbrowse()
+                --         end,
+                --     },
+                --     function()
+                --         local Snacks = require("snacks")
+                --         local in_git = Snacks.git.get_root() ~= nil
+                --         local cmds = {
+                --             {
+                --                 title = "Notifications",
+                --                 cmd = "gh notify -s -a -n5",
+                --                 action = function()
+                --                     vim.ui.open("https://github.com/notifications")
+                --                 end,
+                --                 key = "N",
+                --                 icon = "\u{f0f3} ",
+                --                 height = 5,
+                --                 enabled = true,
+                --             },
+                --             {
+                --                 title = "Open Issues",
+                --                 cmd = "gh issue list -L 3",
+                --                 key = "i",
+                --                 action = function()
+                --                     vim.fn.jobstart("gh issue list --web", { detach = true })
+                --                 end,
+                --                 icon = "\u{f188} ",
+                --                 height = 7,
+                --             },
+                --             {
+                --                 icon = "\u{f447} ",
+                --                 title = "Open PRs",
+                --                 cmd = "gh pr list -L 3",
+                --                 key = "P",
+                --                 action = function()
+                --                     vim.fn.jobstart("gh pr list --web", { detach = true })
+                --                 end,
+                --                 height = 7,
+                --             },
+                --             {
+                --                 icon = "\u{e725} ",
+                --                 title = "Git Status",
+                --                 cmd = "git --no-pager diff --stat -B -M -C",
+                --                 height = 10,
+                --             },
+                --         }
+                --         return vim.tbl_map(function(cmd)
+                --             return vim.tbl_extend("force", {
+                --                 pane = 2,
+                --                 section = "terminal",
+                --                 enabled = in_git,
+                --                 padding = 1,
+                --                 ttl = 5 * 60,
+                --                 indent = 3,
+                --             }, cmd)
+                --         end, cmds)
+                --     end,
+                --     { section = "startup" },
+                -- },
                 --},
             },
             explorer = { enabled = true },
@@ -878,11 +878,11 @@ Build so much volume that there would be no option than to be successful.
             local opts = { noremap = true, silent = false }
             vim.keymap.set("n", "<leader>rr", ":RunCode<CR>", opts)
             vim.keymap.set("n", "<leader>rf", ":RunFile<CR>", opts)
-            vim.keymap.set("n", "<leader>rft", ":RunFile tab<CR>", opts)
+            vim.keymap.set("n", "<leader>rt", ":RunFile tab<CR>", opts)
             vim.keymap.set("n", "<leader>rp", ":RunProject<CR>", opts)
             vim.keymap.set("n", "<leader>rc", ":RunClose<CR>", opts)
-            vim.keymap.set("n", "<leader>crf", ":CRFiletype<CR>", opts)
-            vim.keymap.set("n", "<leader>crp", ":CRProjects<CR>", opts)
+            -- vim.keymap.set("n", "<leader>crf", ":CRFiletype<CR>", opts)
+            -- vim.keymap.set("n", "<leader>crp", ":CRProjects<CR>", opts)
         end,
     },
 
@@ -937,9 +937,9 @@ Build so much volume that there would be no option than to be successful.
 
             -- Optional: keymaps (these will trigger setup lazily)
             local map = vim.keymap.set
-            map("n", "<leader>ec", ":Excalidraw create<CR>", { desc = "Create new Excalidraw scene" })
-            map("n", "<leader>eo", ":Excalidraw open<CR>", { desc = "Open Excalidraw scene under cursor" })
-            map("n", "<leader>et", ":Excalidraw template<CR>", { desc = "Open template picker" })
+            map("n", "<leader>xc", ":Excalidraw create<CR>", { desc = "Create new Excalidraw scene" })
+            map("n", "<leader>xo", ":Excalidraw open<CR>", { desc = "Open Excalidraw scene under cursor" })
+            map("n", "<leader>xt", ":Excalidraw template<CR>", { desc = "Open template picker" })
         end,
     },
 }

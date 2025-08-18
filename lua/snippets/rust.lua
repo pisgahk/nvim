@@ -34,4 +34,121 @@ return {
             "}",
         }),
     }),
+
+    s(
+        "actix-hello_world(template)",
+        fmt(
+            [[
+use actix_web::{{web, App, HttpResponse, HttpServer, Responder, Result}};
+
+async fn {}() -> impl Responder {{
+    HttpResponse::Ok().body("{}")
+}}
+
+#[actix_web::main]
+async fn main() -> Result<()> {{
+    println!("Listening on port {}");
+
+    HttpServer::new(|| {{
+        App::new().route("{}", web::get().to({}))
+    }})
+    .bind("127.0.0.1:{}")?
+    .run()
+    .await;
+
+    Ok(())
+}}
+
+// Run with `http://127.0.0.1:{}/hello` in browser.
+
+// Probable file-tree
+/*
+
+
+.
++-- Cargo.lock
++-- Cargo.toml
++-- src
+|   +-- main.rs
++-- static
+    +-- css
+    |   +-- index.css
+    +-- image
+    |   +-- image1.jpg
+    |   +-- image2.jpg
+    |   +-- image3.jpg
+    +-- index.html
+*/
+
+]],
+            {
+                i(1, "hello"),       -- function name
+                i(2, "Hello World"), -- response body
+                i(3, "8080"),        -- port for println
+                i(4, "/hello"),      -- route path
+                rep(1),              -- function name again
+                rep(3),              -- port for bind
+                rep(3),              -- port for comment
+            }
+        )
+    ),
+
+    s(
+        "actix-connecting_web(template)",
+        fmt(
+            [[
+use actix_files::NamedFile;
+use actix_web::{{web, App, HttpServer, Result}};
+
+async fn {}() -> Result<NamedFile> {{
+    Ok(NamedFile::open("{}")?)
+}}
+
+#[actix_web::main]
+async fn main() -> Result<()> {{
+    println!("Listening on port {}");
+
+    HttpServer::new(|| {{
+        App::new().route("{}", web::get().to({}))
+    }})
+    .bind("127.0.0.1:{}")?
+    .run()
+    .await;
+
+    Ok(())
+}}
+
+// Run with `http://127.0.0.1:{}/` in browser.
+
+// Probable file-tree
+/*
+
+
+.
++-- Cargo.lock
++-- Cargo.toml
++-- src
+|   +-- main.rs
++-- static
+    +-- css
+    |   +-- index.css
+    +-- image
+    |   +-- image1.jpg
+    |   +-- image2.jpg
+    |   +-- image3.jpg
+    +-- index.html
+*/
+
+]],
+            {
+                i(1, "index"),               -- function name
+                i(2, "./static/index.html"), -- file path
+                i(3, "8080"),                -- port
+                i(4, "/"),                   -- route path
+                rep(1),                      -- function name again
+                rep(3),                      -- port for bind
+                rep(3),                      -- port for comment
+            }
+        )
+    ),
 }

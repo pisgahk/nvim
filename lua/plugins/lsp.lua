@@ -58,14 +58,16 @@ return {
                     "pyright",
                     -- "rust_analyzer", -- 🚨Install rust in your system instead.
                     "bashls",
-                    "gopls",
+                    -- "gopls",
                     "sqlls",
-                    "solang",
+                    -- "solang",
                     "html",
                     "cssls",
                     "ts_ls",
                     "jsonls",
                     "eslint",
+                    "emmet-ls",
+                    "emmet_language_server",
                 },
                 automatic_installation = true,
             })
@@ -95,8 +97,8 @@ return {
                     keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
                     keymap.set("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>", opts)
                     keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts)
-                    keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
-                    keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
+                    -- keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
+                    -- keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
                     keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts)
                     keymap.set("n", "K", function()
                         vim.lsp.buf.hover()
@@ -174,30 +176,54 @@ return {
                 },
             })
 
-            -- Golang setup
-            lspconfig["gopls"].setup({
+            -- -- Golang setup
+            -- lspconfig["gopls"].setup({
+            --     capabilities = capabilities,
+            --     settings = {
+            --         gopls = {
+            --             analyses = {
+            --                 unusedparams = true,
+            --                 shadow = true,
+            --             },
+            --             staticcheck = true,
+            --         },
+            --     },
+            -- })
+            --
+            -- Emmet setup
+            lspconfig["emmet_language_server"].setup({
                 capabilities = capabilities,
-                settings = {
-                    gopls = {
-                        analyses = {
-                            unusedparams = true,
-                            shadow = true,
+                filetypes = {
+                    "html",
+                    "css",
+                    -- "javascript",
+                    -- "typescript",
+                    "javascriptreact",
+                    "typescriptreact",
+                    -- "vue",
+                    -- "svelte",
+                    -- "php",
+                    -- "markdown",
+                },
+                init_options = {
+                    html = {
+                        options = {
+                            ["bem.enabled"] = true, -- optional: enables BEM-style class expansion
                         },
-                        staticcheck = true,
                     },
                 },
             })
 
-            -- Solana setup
-            lspconfig["solang"].setup({
-                capabilities = capabilities,
-                settings = {
-                    solang = {
-                        includePaths = { "/usr/local/include" },
-                    },
-                },
-            })
-
+            -- -- Solana setup
+            -- lspconfig["solang"].setup({
+            --     capabilities = capabilities,
+            --     settings = {
+            --         solang = {
+            --             includePaths = { "/usr/local/include" },
+            --         },
+            --     },
+            -- })
+            --
             -- 🌍 Generic setups
             local servers = { "bashls", "cssls", "html", "jsonls", "ts_ls", "eslint", "sqlls" }
 
