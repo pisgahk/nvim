@@ -156,9 +156,9 @@ Build so much volume that there would be no option than to be successful.
                     max_height = 40,
                 },
                 convert = {
-                    notify = true,     -- whether to show notifications on image render
+                    notify = true, -- whether to show notifications on image render
                     magick = "magick", -- or path to your ImageMagick binary
-                    mermaid = "mmdc",  -- or path to Mermaid CLI if used
+                    mermaid = "mmdc", -- or path to Mermaid CLI if used
                     formats = {
                         "png",
                         "jpg",
@@ -749,8 +749,8 @@ Build so much volume that there would be no option than to be successful.
             },
             icons = {
                 breadcrumb = "::",
-                separator = "~",
-                group = "+",
+                separator = "➺",
+                group = "🖿 ",
             },
         },
     },
@@ -768,7 +768,7 @@ Build so much volume that there would be no option than to be successful.
 
     "hiphish/rainbow-delimiters.nvim", -- Brackets, parenthesis colorizer
 
-    "simrat39/rust-tools.nvim",        -- Rust tools
+    "simrat39/rust-tools.nvim",     -- Rust tools
 
     {
         "brianhuster/live-preview.nvim", --Render .html & .md files.

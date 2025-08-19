@@ -55,6 +55,7 @@ return {
             require("mason-lspconfig").setup({
                 ensure_installed = {
                     "lua_ls",
+                    -- "lua_language_server",
                     "pyright",
                     -- "rust_analyzer", -- 🚨Install rust in your system instead.
                     "bashls",
@@ -66,8 +67,8 @@ return {
                     "ts_ls",
                     "jsonls",
                     "eslint",
-                    "emmet-ls",
-                    "emmet_language_server",
+                    "emmet_ls",
+                    "tailwindcss",
                 },
                 automatic_installation = true,
             })
@@ -142,7 +143,7 @@ return {
                             granularity = {
                                 group = "crate", -- ✅ Must be one of: "preserve", "item", "crate", "module", "one"
                             },
-                            prefix = "by_self", -- ✅ Replaces deprecated 'importPrefix'
+                            prefix = "by_self",  -- ✅ Replaces deprecated 'importPrefix'
                         },
                         assist = {
                             importMergeBehavior = "crate", -- ✅ Valid values: `preserve`, `item`, `crate`, `module`, `one`
@@ -191,7 +192,7 @@ return {
             -- })
             --
             -- Emmet setup
-            lspconfig["emmet_language_server"].setup({
+            lspconfig["emmet_ls"].setup({
                 capabilities = capabilities,
                 filetypes = {
                     "html",
@@ -209,6 +210,37 @@ return {
                     html = {
                         options = {
                             ["bem.enabled"] = true, -- optional: enables BEM-style class expansion
+                        },
+                    },
+                },
+            })
+
+            -- Tailwind CSS setup
+            lspconfig["tailwindcss"].setup({
+                capabilities = capabilities,
+                filetypes = {
+                    "html",
+                    "css",
+                    -- "javascript",
+                    -- "javascriptreact",
+                    -- "typescript",
+                    -- "typescriptreact",
+                    -- "svelte",
+                    -- "vue",
+                },
+                init_options = {
+                    userLanguages = {
+                        rust = "html", -- 🦀 For Tailwind in Rust templates
+                    },
+                },
+                settings = {
+                    tailwindCSS = {
+                        experimental = {
+                            classRegex = {
+                                { "tw`([^`]*)",     "tw" }, -- tw`...`
+                                { 'tw="([^"]*)',    "tw" }, -- tw="..." in JSX
+                                { 'tw={"([^"]*)"}', "tw" }, -- tw={"..."} in TSX
+                            },
                         },
                     },
                 },
