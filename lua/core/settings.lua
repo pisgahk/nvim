@@ -28,7 +28,7 @@ opt.number = true
 opt.relativenumber = true
 
 -- Horizontal cursor line
-opt.cursorline = true
+opt.cursorline = false
 
 -- Vertical cursor line
 opt.cursorcolumn = false

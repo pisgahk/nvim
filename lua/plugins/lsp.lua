@@ -69,6 +69,7 @@ return {
                     "eslint",
                     "emmet_ls",
                     "tailwindcss",
+                    -- "shellcheck",
                 },
                 automatic_installation = true,
             })
@@ -175,6 +176,18 @@ return {
                         },
                     },
                 },
+            })
+
+            lspconfig["bashls"].setup({
+                capabilities = capabilities,
+                filetypes = { "sh" },
+                cmd = { "bash-language-server", "start" },
+                settings = {
+                    bashIde = {
+                        globPattern = "*@(.sh|.bash)",
+                    },
+                },
+                root_dir = vim.loop.cwd,
             })
 
             -- -- Golang setup
@@ -292,11 +305,17 @@ return {
                         extra_args = { "--dialect", "postgres" },
                     }),
 
-                    -- 🐍 Add Python formatting explicitly
+                    -- 🐍 Adding Python formatting explicitly
                     null_ls.builtins.formatting.yapf.with({
                         filetypes = { "python" },
                         extra_args = { "--style", "pep8" }, -- optional for faster formatting
                     }),
+
+                    -- 🐚 Adding ShellCheck diagnostics for Bash
+                    --     null_ls.builtins.diagnostics.shellcheck.with({
+                    --         diagnostics_format = "#{m} [#{c}]",
+                    --         filetypes = { "sh" },
+                    --     }),
                 },
                 on_attach = function(client, bufnr)
                     if client.supports_method("textDocument/formatting") then
@@ -320,6 +339,7 @@ return {
                     "sqlfluff",
                     "prettier",
                     "semgrep",
+                    -- "shellcheck",
                 },
                 automatic_installation = true,
             })

@@ -151,4 +151,22 @@ async fn main() -> Result<()> {{
             }
         )
     ),
+
+    s(
+        "deref-method(template)",
+        fmt(
+            [[
+    impl std::ops::Deref for {} {{
+        type Target = {};
+        fn deref(&self) -> &Self::Target {{
+            &self.0
+        }}
+    }}
+  ]],
+            {
+                i(1, "Wrapper"), -- Struct name
+                i(2, "T"),       -- Target type
+            }
+        )
+    ),
 }
