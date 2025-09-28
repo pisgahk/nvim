@@ -23,9 +23,10 @@ return {
                 horizontal = { width = 0.9, preview_cutoff = 120 },
             },
             prompt_prefix = "🔍 ",
-            selection_caret = " ",
+            selection_caret = "->> ", -- " ",
             sorting_strategy = "ascending",
             winblend = 10,
+            initial_mode = "normal",
             -- mappings = {
             --     i = {
             --         ["<Esc>"] = require("telescope.actions").close,
@@ -35,7 +36,7 @@ return {
         pickers = {
             find_files = {
                 hidden = true,
-                previewer = false,
+                previewer = true,
             },
             live_grep = {
                 only_sort_text = true,

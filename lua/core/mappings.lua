@@ -40,8 +40,8 @@ cmd("autocmd BufWritePost ~/.Xresources !xrdb %")
 
 vim.diagnostic.config({
     virtual_text = true, -- Enables inline error messages
-    signs = true,     -- Shows signs in the gutter
-    underline = true, -- Underlines errors in the code
+    signs = true,        -- Shows signs in the gutter
+    underline = true,    -- Underlines errors in the code
 })
 
 vim.keymap.set("n", "<leader>E", function()
@@ -94,10 +94,10 @@ vim.keymap.set("n", "<leader>hn", function()
 end, { desc = "Normal mode (LTR)" })
 
 -- Solid Background for snacks.explorer
-vim.api.nvim_set_hl(0, "SnacksPicker", {
-    bg = "#1e1e1e", -- Replace with your desired hex color
-    -- fg = "#cdd6f4", -- Optional: set foreground color for contrast
-})
+-- vim.api.nvim_set_hl(0, "SnacksPicker", {
+--     bg = "#1e1e1e", -- Replace with your desired hex color
+--     -- fg = "#cdd6f4", -- Optional: set foreground color for contrast
+-- })
 
 -- Support for Right to Left coding style.
 -- e.g In order to type `let var = 4;`, I find it convenient to type the RIGHT hand side first.
@@ -141,7 +141,7 @@ vim.api.nvim_create_autocmd("FileType", {
 
 -- Adding rendering for .rst files in nvim.
 vim.api.nvim_create_user_command("RstPreview", function()
-    local input = vim.fn.expand("%:p")       -- current .rst file
+    local input = vim.fn.expand("%:p")          -- current .rst file
     local output = vim.fn.tempname() .. ".html" -- temp HTML file
     local cmd = string.format("rst2html.py %s %s", input, output)
 
