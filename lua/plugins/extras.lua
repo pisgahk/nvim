@@ -9,7 +9,7 @@
 -- cooked by P!5g@h
 -- snacks.nvim, auto-pairs, which-key, colourizer, rainbow-delimiters.
 -- rust-tools, live-preview, auto-tag, snake-game, code-runner.
--- excalidraw
+-- excalidraw,flutter_tools, leetcode.nvim
 
 return {
 
@@ -157,9 +157,9 @@ Build so much volume that there would be no option than to be successful.
                     max_height = 40,
                 },
                 convert = {
-                    notify = true, -- whether to show notifications on image render
+                    notify = true,     -- whether to show notifications on image render
                     magick = "magick", -- or path to your ImageMagick binary
-                    mermaid = "mmdc", -- or path to Mermaid CLI if used
+                    mermaid = "mmdc",  -- or path to Mermaid CLI if used
                     formats = {
                         "png",
                         "jpg",
@@ -769,7 +769,7 @@ Build so much volume that there would be no option than to be successful.
 
     "hiphish/rainbow-delimiters.nvim", -- Brackets, parenthesis colorizer
 
-    "simrat39/rust-tools.nvim",     -- Rust tools
+    "simrat39/rust-tools.nvim",        -- Rust tools
 
     {
         "brianhuster/live-preview.nvim", --Render .html & .md files.
@@ -946,5 +946,34 @@ Build so much volume that there would be no option than to be successful.
 
     {
         "nvim-flutter/flutter-tools.nvim",
+    },
+
+    {
+        "kawre/leetcode.nvim",
+        build = ":TSUpdate html", -- if you have `nvim-treesitter` installed
+        dependencies = {
+            -- include a picker of your choice, see picker section for more details
+            "nvim-lua/plenary.nvim",
+            "MunifTanjim/nui.nvim",
+        },
+        opts = {
+            lang = "rust",
+
+            description = {
+                position = "right",
+                width = "40%",
+                show_stats = true,
+            },
+
+            keys = {
+                toggle = { "q" },
+                confirm = { "<CR>" },
+
+                reset_testcases = "r",
+                use_testcase = "U",
+                focus_testcases = "H",
+                focus_result = "L",
+            },
+        },
     },
 }

@@ -144,7 +144,7 @@ return {
                             granularity = {
                                 group = "crate", -- ✅ Must be one of: "preserve", "item", "crate", "module", "one"
                             },
-                            prefix = "by_self",  -- ✅ Replaces deprecated 'importPrefix'
+                            prefix = "by_self", -- ✅ Replaces deprecated 'importPrefix'
                         },
                         assist = {
                             importMergeBehavior = "crate", -- ✅ Valid values: `preserve`, `item`, `crate`, `module`, `one`
@@ -203,7 +203,7 @@ return {
             --         },
             --     },
             -- })
-            --
+
             -- Emmet setup
             lspconfig["emmet_ls"].setup({
                 capabilities = capabilities,
@@ -259,6 +259,12 @@ return {
                 },
             })
 
+            lspconfig["ast_grep"].setup({
+                capabilities = capabilities,
+                filetypes = { "dart" },
+                cmd = { "sg", "lsp" },
+            })
+
             -- -- Solana setup
             -- lspconfig["solang"].setup({
             --     capabilities = capabilities,
@@ -301,6 +307,7 @@ return {
                     null_ls.builtins.formatting.shfmt,
                     null_ls.builtins.formatting.prettier,
                     null_ls.builtins.formatting.goimports,
+                    null_ls.builtins.formatting.dart_format, -- formatter for dart.
                     null_ls.builtins.formatting.sqlfluff.with({
                         extra_args = { "--dialect", "postgres" },
                     }),
@@ -339,6 +346,7 @@ return {
                     "sqlfluff",
                     "prettier",
                     "semgrep",
+                    "ast_grep",
                     -- "shellcheck",
                 },
                 automatic_installation = true,
