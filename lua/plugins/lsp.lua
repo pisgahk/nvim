@@ -32,7 +32,7 @@ return {
         config = function()
             -- 🧱 Custom floating borders
             local border = {
-                { "╭", "FloatBorder" },
+                { "꧞", "FloatBorder" }, -- "╭"
                 { "─", "FloatBorder" },
                 { "╮", "FloatBorder" },
                 { "│", "FloatBorder" },
@@ -144,7 +144,7 @@ return {
                             granularity = {
                                 group = "crate", -- ✅ Must be one of: "preserve", "item", "crate", "module", "one"
                             },
-                            prefix = "by_self", -- ✅ Replaces deprecated 'importPrefix'
+                            prefix = "by_self",  -- ✅ Replaces deprecated 'importPrefix'
                         },
                         assist = {
                             importMergeBehavior = "crate", -- ✅ Valid values: `preserve`, `item`, `crate`, `module`, `one`
@@ -159,9 +159,10 @@ return {
                 settings = {
                     python = {
                         analysis = {
-                            typeCheckingMode = "off",
+                            typeCheckingMode = "basic", -- "off", "basic" and "strict"
                             autoSearchPaths = true,
                             useLibraryCodeForTypes = true,
+                            diagonisticMode = "workspace", -- "openFilesOnly" or "workspace"
                         },
                     },
                 },
@@ -172,7 +173,7 @@ return {
                 settings = {
                     Lua = {
                         diagnostics = {
-                            globals = { "vim", "Snacks" },
+                            globals = { "vim", "Snacks", "opt", "g", "kmap", "cmd" },
                         },
                     },
                 },

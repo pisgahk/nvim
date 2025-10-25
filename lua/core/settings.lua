@@ -15,7 +15,7 @@ opt.termguicolors = true
 -- UTF8 encoding
 opt.encoding = "UTF-8"
 
--- Enabling clipboard
+-- Enabling clipboard: Syncs clipboard between the OS and Neovim.
 opt.clipboard = "unnamedplus"
 
 -- Persistent undo

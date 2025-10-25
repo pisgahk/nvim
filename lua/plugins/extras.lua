@@ -831,7 +831,7 @@ Build so much volume that there would be no option than to be successful.
     {
         "sphamba/smear-cursor.nvim",
         opts = {
-            enabled = true,
+            enabled = false, -- Already enabled in Kitty Terminal.
             smear_between_buffers = true,
             smear_insert_mode = true,
             cursor_color = "#d3cdc3", -- match your theme

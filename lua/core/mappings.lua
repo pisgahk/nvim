@@ -30,6 +30,10 @@ vim.keymap.set("n", "<leader>ut", vim.cmd.UndotreeToggle, { desc = "Toggle UndoT
 --Deleting a word at a time.
 vim.keymap.set("i", "<C-BS>", "<C-W>", { desc = "Delete word", noremap = true, silent = true })
 
+-- Indent while remaining in visual mode.
+vim.keymap.set('v', '<', '<gv')
+vim.keymap.set('v', '>', '>gv')
+
 -- ============[Scripts]===================================================================================
 
 -- Run ":so" after writing .zshrc

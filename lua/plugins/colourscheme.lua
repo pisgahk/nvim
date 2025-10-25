@@ -30,8 +30,8 @@ return {
                 show_end_of_buffer = false,    -- shows the '~' characters after the end of buffers
                 term_colors = true,            -- sets terminal colors (e.g. `g:terminal_color_0`)
                 styles = {                     -- Handles the styles of general hi groups (see `:h highlight-args`):
-                    comments = { "italic" },   -- Change the style of comments
-                    conditionals = { "italic" },
+                    -- comments = { "italic" },   -- Change the style of comments
+                    -- conditionals = { "italic" },
                     -- miscs = {}, -- Uncomment to turn off hard-coded styles
                 },
                 color_overrides = {},
@@ -94,7 +94,7 @@ return {
                     dim_inactive = false,
                     terminal_colors = false,
                     styles = {
-                        comments = "italic",
+                        -- comments = "italic",
                         --variables = "bold",
                     },
                 },
@@ -138,7 +138,7 @@ return {
             require("everforest").setup({
                 background = "medium",            -- Options: "soft", "medium", "hard"
                 transparent_background_level = 2, -- 0 (no transparency), 1 (some transparency), 2 (full transparency)
-                italics = true,                   -- Enable italics for better aesthetics
+                italics = true,                  -- Enable italics for better aesthetics
             })
         end,
     },
@@ -180,6 +180,7 @@ return {
                     markdown = { colorscheme = "catppuccin-frappe" },
                     asm = { colorscheme = "rose-pine" },
                     javascript = { colorscheme = "nightfox" },
+                    -- leetcode.nvim = { colorscheme = "nightfox" },
                     -- solana = { colorscheme = "everforest" },
                     help = { colorscheme = "catppuccin-mocha", background = "dark" },
                 },
