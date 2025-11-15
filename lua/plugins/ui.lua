@@ -64,4 +64,15 @@ return {
             })
         end,
     },
+
+    -- {
+    --     "j-hui/fidget.nvim",
+    --     opts = {
+    --         -- options
+    --         window = {
+    --             border = "rounded",
+    --             blend = 9,
+    --         },
+    --     },
+    -- },
 }

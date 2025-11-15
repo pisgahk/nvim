@@ -31,8 +31,41 @@ vim.keymap.set("n", "<leader>ut", vim.cmd.UndotreeToggle, { desc = "Toggle UndoT
 vim.keymap.set("i", "<C-BS>", "<C-W>", { desc = "Delete word", noremap = true, silent = true })
 
 -- Indent while remaining in visual mode.
-vim.keymap.set('v', '<', '<gv')
-vim.keymap.set('v', '>', '>gv')
+vim.keymap.set("v", "<", "<gv")
+vim.keymap.set("v", ">", ">gv")
+
+-- Typst Live Preview with Zathura
+vim.keymap.set("n", "<leader>tl", function()
+    local file = vim.fn.expand("%:p") -- full path of current file
+    local pdf = vim.fn.expand("%:p:r") .. ".pdf"
+
+    -- Run typst watch in background
+    vim.fn.jobstart({ "typst", "watch", file }, { detach = true })
+
+    -- Open Zathura on the PDF
+    vim.fn.jobstart({ "zathura", pdf }, { detach = true })
+end, { desc = "Typst live preview in Zathura" })
+
+-- -- Disabling Inlay hints for typst to avoid double inlay hints.
+-- vim.api.nvim_create_autocmd("LspAttach", {
+--     callback = function(args)
+--         local client = vim.lsp.get_client_by_id(args.data.client_id)
+--         if client.name == "typst-lsp" then
+--             -- Disable inlay hints for Typst
+--             vim.lsp.inlay_hint.enable(false, { bufnr = args.buf })
+--         end
+--     end,
+-- })
+
+vim.api.nvim_create_autocmd("LspAttach", {
+    callback = function(args)
+        local client = vim.lsp.get_client_by_id(args.data.client_id)
+        if client and client.name == "typst-lsp" then
+            -- Disable inlay hints for Typst
+            vim.lsp.inlay_hint.enable(false, { bufnr = args.buf })
+        end
+    end,
+})
 
 -- ============[Scripts]===================================================================================
 
@@ -44,8 +77,8 @@ cmd("autocmd BufWritePost ~/.Xresources !xrdb %")
 
 vim.diagnostic.config({
     virtual_text = true, -- Enables inline error messages
-    signs = true,     -- Shows signs in the gutter
-    underline = true, -- Underlines errors in the code
+    signs = true,        -- Shows signs in the gutter
+    underline = true,    -- Underlines errors in the code
 })
 
 vim.keymap.set("n", "<leader>E", function()
@@ -159,7 +192,7 @@ vim.api.nvim_create_autocmd("FileType", {
 
 -- Adding rendering for .rst files in nvim.
 vim.api.nvim_create_user_command("RstPreview", function()
-    local input = vim.fn.expand("%:p")       -- current .rst file
+    local input = vim.fn.expand("%:p")          -- current .rst file
     local output = vim.fn.tempname() .. ".html" -- temp HTML file
     local cmd = string.format("rst2html.py %s %s", input, output)
 

@@ -50,7 +50,17 @@ return {
             end
 
             require("neodev").setup({})
-            require("fidget").setup({})
+            -- require("fidget").setup({})
+            require("fidget").setup({
+                notification = {
+                    window = {
+                        border = "rounded",  -- choose: "single", "double", "rounded", "solid", "shadow"
+                        relative = "editor", -- position relative to the editor
+                        winblend = 100,      -- transparency (0 = opaque)
+                    },
+                },
+            })
+
             require("mason").setup()
             require("mason-lspconfig").setup({
                 ensure_installed = {
@@ -68,6 +78,7 @@ return {
                     "jsonls",
                     "eslint",
                     "emmet_ls",
+                    "tinymist", -- for .typ
                     "tailwindcss",
                     -- "shellcheck",
                 },
@@ -99,8 +110,8 @@ return {
                     keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
                     keymap.set("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>", opts)
                     keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts)
-                    -- keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
-                    -- keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
+                    -- keymap.set("n", "[d", vim.diagnostic.jump({ count = -1, float = true}), opts)
+                    -- keymap.set("n", "]d", vim.diagnostic.jump({ count = 1, float = true}), opts)
                     keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts)
                     keymap.set("n", "K", function()
                         vim.lsp.buf.hover()
@@ -258,6 +269,78 @@ return {
                         },
                     },
                 },
+            })
+
+            lspconfig["tinymist"].setup({
+                capabilities = capabilities,
+                settings = {
+                    formatterMode = "typstyle",
+                    exportPdf = "onType", -- "onSave", "onType", "never"
+                    pdfOutputPath = "build",
+                    compileOnSave = true,
+                    diagnostics = { enable = true },
+                },
+
+                -- These methods and keybindings are not working. Double check them and see what the issue is.
+                -- ✅ buffer-local keymaps go here
+                -- on_attach = function(client, bufnr)
+                -- 	local opts = { buffer = bufnr, noremap = true, silent = true }
+                --
+                -- 	-- 📌 Pin current buffer
+                -- 	vim.keymap.set("n", "<leader>tp", function()
+                -- 	    client:exec_cmd({
+                -- 	        title = "pin",
+                -- 	        command = "tinymist.pinMain",
+                -- 	        arguments = { vim.api.nvim_buf_get_name(0) },
+                -- 	    })
+                -- 	end, vim.tbl_extend("force", opts, { desc = "[T]inymist [P]in" }))
+                --
+                -- 	-- 🗑️ Unpin
+                -- 	vim.keymap.set("n", "<leader>tu", function()
+                -- 	    client:exec_cmd({
+                -- 	        title = "unpin",
+                -- 	        command = "tinymist.pinMain",
+                -- 	        arguments = { vim.v.null },
+                -- 	    })
+                -- 	end, vim.tbl_extend("force", opts, { desc = "[T]inymist [U]npin" }))
+                --
+                -- 	-- 🌐 Web Preview
+                -- 	vim.keymap.set("n", "<leader>tw", function()
+                -- 	    vim.cmd("TypstPreviewWeb")
+                -- 	    vim.notify("🌐 Web preview launched", vim.log.levels.INFO)
+                -- 	end, vim.tbl_extend("force", opts, { desc = "[T]ypst [W]eb Preview" }))
+                --
+                -- 	-- 📄 PDF Preview in Zathura
+                -- 	vim.keymap.set("n", "<leader>tpv", function()
+                -- 	    local pdf_path = vim.api.nvim_buf_get_name(0):gsub("%.typ$", ".pdf")
+                -- 	    vim.fn.jobstart({ "zathura", pdf_path }, { detach = true })
+                -- 	    vim.notify("📄 PDF preview opened in Zathura", vim.log.levels.INFO)
+                -- 	end, vim.tbl_extend("force", opts, { desc = "[T]ypst [P]DF Preview" }))
+                --
+                -- 	-- 📦 Compile with format prompt
+                -- 	vim.keymap.set("n", "<leader>tc", function()
+                -- 	    local formats = { "pdf", "html", "svg" }
+                -- 	    vim.ui.select(formats, {
+                -- 	        prompt = "Choose Typst output format:",
+                -- 	        format_item = function(item)
+                -- 	            return item:upper()
+                -- 	        end,
+                -- 	    }, function(choice)
+                -- 	        if not choice then
+                -- 	            return
+                -- 	        end
+                -- 	        local input_file = vim.api.nvim_buf_get_name(0)
+                -- 	        local output_file = input_file:gsub("%.typ$", "." .. choice)
+                --
+                -- 	        vim.lsp.buf.execute_command({
+                -- 	            command = "tinymist.export",
+                -- 	            arguments = { input_file, choice, output_file },
+                -- 	        })
+                --
+                -- 	        vim.notify("📦 Compiled → " .. output_file, vim.log.levels.INFO)
+                -- 	    end)
+                -- 	end, vim.tbl_extend("force", opts, { desc = "[T]ypst [C]ompile with format prompt" }))
+                -- end,
             })
 
             lspconfig["ast_grep"].setup({
