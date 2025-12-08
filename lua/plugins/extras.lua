@@ -123,7 +123,10 @@ Build so much volume that there would be no option than to be successful.
                 -- },
                 --},
             },
-            explorer = { enabled = true },
+            explorer = {
+                enabled = true,
+                trash = true, -- use system trash when deleting files.
+            },
             indent = { enabled = true },
             input = { enabled = true },
             notifier = {
@@ -831,7 +834,9 @@ Build so much volume that there would be no option than to be successful.
             })
         end,
     },
+
     {
+        -- I disabled this coz I already enabled it in the Kitty Terminal.
         "sphamba/smear-cursor.nvim",
         opts = {
             enabled = false, -- Already enabled in Kitty Terminal.
@@ -1044,14 +1049,14 @@ Build so much volume that there would be no option than to be successful.
                 end,
                 desc = "Flash",
             },
-            {
-                "S",
-                mode = { "n", "x", "o" },
-                function()
-                    require("flash").treesitter()
-                end,
-                desc = "Flash Treesitter",
-            },
+            -- {
+            --     "S",
+            --     mode = { "n", "x", "o" },
+            --     function()
+            --         require("flash").treesitter()
+            --     end,
+            --     desc = "Flash Treesitter",
+            -- },
             {
                 "r",
                 mode = "o",
@@ -1117,5 +1122,10 @@ Build so much volume that there would be no option than to be successful.
     {
         "folke/lazydev.nvim",
         opts = {},
+    },
+
+    {
+        "nvim-mini/mini.surround",
+        version = "*",
     },
 }

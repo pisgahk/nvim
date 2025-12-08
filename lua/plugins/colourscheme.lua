@@ -18,18 +18,18 @@ return {
         config = function()
             require("catppuccin").setup({
                 flavour = "mocha", -- latte, frappe, macchiato, mocha
-                background = {     -- :h background
+                background = { -- :h background
                     light = "latte",
                     dark = "mocha",
                 },
                 transparent_background = true, -- disables setting the background color.
                 float = {
-                    transparent = true,        -- enable transparent floating windows
-                    solid = false,             -- use solid styling for floating windows, see |winborder|
+                    transparent = false, -- enable transparent floating windows
+                    solid = false, -- use solid styling for floating windows, see |winborder|
                 },
-                show_end_of_buffer = false,    -- shows the '~' characters after the end of buffers
-                term_colors = true,            -- sets terminal colors (e.g. `g:terminal_color_0`)
-                styles = {                     -- Handles the styles of general hi groups (see `:h highlight-args`):
+                show_end_of_buffer = false, -- shows the '~' characters after the end of buffers
+                term_colors = true, -- sets terminal colors (e.g. `g:terminal_color_0`)
+                styles = {         -- Handles the styles of general hi groups (see `:h highlight-args`):
                     -- comments = { "italic" },   -- Change the style of comments
                     -- conditionals = { "italic" },
                     -- miscs = {}, -- Uncomment to turn off hard-coded styles
@@ -37,9 +37,9 @@ return {
                 color_overrides = {},
                 -- custom_highlights = {},
                 custom_highlights = {
-                    FloatBorder = { fg = "#fd004a" },     -- #ff5555 #f53c63 #fd004a (Beautiful colours🤤) #ff004a
+                    FloatBorder = { fg = "#fd004a" }, -- #ff5555 #f53c63 #fd004a (Beautiful colours🤤) #ff004a
                     TelescopeBorder = { fg = "#ff5555" }, -- if using Telescope
-                    WhichKeyBorder = { fg = "#fd004a" },  -- if using WhichKey
+                    WhichKeyBorder = { fg = "#fd004a" }, -- if using WhichKey
 
                     --🧱 Core UI
                     -- Normal = { fg = "#ff5555" },
@@ -52,6 +52,14 @@ return {
                     -- PmenuSel = { fg = "#1a1a1a", bg = "#ff5555" },
                     -- StatusLine = { fg = "#ff5555", bg = "#1a1a1a" },
                     -- TabLineSel = { fg = "#ff5555", bold = true },
+                    --
+                    -- Core UI
+                    Normal = { fg = "#E6DADA", bg = "#1A0B0B" }, -- off-white on dark red-black
+                    LineNr = { fg = "#664C4C" },
+                    CursorLineNr = { fg = "#FF6666", bold = true },
+                    StatusLine = { fg = "#E6DADA", bg = "#330F0F" },
+                    TabLineSel = { fg = "#FF4C4C", bold = true },
+                    Visual = { bg = "#4C1F1F" },
 
                     -- 🔔 Diagnostics
                     DiagnosticError = { fg = "#fe6f5e" }, -- #ff2c2c, #b22222, #dc143c, #8b0000 #f08080 #ff6961, #ff6961, #ff6961. #fe6f5e. #fdbcb4
@@ -82,6 +90,85 @@ return {
             vim.cmd.colorscheme("catppuccin")
         end,
     },
+
+    -- This is my attempt to make a fully red colourscheme.
+    -- {
+    -- 	"catppuccin/nvim",
+    -- 	lazy = false,
+    -- 	priority = 1000,
+    --
+    -- 	config = function()
+    -- 		require("catppuccin").setup({
+    -- 			flavour = "mocha",
+    -- 			background = {
+    -- 				light = "latte",
+    -- 				dark = "mocha",
+    -- 			},
+    -- 			transparent_background = true,
+    -- 			float = {
+    -- 				transparent = false,
+    -- 				solid = false,
+    -- 			},
+    -- 			show_end_of_buffer = false,
+    -- 			term_colors = true,
+    -- 			styles = {},
+    -- 			color_overrides = {},
+    -- 			custom_highlights = {
+    -- 				-- Borders
+    -- 				FloatBorder = { fg = "#CC3333" }, -- deep red
+    -- 				TelescopeBorder = { fg = "#FF4C4C" }, -- bright crimson
+    -- 				WhichKeyBorder = { fg = "#FF1A1A" }, -- vivid scarlet
+    -- 				VertSplit = { fg = "#664C4C" }, -- dim red-grey
+    --
+    -- 				-- Core UI
+    -- 				Normal = { fg = "#E6DADA", bg = "#1A0B0B" }, -- off-white on dark red-black
+    -- 				LineNr = { fg = "#664C4C" },
+    -- 				CursorLineNr = { fg = "#FF6666", bold = true },
+    -- 				StatusLine = { fg = "#E6DADA", bg = "#330F0F" },
+    -- 				TabLineSel = { fg = "#FF4C4C", bold = true },
+    -- 				Visual = { bg = "#4C1F1F" },
+    --
+    -- 				-- Syntax overrides
+    -- 				Comment = { fg = "#A68A8A", italic = true },
+    -- 				Keyword = { fg = "#FF4C4C", bold = true },
+    -- 				Type = { fg = "#CC3333" },
+    -- 				Function = { fg = "#FF6666" },
+    -- 				Macro = { fg = "#FF1A1A" },
+    -- 				String = { fg = "#FF9999" },
+    -- 				Number = { fg = "#FF8080" },
+    -- 				Boolean = { fg = "#CC4444" },
+    --
+    -- 				-- Diagnostics
+    -- 				DiagnosticError = { fg = "#FF0000" },
+    -- 				DiagnosticWarn = { fg = "#FF5E5E" },
+    -- 				DiagnosticInfo = { fg = "#B3A6A6" },
+    -- 				DiagnosticHint = { fg = "#A68A8A" },
+    -- 				DiagnosticUnderlineError = { sp = "#FF0000", undercurl = true },
+    -- 				DiagnosticUnderlineWarn = { sp = "#FF5E5E", undercurl = true },
+    -- 				DiagnosticUnderlineInfo = { sp = "#B3A6A6", undercurl = true },
+    -- 				DiagnosticUnderlineHint = { sp = "#A68A8A", undercurl = true },
+    -- 			},
+    --
+    -- 			default_integrations = true,
+    -- 			auto_integrations = false,
+    -- 			integrations = {
+    -- 				cmp = true,
+    -- 				gitsigns = true,
+    -- 				nvimtree = true,
+    -- 				treesitter = true,
+    -- 				notify = false,
+    -- 				mini = {
+    -- 					enabled = true,
+    -- 					indentscope_color = "",
+    -- 				},
+    -- 			},
+    -- 		})
+    --
+    -- 		-- setup must be called before loading
+    -- 		vim.cmd.colorscheme("catppuccin")
+    -- 	end,
+    -- },
+
     {
         "projekt0n/github-nvim-theme",
         name = "github-theme",
@@ -136,9 +223,9 @@ return {
         "neanias/everforest-nvim",
         config = function()
             require("everforest").setup({
-                background = "medium",            -- Options: "soft", "medium", "hard"
+                background = "medium", -- Options: "soft", "medium", "hard"
                 transparent_background_level = 2, -- 0 (no transparency), 1 (some transparency), 2 (full transparency)
-                italics = true,                  -- Enable italics for better aesthetics
+                -- italics = true,                  -- Enable italics for better aesthetics
             })
         end,
     },

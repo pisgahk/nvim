@@ -82,13 +82,13 @@ async fn main() -> Result<()> {{
 
 ]],
             {
-                i(1, "hello"),       -- function name
+                i(1, "hello"), -- function name
                 i(2, "Hello World"), -- response body
-                i(3, "8080"),        -- port for println
-                i(4, "/hello"),      -- route path
-                rep(1),              -- function name again
-                rep(3),              -- port for bind
-                rep(3),              -- port for comment
+                i(3, "8080"), -- port for println
+                i(4, "/hello"), -- route path
+                rep(1),  -- function name again
+                rep(3),  -- port for bind
+                rep(3),  -- port for comment
             }
         )
     ),
@@ -141,13 +141,13 @@ async fn main() -> Result<()> {{
 
 ]],
             {
-                i(1, "index"),               -- function name
+                i(1, "index"),   -- function name
                 i(2, "./static/index.html"), -- file path
-                i(3, "8080"),                -- port
-                i(4, "/"),                   -- route path
-                rep(1),                      -- function name again
-                rep(3),                      -- port for bind
-                rep(3),                      -- port for comment
+                i(3, "8080"),    -- port
+                i(4, "/"),       -- route path
+                rep(1),          -- function name again
+                rep(3),          -- port for bind
+                rep(3),          -- port for comment
             }
         )
     ),
@@ -165,7 +165,7 @@ async fn main() -> Result<()> {{
   ]],
             {
                 i(1, "Wrapper"), -- Struct name
-                i(2, "T"),       -- Target type
+                i(2, "T"), -- Target type
             }
         )
     ),
