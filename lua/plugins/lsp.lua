@@ -18,7 +18,7 @@ return {
 			{ "williamboman/mason.nvim", build = ":MasonUpdate" },
 			"williamboman/mason-lspconfig.nvim",
 			{ "antosha417/nvim-lsp-file-operations", config = true },
-			{ "folke/neodev.nvim", opts = {} },
+			-- { "folke/neodev.nvim", opts = {} },
 			"j-hui/fidget.nvim",
 		},
 
@@ -49,7 +49,7 @@ return {
 				return orig_util_open_floating_preview(contents, syntax, opts, ...)
 			end
 
-			require("neodev").setup({})
+			-- require("neodev").setup({})
 			-- require("fidget").setup({})
 			require("fidget").setup({
 				notification = {
