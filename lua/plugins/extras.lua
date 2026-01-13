@@ -127,7 +127,10 @@ Build so much volume that there would be no option than to be successful.
                 enabled = true,
                 trash = true, -- use system trash when deleting files.
             },
-            indent = { enabled = true },
+            indent = {
+                enabled = false,
+                -- char = "┊" --  "⎸",
+            },
             input = { enabled = true },
             notifier = {
                 enabled = true,
@@ -194,7 +197,7 @@ Build so much volume that there would be no option than to be successful.
                 math = {
                     enabled = true,
                 },
-                force = true,
+                force = false,
             },
 
             styles = {
@@ -723,7 +726,7 @@ Build so much volume that there would be no option than to be successful.
                         .option("background", { off = "light", on = "dark", name = "Dark Background" })
                         :map("<leader>ub")
                     Snacks.toggle.inlay_hints():map("<leader>uh")
-                    Snacks.toggle.indent():map("<leader>ug")
+                    Snacks.toggle.indent():map("<leader>ug") -- I have to turn this off, kinda feel it better without the guides, till further notice.
                     Snacks.toggle.dim():map("<leader>uD")
 
                     -- override inlay snacks.nvim background
@@ -1127,5 +1130,69 @@ Build so much volume that there would be no option than to be successful.
     {
         "nvim-mini/mini.surround",
         version = "*",
+    },
+
+    -- to solve this global variables not working, you can use lazydev by folke, it kinda fixes everything that says that it should be global blah blah blah
+
+    {
+        "Vigemus/iron.nvim",
+        config = function()
+            local iron = require("iron.core")
+            local view = require("iron.view")
+            local common = require("iron.fts.common")
+
+            iron.setup({
+                config = {
+                    scratch_repl = true,
+                    repl_definition = {
+                        sh = { command = { "zsh" } },
+                        python = {
+                            command = { "ipython", "--no-autoindent" },
+                            format = common.bracketed_paste_python,
+                            block_dividers = { "# %%", "#%%" },
+                            env = { PYTHON_BASIC_REPL = "1" },
+                        },
+                        lua = { command = { "lua" } },
+                        rust = { command = { "evcxr" } },
+                    },
+                    repl_filetype = function(_, ft)
+                        return ft
+                    end,
+                    dap_integration = true,
+                    -- stick to valid layouts
+                    repl_open_cmd = {
+                        view.bottom(40),                       -- bottom split
+                        view.split.vertical.rightbelow("%40"), -- vertical split
+                    },
+                },
+                keymaps = {
+                    toggle_repl = "<space>rr",
+                    toggle_repl_with_cmd_1 = "<space>rb",
+                    toggle_repl_with_cmd_2 = "<space>rv",
+                    restart_repl = "<space>rR",
+                    send_motion = "<space>sc",
+                    visual_send = "<space>sc",
+                    send_file = "<space>sf",
+                    send_line = "<space>sl",
+                    send_paragraph = "<space>sp",
+                    send_until_cursor = "<space>su",
+                    send_mark = "<space>sm",
+                    send_code_block = "<space>sb",
+                    send_code_block_and_move = "<space>sn",
+                    mark_motion = "<space>mc",
+                    mark_visual = "<space>mc",
+                    remove_mark = "<space>md",
+                    cr = "<space>s<cr>",
+                    interrupt = "<space>s<space>",
+                    exit = "<space>sq",
+                    clear = "<space>cl",
+                },
+                highlight = { italic = true, bold = true },
+                ignore_blank_lines = true,
+            })
+
+            vim.keymap.set("n", "<space>rf", "<cmd>IronFocus<cr>")
+            vim.keymap.set("n", "<space>rh", "<cmd>IronHide<cr>")
+        end,
     },
 }

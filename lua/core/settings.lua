@@ -118,10 +118,18 @@ g.loaded_netrw = 1
 g.loaded_netrwPlugin = 1
 
 -- GUI settings
-opt.guifont = { "JetBrains Mono Regular" } --, ":h13" }
+-- opt.guifont = { "JetBrains Mono Regular" } --, ":h13" }
+-- This is a custom font, check https://github.com/pisgahk/dotfiles/ in fonts/
+opt.guifont = { "IogahTerm Light" }
 
 -- Disabling providers (if downloaded Neovim from one of this providers don't delete!)
 g.loaded_python3_provider = 0
 g.loaded_ruby_provider = 0
 g.loaded_perl_provider = 0
 g.loaded_node_provider = 0
+
+-- Adding borders for the LSPs and stuff
+vim.opt.winborder = "rounded"
+
+-- I feel like this yank command is already built-in and this is is just repearing myself. But lemme leave it here anyway.
+vim.keymap.set({ "n", "v", "x" }, "<leader>y", '"+y<CR>')
