@@ -20,4 +20,6 @@ return {
     require("plugins.extras"),
     require("plugins.git"),
     require("plugins.telescope"),
+    require("plugins.strudel"),
+    -- require("plugins.keybinds"),
 }

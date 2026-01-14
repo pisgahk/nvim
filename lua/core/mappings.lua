@@ -34,6 +34,9 @@ vim.keymap.set("i", "<C-BS>", "<C-W>", { desc = "Delete word", noremap = true, s
 vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
 
+-- :w as <leader>w
+vim.keymap.set("n", "<leader>w", ":w<CR>", { desc = "Writes to file." })
+
 -- Typst Live Preview with Zathura
 vim.keymap.set("n", "<leader>tl", function()
     local file = vim.fn.expand("%:p") -- full path of current file
@@ -208,3 +211,11 @@ vim.api.nvim_create_user_command("RstPreview", function()
 end, {
     desc = "Preview current .rst file in browser",
 })
+
+-- Using kk or jj to exit insert mode in addition to Esc.
+vim.api.nvim_set_keymap("i", "kk", "<Esc>", { noremap = true })
+vim.api.nvim_set_keymap("i", "jj", "<Esc>", { noremap = true })
+
+-- Mapping B and E to ^ and $ respectively
+vim.api.nvim_set_keymap("n", "B", "^", { noremap = true })
+vim.api.nvim_set_keymap("n", "E", "$", { noremap = true })
