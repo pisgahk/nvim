@@ -1060,30 +1060,30 @@ Build so much volume that there would be no option than to be successful.
             --     end,
             --     desc = "Flash Treesitter",
             -- },
-            {
-                "r",
-                mode = "o",
-                function()
-                    require("flash").remote()
-                end,
-                desc = "Remote Flash",
-            },
-            {
-                "R",
-                mode = { "o", "x" },
-                function()
-                    require("flash").treesitter_search()
-                end,
-                desc = "Treesitter Search",
-            },
-            {
-                "<c-s>",
-                mode = { "c" },
-                function()
-                    require("flash").toggle()
-                end,
-                desc = "Toggle Flash Search",
-            },
+            -- {
+            --     "r",
+            --     mode = "o",
+            --     function()
+            --         require("flash").remote()
+            --     end,
+            --     desc = "Remote Flash",
+            -- },
+            -- {
+            --     "R",
+            --     mode = { "o", "x" },
+            --     function()
+            --         require("flash").treesitter_search()
+            --     end,
+            --     desc = "Treesitter Search",
+            -- },
+            -- {
+            --     "<c-s>",
+            --     mode = { "c" },
+            --     function()
+            --         require("flash").toggle()
+            --     end,
+            --     desc = "Toggle Flash Search",
+            -- },
         },
     },
 
@@ -1141,56 +1141,92 @@ Build so much volume that there would be no option than to be successful.
             local view = require("iron.view")
             local common = require("iron.fts.common")
 
+            -- 🔧 Formatter: strip full-line comments after bracketed paste
+            local function strip_comments_after_format(lines, ft)
+                local comment_patterns = {
+                    python = "^%s*#",
+                    rust = "^%s*//",
+                    lua = "^%s*--",
+                    sh = "^%s*#",
+                }
+                local pat = comment_patterns[ft]
+                return vim.tbl_filter(function(line)
+                    return not (pat and line:match(pat))
+                end, lines)
+            end
+
             iron.setup({
                 config = {
-                    scratch_repl = true,
+                    scratch_repl = false, -- allow typing directly in REPL
+
                     repl_definition = {
-                        sh = { command = { "zsh" } },
+                        sh = {
+                            command = { "sh" },
+                            format = function(lines, extras)
+                                local result = common.bracketed_paste(lines, extras)
+                                return strip_comments_after_format(result, "sh")
+                            end,
+                        },
                         python = {
                             command = { "ipython", "--no-autoindent" },
-                            format = common.bracketed_paste_python,
+                            format = function(lines, extras)
+                                local result = common.bracketed_paste_python(lines, extras)
+                                return strip_comments_after_format(result, "python")
+                            end,
                             block_dividers = { "# %%", "#%%" },
-                            env = { PYTHON_BASIC_REPL = "1" },
                         },
-                        lua = { command = { "lua" } },
-                        rust = { command = { "evcxr" } },
+                        lua = {
+                            command = { "lua" },
+                            format = function(lines, extras)
+                                local result = common.bracketed_paste(lines, extras)
+                                return strip_comments_after_format(result, "lua")
+                            end,
+                        },
+                        rust = {
+                            command = { "evcxr" },
+                            format = function(lines, extras)
+                                local result = common.bracketed_paste(lines, extras)
+                                return strip_comments_after_format(result, "rust")
+                            end,
+                        },
                     },
+
                     repl_filetype = function(_, ft)
                         return ft
                     end,
+
                     dap_integration = true,
-                    -- stick to valid layouts
-                    repl_open_cmd = {
-                        view.bottom(40),                       -- bottom split
-                        view.split.vertical.rightbelow("%40"), -- vertical split
-                    },
+
+                    repl_open_cmd = view.split.vertical.rightbelow(80),
                 },
+
                 keymaps = {
                     toggle_repl = "<space>rr",
-                    toggle_repl_with_cmd_1 = "<space>rb",
-                    toggle_repl_with_cmd_2 = "<space>rv",
                     restart_repl = "<space>rR",
-                    send_motion = "<space>sc",
-                    visual_send = "<space>sc",
+
+                    send_motion = "<space>sv",
+                    visual_send = "<space>sv",
                     send_file = "<space>sf",
                     send_line = "<space>sl",
                     send_paragraph = "<space>sp",
-                    send_until_cursor = "<space>su",
+                    send_until_cursor = "<space>sc",
                     send_mark = "<space>sm",
                     send_code_block = "<space>sb",
                     send_code_block_and_move = "<space>sn",
+
                     mark_motion = "<space>mc",
                     mark_visual = "<space>mc",
                     remove_mark = "<space>md",
+
                     cr = "<space>s<cr>",
                     interrupt = "<space>s<space>",
                     exit = "<space>sq",
                     clear = "<space>cl",
                 },
-                highlight = { italic = true, bold = true },
+
+                highlight = { italic = false, bold = true },
                 ignore_blank_lines = true,
             })
-
             vim.keymap.set("n", "<space>rf", "<cmd>IronFocus<cr>")
             vim.keymap.set("n", "<space>rh", "<cmd>IronHide<cr>")
         end,
