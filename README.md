@@ -102,5 +102,8 @@ git clone https://github.com/pisgahk/nvim.git ~/.config/nvim  && cd .config/nvim
 ```
 
 ---
+There is this new tool called gitlogue, i want to see what it does and how it carries out its functionality, it seems too good to be true, hence lemme give it a shot.
 
+The most trusted git repo that i have is this nvim config, hence there is no other way that I can test it except from using the files in this config.
+The thing is I want to be the best dev that I can be, hence I acknowledge the work of other devs in this field.
 This journey begun on 08.04.2025, let us see how far we will go.
