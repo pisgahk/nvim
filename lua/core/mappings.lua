@@ -210,7 +210,7 @@ end, {
 })
 
 -- Using kk or jj to exit insert mode in addition to Esc.
-vim.api.nvim_set_keymap("i", "kk", "<Esc>", { noremap = true })
+vim.api.nvim_set_keymap("i", "kk", "<Esc> <leader>w", { noremap = true })
 vim.api.nvim_set_keymap("i", "jj", "<Esc>", { noremap = true })
 
 -- Exiting terminal mode while in terminal

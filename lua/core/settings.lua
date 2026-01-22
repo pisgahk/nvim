@@ -80,7 +80,7 @@ opt.showcmd = true
 opt.showmode = false
 
 -- Command history
-opt.history = 1000
+opt.history = 500
 
 -- Auto completion menu after pressing TAB
 opt.wildmenu = true
@@ -131,5 +131,5 @@ g.loaded_node_provider = 0
 -- Adding borders for the LSPs and stuff
 vim.opt.winborder = "rounded"
 
--- I feel like this yank command is already built-in and this is is just repearing myself. But lemme leave it here anyway.
+-- I feel like this yank command is already built-in and this is is just repeating myself. But lemme leave it here anyway.
 vim.keymap.set({ "n", "v", "x" }, "<leader>y", '"+y<CR>')

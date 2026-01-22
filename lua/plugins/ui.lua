@@ -57,22 +57,11 @@ return {
                 options = {
                     icons_enabled = true,
                     theme = "horizon",
-                    globalstatus = false,
-                    component_separators = " ",
+                    globalstatus = true,
+                    component_separators = "::",
                     section_separators = { left = "", right = "" },
                 },
             })
         end,
     },
-
-    -- {
-    --     "j-hui/fidget.nvim",
-    --     opts = {
-    --         -- options
-    --         window = {
-    --             border = "rounded",
-    --             blend = 9,
-    --         },
-    --     },
-    -- },
 }
