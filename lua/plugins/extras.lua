@@ -31,9 +31,11 @@ return {
                 --     icon = "#ff5f5f", -- Red icons for consistency
                 --     key = "#ff8787", -- Keybind hints in red
                 -- },
-                preset = {
-                    header = [[
-
+                -- preset = {
+                sections = {
+                    {
+                        -- section = "header",
+                        text = [[
 
 ██████╗ ██╗███████╗ ██████╗  █████╗ ██╗  ██╗   ██████╗ ███████╗██╗   ██╗
 ██╔══██╗██║██╔════╝██╔════╝ ██╔══██╗██║  ██║   ██╔══██╗██╔════╝██║   ██║
@@ -43,8 +45,16 @@ return {
 ╝     ╚═╝╚══════╝ ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝╚═════╝ ╚══════╝  ╚═══╝
 =========================[Better Your Best🌹]=========================
 Build so much volume that there would be no option than to be successful.
- 
+                           
+
+
+
+
+
+
 ]],
+                        -- },
+                    },
                 },
             },
             explorer = {
@@ -90,9 +100,9 @@ Build so much volume that there would be no option than to be successful.
                     max_height = 40,
                 },
                 convert = {
-                    notify = true, -- whether to show notifications on image render
+                    notify = true,     -- whether to show notifications on image render
                     magick = "magick", -- or path to your ImageMagick binary
-                    mermaid = "mmdc", -- or path to Mermaid CLI if used
+                    mermaid = "mmdc",  -- or path to Mermaid CLI if used
                     formats = {
                         "png",
                         "jpg",
@@ -702,7 +712,7 @@ Build so much volume that there would be no option than to be successful.
 
     "hiphish/rainbow-delimiters.nvim", -- Brackets, parenthesis colorizer
 
-    "simrat39/rust-tools.nvim",     -- Rust tools
+    "simrat39/rust-tools.nvim",        -- Rust tools
 
     {
         "brianhuster/live-preview.nvim", --Render .html & .md files.
@@ -1016,14 +1026,14 @@ Build so much volume that there would be no option than to be successful.
         lazy = false,
         config = function()
             require("tabout").setup({
-                tabkey = "<Tab>", -- key to trigger tabout, set to an empty string to disable
+                tabkey = "<Tab>",             -- key to trigger tabout, set to an empty string to disable
                 backwards_tabkey = "<S-Tab>", -- key to trigger backwards tabout, set to an empty string to disable
-                act_as_tab = true, -- shift content if tab out is not possible
-                act_as_shift_tab = false, -- reverse shift content if tab out is not possible (if your keyboard/terminal supports <S-Tab>)
-                default_tab = "<C-t>", -- shift default action (only at the beginning of a line, otherwise <TAB> is used)
-                default_shift_tab = "<C-d>", -- reverse shift default action,
-                enable_backwards = true, -- well ...
-                completion = false, -- if the tabkey is used in a completion pum
+                act_as_tab = true,            -- shift content if tab out is not possible
+                act_as_shift_tab = false,     -- reverse shift content if tab out is not possible (if your keyboard/terminal supports <S-Tab>)
+                default_tab = "<C-t>",        -- shift default action (only at the beginning of a line, otherwise <TAB> is used)
+                default_shift_tab = "<C-d>",  -- reverse shift default action,
+                enable_backwards = true,      -- well ...
+                completion = false,           -- if the tabkey is used in a completion pum
                 tabouts = {
                     { open = "'", close = "'" },
                     { open = '"', close = '"' },
@@ -1041,7 +1051,7 @@ Build so much volume that there would be no option than to be successful.
             "L3MON4D3/LuaSnip",
             "hrsh7th/nvim-cmp",
         },
-        opt = true,        -- Set this to true if the plugin is optional
+        opt = true,              -- Set this to true if the plugin is optional
         event = "InsertCharPre", -- Set the event to 'InsertCharPre' for better compatibility
         priority = 1000,
     },
@@ -1097,7 +1107,7 @@ Build so much volume that there would be no option than to be successful.
                                 local result = common.bracketed_paste_python(lines, extras)
                                 return strip_comments_after_format(result, "python")
                             end,
-                            block_dividers = { "# %%", "#%%" },
+                            block_dividers = { "# %%", "#%%", "###" },
                         },
                         lua = {
                             command = { "lua" },

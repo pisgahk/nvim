@@ -83,6 +83,7 @@ return {
 					"zls",
 					"hyprls",
 					-- "shellcheck",
+					-- "ast-grep",
 				},
 				automatic_installation = true,
 			})
@@ -176,6 +177,14 @@ return {
 							autoSearchPaths = true,
 							useLibraryCodeForTypes = true,
 							diagonisticMode = "workspace", -- "openFilesOnly" or "workspace"
+							logLevel = "Information",
+
+							autoImportCompletions = true,
+							inlayHints = {
+								variableTypes = true,
+								parameterNames = true,
+								functionReturnTypes = true,
+							},
 						},
 					},
 				},

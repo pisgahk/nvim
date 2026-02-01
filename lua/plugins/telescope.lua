@@ -15,6 +15,7 @@ return {
         "nvim-lua/plenary.nvim",              -- Required
         "nvim-telescope/telescope-fzf-native.nvim", -- Optional but fast
         "nvim-tree/nvim-web-devicons",        -- For icons
+        "BurntSushi/ripgrep",
     },
     build = "make",
     opts = {
@@ -26,7 +27,7 @@ return {
             selection_caret = "->> ", -- " ",
             sorting_strategy = "ascending",
             winblend = 10,
-            initial_mode = "normal",
+            initial_mode = "insert",
             -- mappings = {
             --     i = {
             --         ["<Esc>"] = require("telescope.actions").close,
