@@ -1168,4 +1168,8 @@ Ain't nobody else that can do what you do the way you do.
             vim.keymap.set("n", "<space>rh", "<cmd>IronHide<cr>")
         end,
     },
+
+    {
+        "jalvesaq/dict.nvim",
+    },
 }
