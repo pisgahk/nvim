@@ -813,7 +813,7 @@ Ain't nobody else that can do what you do the way you do.
                     blend = 0, -- Transparency (see ':h winblend')
                 },
                 filetype = {
-                    python = "python3 -u",
+                    python = "uv run python3", -- Will work when the python project uses `uv`.
                     javascript = "node",
                     rust = "cargo run",
                     go = "go run",
