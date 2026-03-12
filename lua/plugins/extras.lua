@@ -53,6 +53,9 @@ Build so much volume that there would be no option than to be successful.
 
 Ain't nobody else that can do what you do the way you do.
 
+    Good code is not written, it is "re-written"!
+
+
 
 
 ]],
@@ -103,9 +106,9 @@ Ain't nobody else that can do what you do the way you do.
                     max_height = 40,
                 },
                 convert = {
-                    notify = true,     -- whether to show notifications on image render
+                    notify = true, -- whether to show notifications on image render
                     magick = "magick", -- or path to your ImageMagick binary
-                    mermaid = "mmdc",  -- or path to Mermaid CLI if used
+                    mermaid = "mmdc", -- or path to Mermaid CLI if used
                     formats = {
                         "png",
                         "jpg",
@@ -258,19 +261,19 @@ Ain't nobody else that can do what you do the way you do.
                 desc = "Git Log Line",
             },
             {
-                "<leader>gs",
+                "<leader>gS",
                 function()
                     Snacks.picker.git_status()
                 end,
                 desc = "Git Status",
             },
-            {
-                "<leader>gS",
-                function()
-                    Snacks.picker.git_stash()
-                end,
-                desc = "Git Stash",
-            },
+            -- {
+            --     "<leader>gS",
+            --     function()
+            --         Snacks.picker.git_stash()
+            --     end,
+            --     desc = "Git Stash",
+            -- },
             {
                 "<leader>gd",
                 function()
@@ -715,7 +718,7 @@ Ain't nobody else that can do what you do the way you do.
 
     "hiphish/rainbow-delimiters.nvim", -- Brackets, parenthesis colorizer
 
-    "simrat39/rust-tools.nvim",        -- Rust tools
+    "simrat39/rust-tools.nvim",     -- Rust tools
 
     {
         "brianhuster/live-preview.nvim", --Render .html & .md files.
@@ -972,6 +975,7 @@ Ain't nobody else that can do what you do the way you do.
 
             nmap("<leader>tp", "<cmd>TypstPreview<CR>", "Preview .typ file")
             nmap("<leader>tt", "<cmd>TypstPreviewFollowCursorToggle<CR>", "Follow the cursor toggle")
+            nmap("<leader>ts", "<cmd>TypstPreviewStop<CR>", "Stop the preview")
         end,
     },
 
@@ -1029,14 +1033,14 @@ Ain't nobody else that can do what you do the way you do.
         lazy = false,
         config = function()
             require("tabout").setup({
-                tabkey = "<Tab>",             -- key to trigger tabout, set to an empty string to disable
+                tabkey = "<Tab>", -- key to trigger tabout, set to an empty string to disable
                 backwards_tabkey = "<S-Tab>", -- key to trigger backwards tabout, set to an empty string to disable
-                act_as_tab = true,            -- shift content if tab out is not possible
-                act_as_shift_tab = false,     -- reverse shift content if tab out is not possible (if your keyboard/terminal supports <S-Tab>)
-                default_tab = "<C-t>",        -- shift default action (only at the beginning of a line, otherwise <TAB> is used)
-                default_shift_tab = "<C-d>",  -- reverse shift default action,
-                enable_backwards = true,      -- well ...
-                completion = false,           -- if the tabkey is used in a completion pum
+                act_as_tab = true, -- shift content if tab out is not possible
+                act_as_shift_tab = false, -- reverse shift content if tab out is not possible (if your keyboard/terminal supports <S-Tab>)
+                default_tab = "<C-t>", -- shift default action (only at the beginning of a line, otherwise <TAB> is used)
+                default_shift_tab = "<C-d>", -- reverse shift default action,
+                enable_backwards = true, -- well ...
+                completion = false, -- if the tabkey is used in a completion pum
                 tabouts = {
                     { open = "'", close = "'" },
                     { open = '"', close = '"' },
@@ -1054,7 +1058,7 @@ Ain't nobody else that can do what you do the way you do.
             "L3MON4D3/LuaSnip",
             "hrsh7th/nvim-cmp",
         },
-        opt = true,              -- Set this to true if the plugin is optional
+        opt = true,        -- Set this to true if the plugin is optional
         event = "InsertCharPre", -- Set the event to 'InsertCharPre' for better compatibility
         priority = 1000,
     },
@@ -1110,7 +1114,7 @@ Ain't nobody else that can do what you do the way you do.
                                 local result = common.bracketed_paste_python(lines, extras)
                                 return strip_comments_after_format(result, "python")
                             end,
-                            block_dividers = { "# %%", "#%%", "###" },
+                            block_dividers = { "# %%", "#%%", "###", "# ---[" },
                         },
                         lua = {
                             command = { "lua" },
@@ -1132,7 +1136,7 @@ Ain't nobody else that can do what you do the way you do.
                         return ft
                     end,
 
-                    dap_integration = true,
+                    dap_integration = false,
 
                     repl_open_cmd = view.split.vertical.rightbelow(80),
                 },
@@ -1146,10 +1150,10 @@ Ain't nobody else that can do what you do the way you do.
                     send_file = "<space>sf",
                     send_line = "<space>sl",
                     send_paragraph = "<space>sp",
+                    send_code_block_and_move = "<space>sn",
                     send_until_cursor = "<space>sc",
                     send_mark = "<space>sm",
                     send_code_block = "<space>sb",
-                    send_code_block_and_move = "<space>sn",
 
                     mark_motion = "<space>mc",
                     mark_visual = "<space>mc",
