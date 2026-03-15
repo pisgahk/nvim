@@ -106,9 +106,9 @@ Ain't nobody else that can do what you do the way you do.
                     max_height = 40,
                 },
                 convert = {
-                    notify = true, -- whether to show notifications on image render
+                    notify = true,     -- whether to show notifications on image render
                     magick = "magick", -- or path to your ImageMagick binary
-                    mermaid = "mmdc", -- or path to Mermaid CLI if used
+                    mermaid = "mmdc",  -- or path to Mermaid CLI if used
                     formats = {
                         "png",
                         "jpg",
@@ -718,7 +718,7 @@ Ain't nobody else that can do what you do the way you do.
 
     "hiphish/rainbow-delimiters.nvim", -- Brackets, parenthesis colorizer
 
-    "simrat39/rust-tools.nvim",     -- Rust tools
+    "simrat39/rust-tools.nvim",        -- Rust tools
 
     {
         "brianhuster/live-preview.nvim", --Render .html & .md files.
@@ -1033,14 +1033,14 @@ Ain't nobody else that can do what you do the way you do.
         lazy = false,
         config = function()
             require("tabout").setup({
-                tabkey = "<Tab>", -- key to trigger tabout, set to an empty string to disable
+                tabkey = "<Tab>",             -- key to trigger tabout, set to an empty string to disable
                 backwards_tabkey = "<S-Tab>", -- key to trigger backwards tabout, set to an empty string to disable
-                act_as_tab = true, -- shift content if tab out is not possible
-                act_as_shift_tab = false, -- reverse shift content if tab out is not possible (if your keyboard/terminal supports <S-Tab>)
-                default_tab = "<C-t>", -- shift default action (only at the beginning of a line, otherwise <TAB> is used)
-                default_shift_tab = "<C-d>", -- reverse shift default action,
-                enable_backwards = true, -- well ...
-                completion = false, -- if the tabkey is used in a completion pum
+                act_as_tab = true,            -- shift content if tab out is not possible
+                act_as_shift_tab = false,     -- reverse shift content if tab out is not possible (if your keyboard/terminal supports <S-Tab>)
+                default_tab = "<C-t>",        -- shift default action (only at the beginning of a line, otherwise <TAB> is used)
+                default_shift_tab = "<C-d>",  -- reverse shift default action,
+                enable_backwards = true,      -- well ...
+                completion = false,           -- if the tabkey is used in a completion pum
                 tabouts = {
                     { open = "'", close = "'" },
                     { open = '"', close = '"' },
@@ -1058,7 +1058,7 @@ Ain't nobody else that can do what you do the way you do.
             "L3MON4D3/LuaSnip",
             "hrsh7th/nvim-cmp",
         },
-        opt = true,        -- Set this to true if the plugin is optional
+        opt = true,              -- Set this to true if the plugin is optional
         event = "InsertCharPre", -- Set the event to 'InsertCharPre' for better compatibility
         priority = 1000,
     },
@@ -1075,103 +1075,103 @@ Ain't nobody else that can do what you do the way you do.
 
     -- to solve this global variables not working, you can use lazydev by folke, it kinda fixes everything that says that it should be global blah blah blah
 
-    {
-        "Vigemus/iron.nvim",
-        config = function()
-            local iron = require("iron.core")
-            local view = require("iron.view")
-            local common = require("iron.fts.common")
-
-            -- 🔧 Formatter: strip full-line comments after bracketed paste
-            local function strip_comments_after_format(lines, ft)
-                local comment_patterns = {
-                    python = "^%s*#",
-                    rust = "^%s*//",
-                    lua = "^%s*--",
-                    sh = "^%s*#",
-                }
-                local pat = comment_patterns[ft]
-                return vim.tbl_filter(function(line)
-                    return not (pat and line:match(pat))
-                end, lines)
-            end
-
-            iron.setup({
-                config = {
-                    scratch_repl = false, -- allow typing directly in REPL
-
-                    repl_definition = {
-                        sh = {
-                            command = { "sh" },
-                            format = function(lines, extras)
-                                local result = common.bracketed_paste(lines, extras)
-                                return strip_comments_after_format(result, "sh")
-                            end,
-                        },
-                        python = {
-                            command = { "ipython", "--no-autoindent" },
-                            format = function(lines, extras)
-                                local result = common.bracketed_paste_python(lines, extras)
-                                return strip_comments_after_format(result, "python")
-                            end,
-                            block_dividers = { "# %%", "#%%", "###", "# ---[" },
-                        },
-                        lua = {
-                            command = { "lua" },
-                            format = function(lines, extras)
-                                local result = common.bracketed_paste(lines, extras)
-                                return strip_comments_after_format(result, "lua")
-                            end,
-                        },
-                        rust = {
-                            command = { "evcxr" },
-                            format = function(lines, extras)
-                                local result = common.bracketed_paste(lines, extras)
-                                return strip_comments_after_format(result, "rust")
-                            end,
-                        },
-                    },
-
-                    repl_filetype = function(_, ft)
-                        return ft
-                    end,
-
-                    dap_integration = false,
-
-                    repl_open_cmd = view.split.vertical.rightbelow(80),
-                },
-
-                keymaps = {
-                    toggle_repl = "<space>rr",
-                    restart_repl = "<space>rR",
-
-                    send_motion = "<space>sv",
-                    visual_send = "<space>sv",
-                    send_file = "<space>sf",
-                    send_line = "<space>sl",
-                    send_paragraph = "<space>sp",
-                    send_code_block_and_move = "<space>sn",
-                    send_until_cursor = "<space>sc",
-                    send_mark = "<space>sm",
-                    send_code_block = "<space>sb",
-
-                    mark_motion = "<space>mc",
-                    mark_visual = "<space>mc",
-                    remove_mark = "<space>md",
-
-                    cr = "<space>s<cr>",
-                    interrupt = "<space>s<space>",
-                    exit = "<space>sq",
-                    clear = "<space>cl",
-                },
-
-                highlight = { italic = false, bold = true },
-                ignore_blank_lines = true,
-            })
-            vim.keymap.set("n", "<space>rf", "<cmd>IronFocus<cr>")
-            vim.keymap.set("n", "<space>rh", "<cmd>IronHide<cr>")
-        end,
-    },
+    -- {
+    --     "Vigemus/iron.nvim",
+    --     config = function()
+    --         local iron = require("iron.core")
+    --         local view = require("iron.view")
+    --         local common = require("iron.fts.common")
+    --
+    --         -- 🔧 Formatter: strip full-line comments after bracketed paste
+    --         local function strip_comments_after_format(lines, ft)
+    --             local comment_patterns = {
+    --                 python = "^%s*#",
+    --                 rust = "^%s*//",
+    --                 lua = "^%s*--",
+    --                 sh = "^%s*#",
+    --             }
+    --             local pat = comment_patterns[ft]
+    --             return vim.tbl_filter(function(line)
+    --                 return not (pat and line:match(pat))
+    --             end, lines)
+    --         end
+    --
+    --         iron.setup({
+    --             config = {
+    --                 scratch_repl = false, -- allow typing directly in REPL
+    --
+    --                 repl_definition = {
+    --                     sh = {
+    --                         command = { "sh" },
+    --                         format = function(lines)
+    --                             local result = common.bracketed_paste(lines)
+    --                             return strip_comments_after_format(result, "sh")
+    --                         end,
+    --                     },
+    --                     python = {
+    --                         command = { "python3", "--no-autoindent" },
+    --                         format = function(lines, extras)
+    --                             local result = common.bracketed_paste_python(lines, extras)
+    --                             return strip_comments_after_format(result, "python")
+    --                         end,
+    --                         block_dividers = { "# %%", "#%%", "###", "# ---[" },
+    --                     },
+    --                     lua = {
+    --                         command = { "lua" },
+    --                         format = function(lines)
+    --                             local result = common.bracketed_paste(lines)
+    --                             return strip_comments_after_format(result, "lua")
+    --                         end,
+    --                     },
+    --                     rust = {
+    --                         command = { "evcxr" },
+    --                         format = function(lines)
+    --                             local result = common.bracketed_paste(lines)
+    --                             return strip_comments_after_format(result, "rust")
+    --                         end,
+    --                     },
+    --                 },
+    --
+    --                 repl_filetype = function(_, ft)
+    --                     return ft
+    --                 end,
+    --
+    --                 dap_integration = false,
+    --
+    --                 repl_open_cmd = view.split.vertical.rightbelow(80),
+    --             },
+    --
+    --             keymaps = {
+    --                 toggle_repl = "<space>rr",
+    --                 restart_repl = "<space>rR",
+    --
+    --                 send_motion = "<space>sv",
+    --                 visual_send = "<space>sv",
+    --                 send_file = "<space>sf",
+    --                 send_line = "<space>sl",
+    --                 send_paragraph = "<space>sp",
+    --                 send_code_block_and_move = "<space>sn",
+    --                 send_until_cursor = "<space>sc",
+    --                 send_mark = "<space>sm",
+    --                 send_code_block = "<space>sb",
+    --
+    --                 mark_motion = "<space>mc",
+    --                 mark_visual = "<space>mc",
+    --                 remove_mark = "<space>md",
+    --
+    --                 cr = "<space>s<cr>",
+    --                 interrupt = "<space>s<space>",
+    --                 exit = "<space>sq",
+    --                 clear = "<space>cl",
+    --             },
+    --
+    --             highlight = { italic = false, bold = true },
+    --             ignore_blank_lines = true,
+    --         })
+    --         vim.keymap.set("n", "<space>rf", "<cmd>IronFocus<cr>")
+    --         vim.keymap.set("n", "<space>rh", "<cmd>IronHide<cr>")
+    --     end,
+    -- },
 
     {
         "jalvesaq/dict.nvim",

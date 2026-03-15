@@ -1,53 +1,128 @@
-return {
-	"gruvw/strudel.nvim",
-	build = "npm ci",
-	config = function()
-		require("strudel").setup({
-			-- 	-- Strudel web user interface related options
-			-- 	ui = {
-			-- 		-- Maximise the menu panel
-			-- 		-- (optional, default: true)
-			-- 		maximise_menu_panel = true,
-			-- 		-- Hide the Strudel menu panel (and handle)
-			-- 		-- (optional, default: false)
-			-- 		hide_menu_panel = false,
-			-- 		-- Hide the default Strudel top bar (controls)
-			-- 		-- (optional, default: false)
-			-- 		hide_top_bar = false,
-			-- 		-- Hide the Strudel code editor
-			-- 		-- (optional, default: false)
-			-- 		hide_code_editor = false,
-			-- 		-- Hide the Strudel eval error display under the editor
-			-- 		-- (optional, default: false)
-			-- 		hide_error_display = false,
-			-- 	},
-			-- 	-- Automatically start playback when launching Strudel
-			-- 	-- (optional, default: true)
-			-- 	start_on_launch = true,
-			-- 	-- Set to `true` to automatically trigger the code evaluation after saving the buffer content
-			-- 	-- Only works if the playback was already started (doesn't start the playback on save)
-			-- 	-- (optional, default: false)
-			-- 	update_on_save = false,
-			-- 	-- Enable two-way cursor position sync between Neovim and Strudel editor
-			-- 	-- (optional, default: true)
-			-- 	sync_cursor = true,
-			-- 	-- Report evaluation errors from Strudel as Neovim notifications
-			-- 	-- (optional, default: true)
-			-- 	report_eval_errors = true,
-			-- 	-- Path to a custom CSS file to style the Strudel web editor (base64-encoded and injected at launch)
-			-- 	-- This allows you to override or extend the default Strudel UI appearance
-			-- 	-- (optional, default: nil)
-			-- 	custom_css_file = "/path/to/your/custom.css",
-			-- 	-- Headless mode: set to `true` to run the browser without launching a window
-			-- 	-- (optional, default: false)
-			-- 	headless = false,
-			-- 	-- Path to the directory where Strudel browser user data (cookies, sessions, etc.) is stored
-			-- 	-- (optional, default: `~/.cache/strudel-nvim/`)
-			-- 	browser_data_dir = "~/.cache/strudel-nvim/",
-			-- 	-- Path to a (chromium-based) browser executable of choice
-			-- 	-- (optional, default: nil)
-			-- 	browser_exec_path = "/path/to/browser/executable",
-		})
-		-- require("plugins.keybinds").setup(strudel)
-	end,
-}
+-- return {
+-- 	"gruvw/strudel.nvim",
+-- 	build = "npm ci",
+-- 	config = function()
+-- 		require("strudel").setup({
+-- 			-- 	-- Strudel web user interface related options
+-- 			-- 	ui = {
+-- 			-- 		-- Maximise the menu panel
+-- 			-- 		-- (optional, default: true)
+-- 			-- 		maximise_menu_panel = true,
+-- 			-- 		-- Hide the Strudel menu panel (and handle)
+-- 			-- 		-- (optional, default: false)
+-- 			-- 		hide_menu_panel = false,
+-- 			-- 		-- Hide the default Strudel top bar (controls)
+-- 			-- 		-- (optional, default: false)
+-- 			-- 		hide_top_bar = false,
+-- 			-- 		-- Hide the Strudel code editor
+-- 			-- 		-- (optional, default: false)
+-- 			-- 		hide_code_editor = false,
+-- 			-- 		-- Hide the Strudel eval error display under the editor
+-- 			-- 		-- (optional, default: false)
+-- 			-- 		hide_error_display = false,
+-- 			-- 	},
+-- 			-- 	-- Automatically start playback when launching Strudel
+-- 			-- 	-- (optional, default: true)
+-- 			-- 	start_on_launch = true,
+-- 			-- 	-- Set to `true` to automatically trigger the code evaluation after saving the buffer content
+-- 			-- 	-- Only works if the playback was already started (doesn't start the playback on save)
+-- 			-- 	-- (optional, default: false)
+-- 			-- 	update_on_save = false,
+-- 			-- 	-- Enable two-way cursor position sync between Neovim and Strudel editor
+-- 			-- 	-- (optional, default: true)
+-- 			-- 	sync_cursor = true,
+-- 			-- 	-- Report evaluation errors from Strudel as Neovim notifications
+-- 			-- 	-- (optional, default: true)
+-- 			-- 	report_eval_errors = true,
+-- 			-- 	-- Path to a custom CSS file to style the Strudel web editor (base64-encoded and injected at launch)
+-- 			-- 	-- This allows you to override or extend the default Strudel UI appearance
+-- 			-- 	-- (optional, default: nil)
+-- 			-- 	custom_css_file = "/path/to/your/custom.css",
+-- 			-- 	-- Headless mode: set to `true` to run the browser without launching a window
+-- 			-- 	-- (optional, default: false)
+-- 			-- 	headless = false,
+-- 			-- 	-- Path to the directory where Strudel browser user data (cookies, sessions, etc.) is stored
+-- 			-- 	-- (optional, default: `~/.cache/strudel-nvim/`)
+-- 			-- 	browser_data_dir = "~/.cache/strudel-nvim/",
+-- 			-- 	-- Path to a (chromium-based) browser executable of choice
+-- 			-- 	-- (optional, default: nil)
+-- 			-- 	browser_exec_path = "/path/to/browser/executable",
+-- 		})
+-- 		-- require("plugins.keybinds").setup(strudel)
+-- 	end,
+-- }
+--
+
+--
+-- ███████╗████████╗██████╗ ██╗   ██╗██████╗ ███████╗██╗
+-- ██╔════╝╚══██╔══╝██╔══██╗██║   ██║██╔══██╗██╔════╝██║
+-- ███████╗   ██║   ██████╔╝██║   ██║██║  ██║█████╗  ██║
+-- ╚════██║   ██║   ██╔══██╗██║   ██║██║  ██║██╔══╝  ██║
+-- ███████║   ██║   ██║  ██║╚██████╔╝██████╔╝███████╗███████╗
+-- ╚══════╝   ╚═╝   ╚═╝  ╚═╝ ╚═════╝ ╚═════╝ ╚══════╝╚══════╝
+-- cooked by P!5g@h.
+-- strudel.nvim — live coding algorithmic music from Neovim
+-- return {
+--     {
+--         "gruvw/strudel.nvim",
+--         build = "npm ci",
+--         ft = { "str", "std" }, -- lazy-load on strudel filetypes (note: may affect filetype detection, see README)
+--         keys = {
+--             { "<leader>sl", desc = "Strudel Launch" },
+--             { "<leader>sq", desc = "Strudel Quit" },
+--             { "<leader>st", desc = "Strudel Toggle Play/Stop" },
+--             { "<leader>su", desc = "Strudel Update" },
+--             { "<leader>ss", desc = "Strudel Stop" },
+--             { "<leader>sb", desc = "Strudel Set Buffer" },
+--             { "<leader>sx", desc = "Strudel Execute (set buf + update)" },
+--         },
+--         config = function()
+--             local strudel = require("strudel")
+--
+--             strudel.setup({
+--                 -- 🎛️ UI options
+--                 ui = {
+--                     maximise_menu_panel = true, -- replace the strudel editor with Neovim
+--                     hide_menu_panel = false,
+--                     hide_top_bar = true, -- clean side-by-side look
+--                     hide_code_editor = false,
+--                     hide_error_display = false,
+--                 },
+--
+--                 start_on_launch = true, -- auto-play when launching
+--                 update_on_save = true, -- re-eval on :w (only if already playing)
+--                 sync_cursor = true, -- two-way cursor sync
+--                 report_eval_errors = true, -- pipe Strudel errors into nvim notifications
+--
+--                 headless = false, -- set true for pure-Neovim audio-only mode
+--
+--                 -- 📁 Session persistence
+--                 browser_data_dir = "~/.cache/strudel-nvim/",
+--
+--                 -- 🌐 Optional: point to a specific chromium binary
+--                 -- browser_exec_path = "/usr/bin/chromium",
+--
+--                 -- 🎨 Optional: inject your own CSS into the Strudel web editor
+--                 -- custom_css_file = vim.fn.stdpath("config") .. "/strudel.css",
+--             })
+--
+--             -- 🎹 Keymaps
+--             vim.keymap.set("n", "<leader>sl", strudel.launch, { desc = "Strudel Launch" })
+--             vim.keymap.set("n", "<leader>sq", strudel.quit, { desc = "Strudel Quit" })
+--             vim.keymap.set("n", "<leader>st", strudel.toggle, { desc = "Strudel Toggle Play/Stop" })
+--             vim.keymap.set("n", "<leader>su", strudel.update, { desc = "Strudel Update" })
+--             vim.keymap.set("n", "<leader>ss", strudel.stop, { desc = "Strudel Stop" })
+--             vim.keymap.set("n", "<leader>sb", strudel.set_buffer, { desc = "Strudel Set Buffer" })
+--             vim.keymap.set("n", "<leader>sx", strudel.execute, { desc = "Strudel Execute" })
+--
+--             -- 🔔 Notify on launch/quit for clarity
+--             vim.api.nvim_create_user_command("StrudelStatus", function()
+--                 if strudel.is_launched() then
+--                     vim.notify("🎵 Strudel is running", vim.log.levels.INFO)
+--                 else
+--                     vim.notify("🔇 Strudel is not running", vim.log.levels.WARN)
+--                 end
+--             end, { desc = "Check Strudel session status" })
+--         end,
+--     },
+-- }

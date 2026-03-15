@@ -23,7 +23,7 @@ return {
             layout_config = {
                 horizontal = { width = 0.9, preview_cutoff = 120 },
             },
-            prompt_prefix = "🔍 ",
+            prompt_prefix = " ",
             selection_caret = "->> ", -- " ",
             sorting_strategy = "ascending",
             winblend = 10,
@@ -36,7 +36,8 @@ return {
         },
         pickers = {
             find_files = {
-                hidden = true,
+                -- theme = "ivy",
+                hidden = false,
                 previewer = true,
             },
             live_grep = {

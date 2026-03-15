@@ -1,3 +1,5 @@
+-- for `vim.keymap.set`, `noremap=true` is default, thus do not explicitly set it.
+
 ---[Strudel]----------------------------------------------------------------------------------------------------
 --local strudel = require("strudel")
 
@@ -8,3 +10,22 @@
 --vim.keymap.set("n", "<leader>ss", strudel.stop, { desc = "Strudel Stop Playback" })
 --vim.keymap.set("n", "<leader>sb", strudel.set_buffer, { desc = "Strudel set current buffer" })
 --vim.keymap.set("n", "<leader>sx", strudel.execute, { desc = "Strudel set current buffer and update" })
+
+-- ---[nvim-Telescope]---------------------------------------------------------------------------------------------
+-- { "<leader>ff", "<cmd>Telescope find_files<cr>",                    desc = "Find Files" },
+-- local builtin = require("telescope.builtin")
+--
+-- vim.keymap.set("n", "<leader>ff", builtin.find_files, { silent = true, desc = "Telescope::find_files" })
+--
+--
+-- local builtin = require("telescope.builtin")
+--
+-- vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Find Files" })
+-- vim.keymap.set("n", "<leader>fg", builtin.git_files,  { desc = "Find Git Files" })
+-- vim.keymap.set("n", "<leader>fb", builtin.buffers,    { desc = "Find Buffers" })
+-- vim.keymap.set("n", "<leader>/",  builtin.live_grep,  { desc = "Grep Content" })
+-- vim.keymap.set("n", "<leader>fh", builtin.help_tags,  { desc = "Help Pages" })
+-- vim.keymap.set("n", "<leader>fk", builtin.keymaps,    { desc = "Keymaps" })
+-- vim.keymap.set("n", "<leader>fc", function()
+--     builtin.find_files({ cwd = "~/.config/nvim" })
+-- end, { desc = "Find Config" })
