@@ -37,6 +37,8 @@ apt install imagemagick tokei
 > Once you use the excalidraw command, I have set it to store the `.excalidraw` files in `<working_dir>/.bulb/excalidraw/` for better organization of the codebase instead of the default `~/.excalidraw/` dir.
 > <br> You can check it out in `.config/nvim/lua/plugins/extras.lua` .
 
+- One thing about iron.nvim as a REPL especially for Python, you need to install `ipython` in your `.venv` for it to work otherwise it won't.
+
 # Features May2k25.
 
 - File Explorer on the right.
