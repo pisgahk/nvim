@@ -9,6 +9,13 @@
 -- Includes Colour-schemes.
 
 return {
+    -- {
+    --     dir = "~/path/to/muted.nvim",
+    --     priority = 1000,
+    --     config = function()
+    --         vim.cmd.colorscheme("muted")
+    --     end,
+    -- },
     {
         "catppuccin/nvim",
         lazy = false,

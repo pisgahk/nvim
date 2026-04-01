@@ -106,7 +106,7 @@ opt.fillchars:append({ eob = " " })
 opt.list = true
 
 -- Settings for cmp-spell
-opt.spell = true
+opt.spell = false -- Can be set using <leader>us
 opt.spelllang = { "en_us" }
 
 -- Opening new split panes to right and below

@@ -23,10 +23,12 @@ vim.g.loaded_netrwPlugin = 1
 vim.g.mapleader = ","
 
 -- Imports
-require("core.lazy")       -- lazy.nvim plugin manager
-require("core.mappings")   -- Mappings
-require("core.settings")   -- Editor settings
-
+require("core.lazy") -- lazy.nvim plugin manager
+require("core.mappings") -- Mappings
+require("core.settings") -- Editor settings
+-- require("core.colour") -- The Vmichael colourscheme.
+-- require("core.vmichael")
+require("core.langstats")
 require("plugins.plugins") -- Plugins
 
 -- For the new config: 12.02.2026

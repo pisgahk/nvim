@@ -69,6 +69,7 @@ return {
                     "tailwindcss",
                     "zls",
                     "hyprls",
+                    "jsonls",
                 },
                 automatic_installation = true,
             })
@@ -208,6 +209,16 @@ return {
                 root_dir = vim.loop.cwd,
             }
             vim.lsp.enable("bashls")
+
+            -- 📦 JSON
+            vim.lsp.config["jsonls"] = {
+                capabilities = capabilities,
+                on_init = function(client)
+                    client.server_capabilities.documentFormattingProvider = false
+                    client.server_capabilities.documentRangeFormattingProvider = false
+                end,
+            }
+            vim.lsp.enable("jsonls")
 
             -- 🌸 Emmet
             vim.lsp.config["emmet_ls"] = {

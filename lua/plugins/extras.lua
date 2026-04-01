@@ -53,13 +53,13 @@ Build so much volume that there would be no option than to be successful.
 
 Ain't nobody else that can do what you do the way you do.
 
-    Good code is not written, it is "re-written"!
+Good code is not written, it is "re-written"!
 
 
 
 
-]],
-                        -- },
+    ]],
+    -- },
                     },
                 },
             },
