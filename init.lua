@@ -29,6 +29,8 @@ require("core.settings") -- Editor settings
 -- require("core.colour") -- The Vmichael colourscheme.
 -- require("core.vmichael")
 require("core.langstats")
+require("core.langstats_bar")
+require("core.langstats_term")
 require("plugins.plugins") -- Plugins
 
 -- For the new config: 12.02.2026
@@ -47,3 +49,13 @@ require("plugins.plugins") -- Plugins
 --
 -- Always use `opts` instead of `config` whenever possible, `config` is almost never needed.
 -- small trigger to see if the nvim syncing wala workflow will work.
+
+-- Let me also add this trigger just to see if it will make
+-- a PR in the nvim config file.
+-- This is really cool stuff.
+-- Because there are actual teams of people that do this and being able to do it efficiently and safely
+-- is quite good.
+-- how about now what can i do here. some random text to see if this workflow works.
+-- :wqa
+-- Let me try to make changes to my nvim config file.
+--
