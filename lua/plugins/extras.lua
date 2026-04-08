@@ -1176,4 +1176,7 @@ Good code is not written, it is "re-written"!
     {
         "jalvesaq/dict.nvim",
     },
+    {
+--       "github/copliot.vim",
+    },
 }
