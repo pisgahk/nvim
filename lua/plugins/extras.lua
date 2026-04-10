@@ -53,9 +53,10 @@ Build so much volume that there would be no option than to be successful.
 
 Ain't nobody else that can do what you do the way you do.
 
-Good code is not written, it is "re-written"!
-
-
+      Good code is not written, it is "re-written"!
+----------------------------------------------------------
+I laugh as I depart to my journey, how can I be a commoner
+                  with such talent.
 
 
     ]],
@@ -1175,5 +1176,8 @@ Good code is not written, it is "re-written"!
 
     {
         "jalvesaq/dict.nvim",
+    },
+    {
+        --       "github/copliot.vim",
     },
 }

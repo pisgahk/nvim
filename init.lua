@@ -22,12 +22,17 @@ vim.g.loaded_netrwPlugin = 1
 -- Leader key
 vim.g.mapleader = ","
 
+vim.opt.runtimepath:prepend(vim.fn.expand("~/muted.nvim"))
+-- vim.g.muted_variant = "fire"
+vim.cmd.colorscheme("muted_earth")
+
 -- Imports
 require("core.lazy") -- lazy.nvim plugin manager
 require("core.mappings") -- Mappings
 require("core.settings") -- Editor settings
 -- require("core.colour") -- The Vmichael colourscheme.
 -- require("core.vmichael")
+
 require("core.langstats")
 require("core.langstats_bar")
 require("core.langstats_term")
