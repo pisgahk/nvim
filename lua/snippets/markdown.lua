@@ -67,4 +67,10 @@ ls.add_snippets("markdown", {
             }
         )
     ),
+
+
+    s("date", {
+        t("# "),
+        t(os.date("%d.%B.%Y")),
+    }),
 })
