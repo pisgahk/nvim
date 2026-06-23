@@ -47,7 +47,7 @@ opt.backup = false
 opt.writebackup = false
 
 -- Always show the signcolumn
-opt.signcolumn = "yes"
+opt.signcolumn = "auto:2"
 
 -- Do not let cursor scroll below or above N number of lines when scrolling
 opt.scrolloff = 10
@@ -118,7 +118,7 @@ g.loaded_netrw = 1
 g.loaded_netrwPlugin = 1
 
 -- GUI settings
--- opt.guifont = { "JetBrains Mono Regular" } --, ":h13" }
+opt.guifont = { "IogahTerm:h35" } --, ":h13" }
 -- This is a custom font, check https://github.com/pisgahk/dotfiles/ in fonts/
 opt.guifont = { "IogahTerm Light" }
 
@@ -133,3 +133,5 @@ vim.opt.winborder = "rounded"
 
 -- I feel like this yank command is already built-in and this is is just repeating myself. But lemme leave it here anyway.
 vim.keymap.set({ "n", "v", "x" }, "<leader>y", '"+y<CR>')
+
+vim.opt.confirm = true

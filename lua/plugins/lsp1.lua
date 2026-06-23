@@ -392,6 +392,11 @@ return {
 						extra_args = { "--tab-width", "4" },
 					}),
 
+					-- QML formatting
+					null_ls.builtins.formatting.qmlformat.with({
+						filetypes = { "qml" },
+					}),
+
 					-- 🐚 Adding ShellCheck diagnostics for Bash
 					--     null_ls.builtins.diagnostics.shellcheck.with({
 					--         diagnostics_format = "#{m} [#{c}]",

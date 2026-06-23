@@ -234,3 +234,10 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv") -- Shift visual selected line up
 -- Makes my explorer wider or thinner
 vim.keymap.set("n", "C-=", [[<cmd>vertical resize +5<cr>]]) -- make the window bigger vertically
 vim.keymap.set("n", "C--", [[<cmd>vertical resize -5<cr>]]) -- make the window smaller vertically
+
+-- Highlights the yanked lines temporarily.
+vim.api.nvim_create_autocmd("TextYankPost", {
+	callback = function()
+		vim.highlight.on_yank()
+	end,
+})

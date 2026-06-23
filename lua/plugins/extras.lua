@@ -774,9 +774,28 @@ Good code is not written, it is "re-written"!
                 html = {
                     enabled = false,
                 },
+                heading = {
+                    border = false,
+                    width = "block",
+                    right_pad = 2,
+                },
+                code = {
+                    width = "block",
+                    border = "thin",
+                    left_pad = 2,
+                    right_pad = 2,
+                },
+                pipe_table = {
+                    preset = "round",
+                },
+                bullet = {
+                    icon = { "•", "◦", "▸", "▹" },
+                },
             })
         end,
     },
+
+    vim.api.nvim_set_hl(0, "RenderMarkdownTableHead", { fg = "#e0af68", bold = true }),
 
     {
         -- I disabled this coz I already enabled it in the Kitty Terminal.

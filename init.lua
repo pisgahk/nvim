@@ -102,3 +102,11 @@ vim.api.nvim_create_autocmd("BufWritePost", {
 		end, 1)
 	end,
 })
+
+-- This is to make the bg color of nvim disappear and use the bg of the terminal.
+vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+
+vim.api.nvim_set_hl(0, "LineNr", { fg = "#444444", bg = "none" })
+vim.api.nvim_set_hl(0, "MsgArea", { bg = "none" })
+
+-- vim.api.nvim_set_hl(0, "CursorLineNr", { bg = "none" })
