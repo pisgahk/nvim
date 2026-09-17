@@ -1,51 +1,37 @@
---
--- ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗
--- ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║
--- ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║
--- ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║
--- ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║
--- ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝Git.
+require("gitsigns").setup({
+    signs = {
+        add = { text = "│" },
+        change = { text = "│" },
+        delete = { text = "_" },
+        topdelete = { text = "‾" },
+        changedelete = { text = "~" },
+        untracked = { text = "┆" },
+    },
+    current_line_blame = false,
+})
 
--- cooked by P!5g@h
--- git-signs, git-graph
+---[gitgraph]-------------------------------------------------------------------------
 
-return {
-	"lewis6991/gitsigns.nvim", -- Git signs
+require("gitgraph").setup({
+    git_cmd = "git",
+    symbols = {
+        merge_commit = "M",
+        commit = "*",
+    },
+    format = {
+        timestamp = "%H:%M:%S %d-%m-%Y",
+        fields = { "hash", "timestamp", "author", "branch_name", "tag" },
+    },
+    hooks = {
+        on_select_commit = function(commit)
+            print("selected commit:", commit.hash)
+        end,
+        on_select_range_commit = function(from, to)
+            print("selected range:", from.hash, to.hash)
+        end,
+    },
+})
 
-	{
-		"isakbm/gitgraph.nvim",
-		opts = {
-			git_cmd = "git",
-			symbols = {
-				merge_commit = "M",
-				commit = "*",
-			},
-			format = {
-				timestamp = "%H:%M:%S %d-%m-%Y",
-				fields = { "hash", "timestamp", "author", "branch_name", "tag" },
-			},
-			hooks = {
-				on_select_commit = function(commit)
-					print("selected commit:", commit.hash)
-				end,
-				on_select_range_commit = function(from, to)
-					print("selected range:", from.hash, to.hash)
-				end,
-			},
-		},
-		keys = {
-			{
-				"<leader>gx",
-				function()
-					require("gitgraph").draw({}, { all = true, max_count = 5000 })
-				end,
-				desc = "GitGraph - Draw",
-			},
-			{
-				"<leader>gs",
-				":Gitsigns toggle_signs<CR>",
-				desc = "Toggle GitSigns",
-			},
-		},
-	},
-}
+vim.keymap.set("n", "<leader>gx", function()
+    require("gitgraph").draw({}, { all = true, max_count = 5000 })
+end, { desc = "GitGraph - Draw" })

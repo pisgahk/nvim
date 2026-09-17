@@ -1,3 +1,0 @@
--- uZer/pywal16.nvim to make the colourscheme to use the colours of current wallpaper.
--- goolord/alpha.nvim for the dashboard.
--- numToSTr/FTerm.nvim for floating terminal

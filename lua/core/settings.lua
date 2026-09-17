@@ -1,137 +1,47 @@
---
--- ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗
--- ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║
--- ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║
--- ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║
--- ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║
--- ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝
---
--- Neovim Lua Config File by Arfan Zubi
--- SETTINGS
-
--- Set termguicolors to enable highlight groups
-opt.termguicolors = true
-
--- UTF8 encoding
-opt.encoding = "UTF-8"
-
--- Enabling clipboard: Syncs clipboard between the OS and Neovim.
-opt.clipboard = "unnamedplus"
-
--- Persistent undo
-opt.undofile = true
-
--- Line numbers
-opt.number = true
-
--- Relative line numbers
-opt.relativenumber = true
-
--- Horizontal cursor line
-opt.cursorline = false
-
--- Vertical cursor line
-opt.cursorcolumn = false
-
--- Shift width
-opt.shiftwidth = 4
-
--- Tab width
-opt.tabstop = 4
-
--- Converts TAB to spaces.
-opt.expandtab = true
-
--- Disable backup files
-opt.backup = false
-opt.writebackup = false
-
--- Always show the signcolumn
-opt.signcolumn = "auto:2"
-
--- Do not let cursor scroll below or above N number of lines when scrolling
-opt.scrolloff = 10
-
--- Wrap lines
-opt.wrap = true
-
--- Preserve indentation of virtual line
-opt.breakindent = true
-
--- Search highlighting
-opt.hlsearch = false
-
--- Incrementally highlight matching characters while typing
-opt.incsearch = true
-
--- Ignoring capital letters during search
-opt.ignorecase = true
-
--- Overriding ignorecase option if searching for capital letters
-opt.smartcase = true
-
--- Showing matching words during search
-opt.showmatch = true
-
--- Showing partial command on last line
-opt.showcmd = true
-
--- Showing mode on last line
-opt.showmode = false
-
--- Command history
-opt.history = 500
-
--- Auto completion menu after pressing TAB
-opt.wildmenu = true
-
--- Bash-like completion
-opt.wildmode = "list:full"
-
--- Ignoring files with certain extensions
---opt.wildignore = "*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx"
-
--- Command completion in popup menu
-opt.wildoptions = "pum"
---opt.pumblend = 7   -- Make popup translucent
-opt.pumheight = 20 -- Max amount of items
-
--- Mouse support
-opt.mouse = "a"
-
--- Hide End-Of-Buffer symbol (~)
-opt.fillchars:append({ eob = " " })
-
--- Settings for line highlighting
-opt.list = true
-
--- Settings for cmp-spell
-opt.spell = false -- Can be set using <leader>us
-opt.spelllang = { "en_us" }
-
--- Opening new split panes to right and below
-opt.splitright = true
-opt.splitbelow = true
-
--- Disable netrw (native VIM file explorer)
-g.loaded_netrw = 1
-g.loaded_netrwPlugin = 1
-
--- GUI settings
-opt.guifont = { "IogahTerm:h35" } --, ":h13" }
--- This is a custom font, check https://github.com/pisgahk/dotfiles/ in fonts/
-opt.guifont = { "IogahTerm Light" }
-
--- Disabling providers (if downloaded Neovim from one of this providers don't delete!)
-g.loaded_python3_provider = 0
-g.loaded_ruby_provider = 0
-g.loaded_perl_provider = 0
-g.loaded_node_provider = 0
-
--- Adding borders for the LSPs and stuff
+---[Display]---------------------------------------------------------------------
+vim.opt.number = true
+vim.opt.relativenumber = true
+vim.opt.signcolumn = "yes"
+vim.opt.cursorline = false
+vim.opt.showmode = false
+vim.opt.cmdheight = 1
+vim.opt.fillchars = { eob = " " }
 vim.opt.winborder = "rounded"
 
--- I feel like this yank command is already built-in and this is is just repeating myself. But lemme leave it here anyway.
-vim.keymap.set({ "n", "v", "x" }, "<leader>y", '"+y<CR>')
+---[Indentation]-----------------------------------------------------------------
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.expandtab = true
+vim.opt.smartindent = true
+vim.opt.autoindent = true
 
-vim.opt.confirm = true
+---[Editing]---------------------------------------------------------------------
+vim.opt.wrap = true
+vim.opt.scrolloff = 10
+vim.opt.sidescrolloff = 10
+vim.opt.showmatch = true
+vim.opt.conceallevel = 0
+vim.opt.concealcursor = ""
+
+---[Search]----------------------------------------------------------------------
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+vim.opt.hlsearch = true
+vim.opt.incsearch = true
+
+---[Completion]------------------------------------------------------------------
+vim.opt.completeopt = { "menu", "menuone", "noselect" }
+vim.opt.autocomplete = false
+vim.opt.pumheight = 10
+
+---[Window Appearance]-----------------------------------------------------------
+vim.opt.pumblend = 10
+vim.opt.winblend = 0
+vim.opt.synmaxcol = 300
+
+---[Files and Clipboard]---------------------------------------------------------
+vim.opt.backup = false
+vim.opt.writebackup = false
+vim.opt.swapfile = false
+vim.opt.clipboard = "unnamedplus"
