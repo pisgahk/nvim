@@ -226,7 +226,7 @@ vim.api.nvim_set_keymap("n", "E", "$", { noremap = true })
 vim.keymap.set("n", "<leader>w", ":w<CR>", { desc = "Writes to file." })
 
 -- Display the dictionary meaning of word.
-vim.keymap.set("n", "<Leader>m", '<Cmd>lua require("dict").lookup()<CR>')
+-- vim.keymap.set("n", "<Leader>m", '<Cmd>lua require("dict").lookup()<CR>')
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv") -- Shift visual selected line down
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv") -- Shift visual selected line up

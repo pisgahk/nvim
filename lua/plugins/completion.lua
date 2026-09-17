@@ -67,18 +67,7 @@ return {
 			hl(0, "CmpItemKindMethod", { link = "CmpItemKindFunction" })
 			hl(0, "CmpItemKindKeyword", { bg = "NONE", fg = "#D4D4D4" })
 			hl(0, "CmpItemKindProperty", { link = "CmpItemKindKeyword" })
-
-			-- ─[ Utility for Tabs + Snippets ]─────────────────────────────────────
-			local feedkey = function(key, mode)
-				vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode, true)
-			end
-
-			local has_words_before = function()
-				local line, col = table.unpack(vim.api.nvim_win_get_cursor(0))
-				return col ~= 0
-					and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
-			end
-
+			--
 			-- ─[ CMP Setup ]───────────────────────────────────────────────────────
 			cmp.setup({
 				completion = { completeopt = "menu,menuone,noselect" },
@@ -131,6 +120,22 @@ return {
 					}),
 
 					["<C-e>"] = cmp.mapping.abort(),
+
+					["<leader>ue"] = cmp.mapping(function()
+						if cmp.visible() then
+							cmp.abort()
+						end
+						local current = require("cmp.config").get().completion.autocomplete
+						if current and #current > 0 then
+							cmp.setup({ completion = { autocomplete = false } })
+							vim.notify("Autocomplete disabled", vim.log.levels.INFO)
+						else
+							cmp.setup({
+								completion = { autocomplete = { require("cmp.types").cmp.TriggerEvent.TextChanged } },
+							})
+							vim.notify("Autocomplete enabled", vim.log.levels.INFO)
+						end
+					end, { "n", "i" }),
 				},
 
 				sources = cmp.config.sources({

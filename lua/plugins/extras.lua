@@ -983,6 +983,7 @@ Good code is not written, it is "re-written"!
 
     {
         "chomosuke/typst-preview.nvim",
+        lazy = false,
         ft = "typst",
         build = "cargo install --locked typst-preview",
         config = function(_, opts)
@@ -1192,7 +1193,4 @@ Good code is not written, it is "re-written"!
     --     end,
     -- },
 
-    {
-        "jalvesaq/dict.nvim",
-    },
 }

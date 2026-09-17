@@ -15,7 +15,7 @@ g = vim.g
 kmap = vim.keymap
 cmd = vim.cmd
 
-vim.g.loaded_netrw = 1
+vim.g.loaded_netrw = 1 -- Disable netrw
 vim.g.loaded_netrwPlugin = 1
 --vim.opt.cmdheight = 1
 
@@ -35,6 +35,7 @@ require("core.langstats")
 require("core.langstats_bar")
 require("core.langstats_term")
 require("plugins.plugins") -- Plugins
+require("core.manimce")
 
 -- For the new config: 12.02.2026
 -- I need to use `opts` instead of `config` for plugins(specs as folke likes to call it.) Check out: `https://lazy.folke.io/spec`
@@ -70,7 +71,7 @@ require("plugins.plugins") -- Plugins
 --
 -- to:
 -- "~/dev/tests/test.rs" 68L, 1.9 KB written
---
+
 -- And for anything larger it'll show 0.48 MB, 2.31 MB, etc.
 -- The KB fallback is there because most of your files will never actually hit MB(depends on your kinda work) — it's more honest than forcing everything into MB (a 400B file showing 0.00 MB would be useless).
 
@@ -110,3 +111,11 @@ vim.api.nvim_set_hl(0, "LineNr", { fg = "#444444", bg = "none" })
 vim.api.nvim_set_hl(0, "MsgArea", { bg = "none" })
 
 -- vim.api.nvim_set_hl(0, "CursorLineNr", { bg = "none" })
+
+-- Removes the bg colour of inlay hint on any colorscheme.
+vim.api.nvim_create_autocmd("ColorScheme", {
+	pattern = "*",
+	callback = function()
+		vim.api.nvim_set_hl(0, "LspInlayHint", { bg = "none" })
+	end,
+})

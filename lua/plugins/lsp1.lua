@@ -370,7 +370,9 @@ return {
 			null_ls.setup({
 				sources = {
 					null_ls.builtins.formatting.stylua,
-					null_ls.builtins.formatting.black,
+					null_ls.builtins.formatting.black.with({
+						extra_args = { "--line-length", "140" },
+					}),
 					null_ls.builtins.formatting.shfmt,
 					null_ls.builtins.formatting.prettier,
 					null_ls.builtins.formatting.goimports,
@@ -383,10 +385,11 @@ return {
 					}),
 
 					-- 🐍 Adding Python formatting explicitly
-					null_ls.builtins.formatting.yapf.with({
-						filetypes = { "python" },
-						extra_args = { "--style", "pep8" }, -- optional for faster formatting
-					}),
+					-- null_ls.builtins.formatting.yapf.with({
+					-- 	filetypes = { "python" },
+					-- 	-- extra_args = { "--style", "pep8" }, -- optional for faster formatting
+					-- 	extra_args = { "--style", "{based_on_style: pep8, column_limit: 120}" },
+					-- }),
 
 					null_ls.builtins.formatting.typstyle.with({
 						extra_args = { "--tab-width", "4" },
